@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<group id="General" name="General" toolTip="Company &amp; product related properties.">
+		<property id="CompanyTitle">
+			<value>Oxcyon</value>
+			<attribute name="Company Title">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="HomeContent">
+			<value>
+				<![CDATA[
+					Welcome to Centralpoint by Oxcyon. This web-based site and content management technology puts you and your organization's content contributors in total control of your web-based initiatives, eliminating the need for development and programming.<br /><br />
+					This Console empowers your members with the ability to easily and quickly get your content on the web. The modules available for your site are available on the left hand side of this screen, and are categorized by type. Authorized users can easily add, update, and delete content online. The overall value of your initiative depends on the relevance and amount of content posted.<br /><br />
+					Centralpoint maximizes the value of your content, making it easy for visitors to your site to find the information they need. If this is your first time here, or you need assistance we recommend that you visit the help files located at the top of most update forms. Here you can take an online tour of the various functions that your site has to offer familiarizing yourself with the various modules and functions provided by Oxcyon. For additional information on Centralpoint or on any module that you don't see here, but would like to add to your site, please contact Oxcyon at (440) 239-8611 or visit us on the web at: <a href="http://www.oxcyon.com" target="_new">www.oxcyon.com</a>.<br /><br />
+					Oxcyon wants to provide our clients with the best possible digital tools available to help you remain competitive in the changing landscapes of your industry.
+				]]>
+			</value>
+			<attribute name="Home Content">
+				<control type="Centralpoint.Web.UI.Controls.CpEditor">
+					<controlProperty name="UploadsSubFolder" value="PrivateLabeling" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="Copyright">
+			<value>
+				<![CDATA[
+					Centralpoint is a trademark of Oxcyon, Inc. All rights reserved, &copy; 2000 - <script type="text/javascript">document.write((new Date()).getFullYear())</script>
+				]]>
+			</value>
+			<attribute name="Copyright">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="LegalTerms">
+			<value>
+				<![CDATA[
+					<div id="divWrapper">
+						<p style="padding: 5px;">Welcome to Centralpoint by Oxcyon. This web-based site and content management technology puts you and your organization's content contributors in total control of your web-based initiatives, eliminating the need for development and programming.</p>
+						<p style="padding: 5px;">This Console empowers your members with the ability to easily and quickly get your content on the web. The modules available for your site are available on the left hand side of this screen, and are categorized by type. Authorized users can easily add, update, and delete content online. The overall value of your initiative depends on the relevance and amount of content posted.</p>
+						<p style="padding: 5px;">Centralpoint maximizes the value of your content, making it easy for visitors to your site to find the information they need. If this is your first time here, or you need assistance we recommend that you visit the help files located at the top of most update forms. Here you can take an online tour of the various functions that your site has to offer familiarizing yourself with the various modules and functions provided by Oxcyon. For additional information on Centralpoint or on any module that you don't see here, but would like to add to your site, please contact Oxcyon at (440) 239-8611 or visit us on the web at: <a href="http://www.oxcyon.com" target="_new">www.oxcyon.com</a>.</p>
+						<p style="padding: 5px;">Oxcyon wants to provide our clients with the best possible digital tools available to help you remain competitive in the changing landscapes of your industry.</p>
+					</div>
+				]]>
+			</value>
+			<attribute name="Legal Terms">
+				<control type="Centralpoint.Web.UI.Controls.CpEditor">
+					<controlProperty name="UploadsSubFolder" value="PrivateLabeling" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="ProductTitle">
+			<value>Centralpoint</value>
+			<attribute name="Product Title">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteTitle">
+			<value>Uber Control</value>
+			<attribute name="Site Title">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteLogo">
+			<value>/Uploads/Images/Logo.gif</value>
+			<attribute name="Site Logo">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Site Logo" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteHeader">
+			<value>
+				<![CDATA[
+					<div style="min-width:800px;background-image:url(/Uploads/Images/HeaderBackground.jpg);background-position:left top;background-repeat:repeat-x;"><img src="/Uploads/Images/Header.jpg" alt="Centralpoint Uber Control" border="0" /></div>
+				]]>
+			</value>
+			<attribute name="Site Header">
+				<control type="Centralpoint.Web.UI.Controls.CpEditor">
+					<controlProperty name="UploadsSubFolder" value="PrivateLabeling" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="RssFeeds">
+			<value />
+			<attribute name="RSS Feeds" toolTip="Enter a | (pipe) separated list RSS feed URLs.  Uber URLs should be root relative.">
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="50" />
+				</control>
+			</attribute>
+		</property>
+		<property id="MaxRssLinks">
+			<value>3</value>
+			<attribute name="Maximum RSS Links" toolTip="The maximum number of links displayed per feed.">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="10" />
+				</validator>
+			</attribute>
+		</property>
+	</group>
+	<group id="SiteStyles" name="Styles">
+		<property id="NavWidth">
+			<value>180</value>
+			<attribute name="Navigation Width" postText="px">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="150" />
+					<controlProperty name="MaximumValue" value="300" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="NavSeparatorColor">
+			<value>#CCCCCC</value>
+			<attribute name="Navigation Separator Color">
+				<control type="Centralpoint.Web.UI.Controls.CpColorPicker" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteBgImage">
+			<value>/Uploads/Images/Background.gif</value>
+			<attribute name="Background Image">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Background Image" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteBgColor">
+			<value>#FFFFFF</value>
+			<attribute name="Background Color">
+				<control type="Centralpoint.Web.UI.Controls.CpColorPicker" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteFontColor">
+			<value>#000000</value>
+			<attribute name="Font Color">
+				<control type="Centralpoint.Web.UI.Controls.CpColorPicker" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteFontFace">
+			<value>Verdana, Arial, Helvetica, sans-serif</value>
+			<attribute name="Font Face">
+				<control type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</listItem>
+					<listItem value="Courier New, Courier, monospace">Courier New, Courier, monospace</listItem>
+					<listItem value="Times New Roman, Times, serif">Times New Roman, Times, serif</listItem>
+					<listItem value="Verdana, Arial, Helvetica, sans-serif">Verdana, Arial, Helvetica, sans-serif</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="SiteFontSize">
+			<value>82%</value>
+			<attribute name="Font Size">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteLinkStyle">
+			<value>color: #808080; text-decoration: none;</value>
+			<attribute name="Link Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="SiteLinkVisitedStyle">
+			<value />
+			<attribute name="Link Visited Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="SiteLinkHoverStyle">
+			<value>text-decoration: underline;</value>
+			<attribute name="Link Hover Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="SiteLinkActiveStyle">
+			<value />
+			<attribute name="Link Active Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+	</group>
+	<group id="FormView" name="Form View" toolTip="Update page styles &amp; settings.">
+		<property id="FormSectionStyle">
+			<value>font-size: 120%; text-align: center; text-decoration: underline;</value>
+			<attribute name="Section Header Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="FormMarkupStyle">
+			<value />
+			<attribute name="Markup Style" toolTip="The Markup type is used to create custom form rows.">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="FormLabelStyle">
+			<value>color: #000000; text-decoration: none;</value>
+			<attribute name="Label Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="FormInputStyle">
+			<value />
+			<attribute name="Input Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="FormPropsStyle">
+			<value>color: #808080;</value>
+			<attribute name="Properties Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="CalTitleBgColor">
+			<value>#FFC76B</value>
+			<attribute name="Calendar Title Background Color">
+				<control type="Centralpoint.Web.UI.Controls.CpColorPicker" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="CalDayBgColor">
+			<value>#DEDFDE</value>
+			<attribute name="Calendar Day Background Color">
+				<control type="Centralpoint.Web.UI.Controls.CpColorPicker" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="CalSelDayBgColor">
+			<value>#FFC76B</value>
+			<attribute name="Calendar Selected Day Background Color">
+				<control type="Centralpoint.Web.UI.Controls.CpColorPicker" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="CalSurDayBgColor">
+			<value>#DEDFDE</value>
+			<attribute name="Calendar Surrounding Day Background Color">
+				<control type="Centralpoint.Web.UI.Controls.CpColorPicker" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FormButtonStyle">
+			<value>cursor:pointer; border:outset 1px #CCCCCC; background:#999999; color:#463E3F; font-family: Verdana, Arial, Helvetica, Sans-Serif; font-size: 10px; font-weight:bold; padding: 1px 2px; background:url(/Integrations/Centralpoint/Resources/Controls/CpButtonBackground.gif) repeat-x left top;</value>
+			<attribute name="Form Button Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="FormButtonHoverStyle">
+			<value>border:outset 1px #000000;</value>
+			<attribute name="Form Button Hover Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+	</group>
+	<group id="GridView" name="Grid View" toolTip="View page styles &amp; settings.">
+		<property id="GridNewButton">
+			<value />
+			<attribute name="New Button">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="New Button" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridDeleteButton">
+			<value />
+			<attribute name="Delete Button">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Delete Button" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridSearchButton">
+			<value />
+			<attribute name="Search Button">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Search Button" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridClearButton">
+			<value />
+			<attribute name="Clear Button">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Clear Button" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridFooterStyle">
+			<value>line-height: 18px; background-color: #DDDDDD;</value>
+			<attribute name="Footer Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridPagerStyle">
+			<value>background-color: #DDDDDD;</value>
+			<attribute name="Pager Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridNextButton">
+			<value />
+			<attribute name="Next Button">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Next Button" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridPrevButton">
+			<value />
+			<attribute name="Previous Button">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Previous Button" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridColumnHeadStyle">
+			<value>background-color: #FFC66F; font-weight: bold; text-align: center;</value>
+			<attribute name="Column Header Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridAscButton">
+			<value />
+			<attribute name="Ascending Button">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Ascending Button" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridDescButton">
+			<value />
+			<attribute name="Descending Button">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Descending Button" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridItemStyle">
+			<value>background-color: #FFFFFF;</value>
+			<attribute name="Item Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridItemLinkStyle">
+			<value>color: #000000;</value>
+			<attribute name="Item Link Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridItemLinkVisitedStyle">
+			<value />
+			<attribute name="Item Link Visited Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridItemLinkHoverStyle">
+			<value />
+			<attribute name="Item Link Hover Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridItemLinkActiveStyle">
+			<value />
+			<attribute name="Item Link Active Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridAlternatingItemStyle">
+			<value>background-color: #F7F7F7;</value>
+			<attribute name="Alternating Item Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridAlternatingItemLinkStyle">
+			<value>color: #000000;</value>
+			<attribute name="Alternating Item Link Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridAlternatingItemLinkVisitedStyle">
+			<value />
+			<attribute name="Alternating Item Link Visited Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridAlternatingItemLinkHoverStyle">
+			<value />
+			<attribute name="Alternating Item Link Hover Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridAlternatingItemLinkActiveStyle">
+			<value />
+			<attribute name="Alternating Item Link Active Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridSelectedItemStyle">
+			<value>background-color: #DDDDDD;</value>
+			<attribute name="Selected Item Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridSelectedItemLinkStyle">
+			<value>color: #000000;</value>
+			<attribute name="Selected Item Link Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridSelectedItemLinkVisitedStyle">
+			<value />
+			<attribute name="Selected Item Link Visited Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridSelectedItemLinkHoverStyle">
+			<value />
+			<attribute name="Selected Item Link Hover Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridSelectedItemLinkActiveStyle">
+			<value />
+			<attribute name="Selected Item Link Active Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridEditItemStyle">
+			<value>background-color: #DDDDDD;</value>
+			<attribute name="Edit Item Style">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+	</group>
+	<group id="Login" name="Login" toolTip="Console login related properties.">
+		<property id="LoginLogo">
+			<value>/Uploads/Images/SecureLogin.gif</value>
+			<attribute name="Logo">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="SubFolder" value="PrivateLabeling" />
+					<controlProperty name="Type" value="Image" />
+					<controlProperty name="Title" value="Login Logo" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="LoginView">
+			<value>0</value>
+			<attribute name="View">
+				<control type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<listItem value="0:" index="0">Default</listItem>
+					<listItem value="1:cfrLoginTemplate" index="0">Template</listItem>
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="LoginTemplate">
+			<value>
+				<![CDATA[
+<div style="padding-bottom: 10px;"><img src="[cp:placeholders key='LoginImageSrc' /]" alt="[cp:placeholders key='LoginImageAlt' /]"></div>
+<div id="divWelcome style=" padding-bottom:="" 15px;"="">[cp:placeholders key='WelcomeMessage' /]</div>
+<table border="0" cellpadding="3" cellspacing="0" align="center">
+    <tbody>
+        <tr style="width: 350px;">
+            <td style="width: 120px; text-align: right; vertical-align: top;">Username:</td>
+            <td style="vertical-align: top;"><input name="username" type="text" value="[cp:placeholders key='Username' /]" style="font-size:10px;width:204px;"></td>
+        </tr>
+        <tr style="width: 350px;">
+            <td style="width: 120px; text-align: right; vertical-align: top;">Password:</td>
+            <td style="vertical-align: top;"><input name="password" type="password" style="font-size:10px;width:204px;"></td>
+        </tr>
+        <tr style="width: 350px;">
+            <td style="width: 120px;">&nbsp;</td>
+            <td style="vertical-align: top; text-align: left;">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" name="remember" value="on"></td>
+                        <td>Remember me on this computer</td>
+                    </tr>
+                </tbody>
+            </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="padding: 10px 3px; text-align: center;">
+<input type="image" name="ibtnLogin" id="ibtnLogin" src="/Console/Integrations/Centralpoint/Resources/Login.gif" alt="Login" onclick="[cp:placeholders key='LoginPostBack' /]">
+<input type="image" name="ibtnCancel" id="ibtnCancel" src="/Console/Integrations/Centralpoint/Resources/Cancel.gif" alt="Cancel" onclick="[cp:placeholders key='CancelPostBack' /]">
+</div>
+<div id="divAlert" class="alert">[cp:placeholders key='Alert' /]</div>
+				]]>
+			</value>
+			<attribute name="Content" allowScripts="true">
+				<headerText>The login form can be customized as needed as long you you maintain "username" and "password" form elements and a page element with onclick="[cp:placeholders key='LoginPostBack' /]" to trigger the authentication.  A "remember" form element with a value of "on" can also be used to trigger a persistant authentication cookie.</headerText>
+				<footerText>Supports personalization, privatelabeling, properties, configuration, and the following placeholders scripts: WelcomeMessage, LoginImageSrc, LoginImageAlt, LoginImageAlt, Username, Alert, LoginPostBack, and CancelPostBack.  Admin > Properties > Console Login Requires Captcha is not supported with a templated login view.</footerText>
+				<control type="Centralpoint.Web.UI.Controls.CpEditor">
+					<controlProperty name="UploadsSubFolder" value="PrivateLabeling" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

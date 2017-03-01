@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<group id="Configuration" name="Configuration">
+		<property id="HiddenDefaults">
+			<value>IntegrationId,AlternativeUrl,AllowComments,IsFullTextIndexed,AllowDataSync,LegacyData</value>
+			<attribute name="Hidden Defaults">
+				<headerText>Enter a comma separated system name list of attributes which should be hidden in the module defaults view.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+			</attribute>
+		</property>
+		<property id="HiddenProperties">
+			<value />
+			<attribute name="Hidden Properties">
+				<headerText>Enter a comma separated system name list of properties which should be hidden.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+			</attribute>
+		</property>
+		<property id="HiddenAttributes">
+			<value>IntegrationId,AlternativeUrl,Target,AllowComments,IsFullTextIndexed,AllowDataSync,LegacyData</value>
+			<attribute name="Hidden Attributes">
+				<headerText>Enter a comma separated system name list of attributes which should be hidden.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+			</attribute>
+		</property>
+		<property id="HiddenFeatures">
+			<value>ActionSelector:Delete</value>
+			<attribute name="Hidden Features">
+				<control id="CpKeywordListBox"  type="Centralpoint.Web.UI.Controls.CpKeywordListBox">
+					<controlProperty name="SelectionMode" value="Multiple" />
+					<controlProperty name="PleaseSelect" value="" />
+					<controlProperty name="KeywordListId" value="ab544e68-35d6-4fd6-8f31-f973b0aa2970" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridFieldsClause">
+			<value />
+			<attribute name="Grid Fields Clause">
+				<headerText>The SQL fields clause used to generate the grid view.  The DataId field must always be included.  When empty the following value is used: "DataId, Title, StartDate, EndDate, IsEnabled".</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridTableName">
+			<value />
+			<attribute name="Grid Table Name">
+				<headerText>The SQL table name used to generate the grid view.  If left empty the current modules default relation will be used.</headerText>
+				<control id="CpTextBox"  type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="GridJoinClauses">
+			<value />
+			<attribute name="Grid Join Clauses">
+				<headerText>The SQL join clauses used to retrieve the grid view fields.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridWhereClause">
+			<value />
+			<attribute name="Grid Where Clause">
+				<headerText>The SQL where clause used to filter the grid view records.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridOrderByClause">
+			<value />
+			<attribute name="Grid Order By Clause">
+				<headerText>The SQL order by clause used to initially sort the grid view.  When empty the following value is used: "Title".</headerText>
+				<control id="CpTextBox"  type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="1024" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridColumns">
+			<value />
+			<attribute name="Grid Columns" toolTipUrl="/Integrations/Centralpoint/Articles/Article.aspx?id=3c2416c2-f272-4ff8-81c8-0e61c0390a30">
+				<headerText>This field must contain well formatted columns: &amp;lt;column percent="Percent" align="Left|Right|Center" dataType="DataType" field="FieldNameOrExpression" sort="SortFieldOrExpression"&amp;gt;Text&amp;lt;/column&amp;gt;.  The Percent fields must contain numeric values that add up to 100.  DataType must contain a valid .NET data type.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridSearchableFields">
+			<value />
+			<attribute name="Grid Searchable Fields">
+				<headerText>This field must contain well formatted list items: &amp;lt;listItem value="SearchExpression"&amp;gt;Text&amp;lt;/listItem&amp;gt;.  SearchExpression is the name of the sql field or a valid search expression as defined in the Search class.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridUpdateUrl">
+			<value />
+			<attribute name="Grid Update URL">
+				<headerText>Enter a custom URL to override the standard update link.  This format string may contain: {0}=DataId, {1}=NavigationItemId, {2}=NavigationItemSystemName, {3}=ModuleId, {4}=ModuleSystemName.</headerText>
+				<control id="CpTextBox"  type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="1024" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridCommandPrefix">
+			<value />
+			<attribute name="Grid Command Prefix">
+				<headerText>An HTML string which will be inserted in the command column before the column text.  This format string may contain: {0}=NavigationItemId, {1}=NavigationItemSystemName, {2}=ModuleId, {3}=ModuleSystemName, [cp:placeholders key='DataId' /]=DataId.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridCommandSuffix">
+			<value />
+			<attribute name="Grid Command Suffix">
+				<headerText>An HTML string which will be inserted in the command column after the column text.  This format string may contain: {0}=NavigationItemId, {1}=NavigationItemSystemName, {2}=ModuleId, {3}=ModuleSystemName, [cp:placeholders key='DataId' /]=DataId.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GridDisabledCheckboxes">
+			<value />
+			<attribute name="Grid Disabled Checkboxes">
+				<headerText>Enter a comma separated list of DataIds where the related record will have a disabled checkbox.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+			</attribute>
+		</property>
+		<property id="DeleteOptions">
+			<value>Show</value>
+			<attribute name="Delete/Archive Options">
+				<headerText>Hiding the delete options selector does not affect the modules hidden features.</headerText>
+				<control id="CpKeywordRadioButtonList"  type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="ec525d2c-ccde-4177-9008-5b46627b76fc" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="KeywordsAttribute">
+			<value />
+			<attribute name="Keywords Attribute">
+				<headerText>Enter a comma separated list of system names of the attributes used to generate the document keywords.  The keywords attribute text will generate a preview, have all HTML removed, and will be truncated to 512 characters.  Leave this field blank to enter keywords manually.  Changes do not apply to existing records until they are resubmitted in the client console.</headerText>
+				<control id="CpTextBox"  type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="50" />
+				</control>
+			</attribute>
+		</property>
+		<property id="SummaryAttribute">
+			<value>Caption</value>
+			<attribute name="Summary Attribute">
+				<headerText>Enter a comma separated list of system names of the attributes used to generate the document summary.  The summary attribute text will have all HTML removed and will be truncated to 512 characters.  Changes do not apply to existing records until they are resubmitted in the client console.</headerText>
+				<control id="CpTextBox"  type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="50" />
+				</control>
+			</attribute>
+		</property>
+		<property id="SystemNameAttribute">
+			<value />
+			<attribute name="System Name Attribute">
+				<headerText>Enter the system name of the attribute you want automatically populated with a system name generated using the document title.</headerText>
+				<footerText>This attribute must use a text box control with a unique field validator and must be visible at the same time as the Title attribute.  The modules default relation must also contain a field populated by this attribute with the same name as the attribute.  To prevent accidental duplicates it is recommended that you use the Hidden Features module configuration to hide the following features: Action Selector: Delete, Action Selector: Copy, Form: Copy Button, Archived: Action Selector: Restore.</footerText>
+				<control id="CpTextBox"  type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="50" />
+				</control>
+			</attribute>
+		</property>
+		<property id="CustomAttributes">
+			<value />
+			<attribute name="Custom Attributes">
+				<headerText>Upload an XML file containing valid attribute collection XML.  The XML may add to, rename, and reorder this module's &lt;a href="javascript:openHelpWindow('/Console/CpCollection.aspx?sn=cpsys_Opener');"&gt;existing attributes&lt;/a&gt;.</headerText>
+				<footerText>The Attributes group must remain as the first group, and required attributes without a default value cannot be moved out of this group.  When ecommerce is enabled, custom attributes are merged before the ecommerce attributes.  Custom attributes should not contain ecommerce attributes (prefixed with cpsys_Ecommerce).</footerText>
+				<control id="CpUpload"  type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="Title" value="Custom Attributes" />
+					<controlProperty name="SubFolder" value="CustomAttributes" />
+				</control>
+				<validator id="CpXmlValidator" type="Centralpoint.Web.UI.Controls.CpXmlValidator">
+					<controlProperty name="CollectionType" value="Attributes" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="KeywordRelationFields">
+			<value>Title</value>
+			<attribute name="Keyword Relation Fields">
+				<headerText>Enter a comma separated list of relation fields that should be recorded as keywords when searched.  Keywords will only be recorded when the Search Criteria Recording Enabled module property is set to Yes.</headerText>
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

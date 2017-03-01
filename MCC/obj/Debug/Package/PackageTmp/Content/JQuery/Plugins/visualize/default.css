@@ -1,0 +1,20 @@
+/* Main DIV Tag */
+.visualize { margin: 60px 0 0 30px; padding: 70px 40px 90px; background: #ccc url(/Integrations/JQuery/Plugins/visualize/chartbg.png) top repeat-x; border: 1px solid #ddd; -moz-border-radius: 12px; -webkit-border-radius: 12px; border-radius: 12px;background: #fafafa; border: 1px solid #888;}
+/* Chart CANVAS Tag */
+.visualize canvas { border: 1px solid #aaa; margin: -1px; background: #fff; }
+/* Y and X LI Tags */
+.visualize-labels-x, .visualize-labels-y { top: 70px; left: 40px; }
+.visualize-labels { position: absolute; top: 70px; left: 40px; }
+.label { color: #444; font-size: 1.3em; padding-right: 5px; }
+/* Pie Chart Labels*/
+.line { opacity: .7; border: 0 solid #ccc; }
+.visualize-label { color: #000; font-weight: normal; font-weight: bold; font-size: 1em;}
+/* Surround Legend DIV Tag */
+.visualize-info { border: 0; position: static;  opacity: 1; background: none; background: #fafafa; border: 1px solid #888;}
+/* Chart Title DIV Tag */
+.visualize-title { position: absolute; top: 20px; color: #333; margin-bottom: 0; left: 20px; font-size: 2.1em; font-weight: bold; color: #333; }
+/* Legend */
+.visualize-key { position: absolute; bottom: 15px; background: #eee; z-index: 10; padding: 10px 0; color: #aaa; width: 100%; left: 0;  }
+.visualize-key li { font-size: 1.2em;  margin-left: 20px; padding-left: 18px; }
+.visualize-key-color { width: 10px; height: 10px;  margin-top: -4px; }
+.visualize-key-label { color: #333; }

@@ -1,0 +1,10 @@
+﻿@model string
+@{
+    ViewBag.Title = "Report";
+}
+<style>
+    .footer{background-color:white !important}
+</style>
+<div style="background-color:white;">
+    <iframe style="width:1440px;height:1020px; border:0" src="~/Reports/Report.aspx?l=@System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower()&id=@Model"></iframe>
+</div>

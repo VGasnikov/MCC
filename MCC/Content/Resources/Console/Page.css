@@ -1,0 +1,9 @@
+img { border: none; }
+.clear { clear: both; }
+.accessKey { text-decoration: underline; }
+.alert { clear: both; padding: 10px 0px 0px 0px; color: Red; }
+.footNote { font-size: 7pt;	color: #808080; }
+.intro { padding: 0px 0px 10px 0px; }
+.outro { padding: 10px 0px 0px 0px; }
+.error { clear: left; color: #FF0000; font-weight:bold; }
+table.cpsys_Table td { text-align: left; vertical-align: top; }

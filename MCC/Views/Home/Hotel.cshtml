@@ -1,0 +1,1011 @@
+﻿@using MCC.Domain
+@model MCC.Models.HotelInfoModel
+@{
+    ViewBag.Title = @Model.Hotel.Name+" | "+TranslationRepository.GetLabel("Layout", "HotelSearch") + " | " + Audience.Current.ToString().ToUpper();
+    ViewBag.BackgroundImageClass = "hotel-reservation";
+}
+@helper Translate(string field)
+{
+    @Html.Translate(field,"Hotel")
+}
+@helper Distance(string miles, string kms, string min, bool complimentary)
+{
+    <label>
+        @if (!string.IsNullOrEmpty(miles) && !miles.Equals("0")) {@miles@Html.Raw("&nbsp;")@Translate("Miles")@Html.Raw("&nbsp;&nbsp;") }
+        @if (!string.IsNullOrEmpty(kms) && !kms.Equals("0"))     {@kms@Html.Raw("&nbsp;")@Translate("Kms")@Html.Raw("&nbsp;&nbsp;")}
+        @if(!string.IsNullOrEmpty(min) && !min.Equals("0"))      {@min@Html.Raw("&nbsp;")@Translate("MinsAway")@Html.Raw("&nbsp;&nbsp;")}
+        @Translate("Complimentary")@Html.Raw(":")
+        @if (complimentary) {@Html.Translate("Yes")} else {@Html.Translate("No")}    
+    </label>
+}
+@helper TaxonomyTemplate(string parentTaxonomyId)
+{
+    var list = Model.Hotel.Facilities.Where(x => x.ParentTaxonomyId == parentTaxonomyId).OrderBy(x=>x.Title).Select(x=>x.Title).ToList();
+    for (int i = 0; i < list.Count; i = i + 2)
+    {
+        <div class="row">
+            <div class="col-xs-6">@list[i]</div>
+            <div class="col-xs-6">@(i + 1 < list.Count ? list[i + 1] : "")</div>
+        </div>
+    }
+}
+@helper AreaInformation(string taxonomyId)
+{
+    var list = Model.Hotel.AreaInformation.Where(x => x.TaxonomyId == taxonomyId).ToList();
+    foreach (var i in list)
+    {
+        <div class="related-item-container">
+            <h5>@i.Title</h5>
+            <strong>@Translate("Hours")</strong>: @i.StartTime  @Translate("to") @i.EndTime
+            <br><strong>@Translate("Phone")</strong>: @i.Phone
+            <br><strong>@Translate("DistanceInMiles")</strong>: @i.DistanceInMiles
+            <br><strong>@Translate("Open24Hours")</strong>: @YesNo(i.Hours24)
+            <br />           
+        </div>
+    }
+}
+@helper YesNo(bool yes)
+{
+    if (yes)
+        {@Html.Translate("Yes")}
+    else
+        {@Html.Translate("No")}
+}
+
+<style>
+     label{margin-top: 15px !important}
+    .nav li a{color: #0000FF; text-decoration: none;}
+</style>
+    <div class="container white-container main-content">
+        <div class="row">
+            <div class="col-xs-12 col-sm-2 col-md-3 hi-left-nav hidden-xs">
+                <ul class="nav nav-pills nav-stacked nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#hotelinformation"><img src="@ViewBag.ImgRootURL/uploads/public/images/design/ec-icon-hotel-info.png"><span class="hidden-sm">@Translate("HotelInformation")</span></a></li>
+                    <li><a data-toggle="tab" href="#crewtrans"><img src="@ViewBag.ImgRootURL/uploads/public/images/design/ec-icon-tranportation.png"><span class="hidden-sm">@Translate("CrewTrans")</span></a></li>
+                    <li><a data-toggle="tab" href="#hotelrestaurants"><img src="@ViewBag.ImgRootURL/uploads/public/images/design/ec-icon-hotel-resturants.png"><span class="hidden-sm">@Translate("HotelRestaurants")</span></a></li>
+                    <li id="safetyandsecurity1"><a data-toggle="tab" href="#safetyandsecurity"><img src="@ViewBag.ImgRootURL/uploads/public/images/design/ec-icon-safety-security.png"><span class="hidden-sm">@Translate("SafetyAndSecurity")</span></a></li>
+                    <li><a data-toggle="tab" href="#transportation"><img src="@ViewBag.ImgRootURL/uploads/public/images/design/ec-icon-tranportation.png"><span class="hidden-sm">@Translate("Transportation")</span></a></li>
+                    <li><a data-toggle="tab" href="#areainformation"><img src="@ViewBag.ImgRootURL/uploads/public/images/design/ec-area-info.png"><span class="hidden-sm">@Translate("AreaInformation")</span></a></li>
+                    <li><a data-toggle="tab" href="#crewbenefits"><img src="@ViewBag.ImgRootURL/uploads/public/images/design/ec-icon-crew-benefits.png"><span class="hidden-sm">@Translate("CrewBenefits")</span></a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-9 hi-content">
+                <h1>@Model.Hotel.Name</h1>
+                <div class="text-center visible-xs">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            Hotel Information <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a data-toggle="tab" href="#hotelinformation">@Translate("HotelInformation")</a></li>
+                            <li><a data-toggle="tab" href="#crewtrans">@Translate("CrewTrans")</a></li>
+                            <li><a data-toggle="tab" href="#hotelrestaurants">@Translate("HotelRestaurants")</a></li>
+                            <li id="safetyandsecurity2"><a data-toggle="tab" href="#safetyandsecurity">@Translate("SafetyAndSecurity")</a></li>
+                            <li><a data-toggle="tab" href="#transportation">@Translate("Transportation")</a></li>
+                            <li><a data-toggle="tab" href="#areainformation">@Translate("AreaInformation")</a></li>
+                            <li><a data-toggle="tab" href="#crewbenefits">@Translate("CrewBenefits")</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <!--Hotel Information -->
+                    <div class="tab-pane fade in active" id="hotelinformation">
+                        <div class="row">
+                            <div class="carousel-main">
+                                <div class="carousel slide" id="myCarousel" data-interval="3000" data-ride="carousel">
+                                    <!-- Carousel indicators -->
+                                    <ol class="carousel-indicators">
+                                        @for (int i = 0; i < Model.Hotel.Images.Count; i++)
+                                        {
+                                            <li class="@(i==1?" active":"")" data-target="#myCarousel" data-slide-to="@i"></li>
+                                        }
+                                    </ol>
+                                    <!-- Carousel items -->
+                                    <div class="carousel-inner">
+                                        @for (int i = 0; i < Model.Hotel.Images.Count; i++)
+                                        {
+                                            <div class='item@(i==1?" active left":"")
+                                                 @(i==2?" next left":"")'><img class="carousel-img" src="@ViewBag.ImgRootURL@Model.Hotel.Images.ElementAt(i)"></div>
+                                        }
+                                    </div>
+                                    <!-- Carousel nav -->
+                                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly">
+                                        <h4>@Translate("GeneralHotelInformation")<a data-toggle="collapse" href="#colpanel-gh-info" class="pull-right visible-xs"><span id="colpanel-gh-info-caret" class="glyphicon glyphicon-chevron-up"></span></a></h4>
+                                    </div>
+                                    <div class="panel-collapse collapse in" id="colpanel-gh-info">
+                                        <div class="panel-body-xsonly">
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("HotelName"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.Name</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("Address"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.Address</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("Country"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.Country</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("State"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.State</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("City"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.City</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("PostalCode"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.PostalCode</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("Phone"):</div>
+                                                <div class="col-xs-6 strong">
+                                                    @if (!string.IsNullOrEmpty(Model.Hotel.Phone))
+                                                    {
+                                                        @Model.Hotel.Phone
+                                                        <a href="tel:@Model.Hotel.Phone"><img class="phone-icon" src="/content/design/phone-icon.png"></a>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("Fax"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.Fax</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("Website"):</div>
+                                                <div class="col-xs-6 strong"><a href="@Model.Hotel.Website">@Model.Hotel.Name</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly"><h4>@Translate("PropertyDetails")<a data-toggle="collapse" href="#colpanel-prop-det" class="collapsed pull-right visible-xs"><span id="colpanel-prop-det-caret" class="glyphicon glyphicon-chevron-down"></span></a></h4></div>
+                                    <div class="panel-collapse collapse" id="colpanel-prop-det">
+                                        <div class="panel-body-xsonly">
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("YearBuilt"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.YearBuilt</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("NumberOfFloors"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.NumberOfFloors</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("NumberOfRooms"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.NumberOfRooms</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("RoomAccess"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.RoomAccess</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("NumberOfElevators"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.NumberOfLifts</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly">
+                                        <h4>
+                                            @Translate("HotelRenovations")
+                                            <a class="collapsed pull-right visible-xs" href="#colpanel-prop-det" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-det-caret"></span></a>
+                                        </h4>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="colpanel-prop-det">
+                                        <div class="panel-body-xsonly">
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("YearOfLastRenovations"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.LastRenovationYear</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("NumberOfRoomsRenovated"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.NumberOfRoomsRenovated</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">@Translate("PublicSpaceRenovated"):</div>
+                                                <div class="col-xs-6 strong">@Model.Hotel.PublicSpaceRenovated</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly"><h4>@Translate("PropertyType")<a data-toggle="collapse" href="#colpanel-prop-type" class="collapsed pull-right visible-xs"><span id="colpanel-prop-type-caret" class="glyphicon glyphicon-chevron-down"></span></a></h4></div>
+                                    <div class="panel-collapse collapse" id="colpanel-prop-type">
+                                        <div class="panel-body-xsonly">
+                                            <div class="row">
+                                                <div class="col-xs-6">@Model.Hotel.PropertyType</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly"><h4>@Translate("MarketTier")<a data-toggle="collapse" href="#colpanel-mark-tier" class="collapsed pull-right visible-xs"><span id="colpanel-mark-tier-caret" class="glyphicon glyphicon-chevron-down"></span></a></h4></div>
+                                    <div class="panel-collapse collapse" id="colpanel-mark-tier">
+                                        <div class="panel-body-xsonly">
+                                            <div class="row">
+                                                <div class="col-xs-6">@Model.Hotel.MarketTier</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly"><h4>@Translate("Location")<a data-toggle="collapse" href="#colpanel-location" class="collapsed pull-right visible-xs"><span id="colpanel-location-caret" class="glyphicon glyphicon-chevron-down"></span></a></h4></div>
+                                    <div class="panel-collapse collapse" id="colpanel-location">
+                                        <div class="panel-body-xsonly">
+                                            @TaxonomyTemplate(Taxonomy.Taxonomy_Location)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly"><h4>@Translate("HotelFacilitiesServicesOnTheProperty")<a data-toggle="collapse" href="#colpanel-hotel-fac" class="collapsed pull-right visible-xs"><span id="colpanel-hotel-fac-caret" class="glyphicon glyphicon-chevron-down"></span></a></h4></div>
+                                    <div class="panel-collapse collapse" id="colpanel-hotel-fac">
+                                        <div class="panel-body-xsonly">
+                                            @TaxonomyTemplate(Taxonomy.Taxonomy_HotelFacilitiesServicesOnTheProperty)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly"><h4>@Translate("HotelRecreationalFacilities")<a data-toggle="collapse" href="#colpanel-hotel-rec" class="collapsed pull-right visible-xs"><span id="colpanel-hotel-rec-caret" class="glyphicon glyphicon-chevron-down"></span></a></h4></div>
+                                    <div class="panel-collapse collapse" id="colpanel-hotel-rec">
+                                        <div class="panel-body-xsonly">
+                                            @TaxonomyTemplate(Taxonomy.Taxonomy_HotelRecreationalFacilities)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly"><h4>@Translate("GuestRoomAmenities")<a data-toggle="collapse" href="#colpanel-room-amen" class="collapsed pull-right visible-xs"><span id="colpanel-room-amen-caret" class="glyphicon glyphicon-chevron-down"></span></a></h4></div>
+                                    <div class="panel-collapse collapse" id="colpanel-room-amen">
+                                        <div class="panel-body-xsonly">
+                                            @TaxonomyTemplate(Taxonomy.Taxonomy_GuestRoomAmenities)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly"><h4>@Translate("BathroomAmenities")<a data-toggle="collapse" href="#colpanel-bath-amen" class="collapsed pull-right visible-xs"><span id="colpanel-bath-amen-caret" class="glyphicon glyphicon-chevron-down"></span></a></h4></div>
+                                    <div class="panel-collapse collapse" id="colpanel-bath-amen">
+                                        <div class="panel-body-xsonly">
+                                            @TaxonomyTemplate(Taxonomy.Taxonomy_BathroomAmenities)
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly"><h4>@Translate("MoreHotelFacilities")<a data-toggle="collapse" href="#colpanel-more-hotel-fac" class="collapsed pull-right visible-xs"><span id="colpanel-more-hotel-fac-caret" class="glyphicon glyphicon-chevron-down"></span></a></h4></div>
+                                    <div class="panel-collapse collapse" id="colpanel-more-hotel-fac">
+                                        <div class="panel-body-xsonly">
+                                            @TaxonomyTemplate(Taxonomy.Taxonomy_MoreHotelAmenities)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Crew Transportation -->
+                    <div class="tab-pane fade" id="crewtrans">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>
+                                        @Translate("CrewTransportation")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-crewtrans" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-crewtrans-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-crewtrans">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="panel-xsonly panel-default-xsonly">
+                                                    <div class="panel-heading-xsonly">
+                                                        <h4>@Translate("CrewTransportationDetails")<a class="collapsed pull-right visible-xs" href="#colpanel-crewTrans-details" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-crewTrans-details-caret"></span></a></h4>
+                                                    </div>
+                                                    <div class="panel-collapse collapse" id="colpanel-crewTrans-details">
+                                                        <div class="panel-body-xsonly">
+
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("CrewTransportIsConductedByHotel"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@YesNo(Model.Hotel.CrewTransportation.CrewTransportIsConductedByHotel)</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("ShuttleHoursOfOperation"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>
+                                                                            @Model.Hotel.CrewTransportation.ShuttleHoursOfOperationFrom
+                                                                            @Translate("until") &nbsp;&nbsp;
+                                                                            @Model.Hotel.CrewTransportation.ShuttleHoursOfOperationUntil &nbsp;&nbsp;
+                                                                            @Translate("24Hours")&nbsp;&nbsp;@YesNo(Model.Hotel.CrewTransportation.Shuttle24HoursOfOperation)
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("TransportIsConductedByOutsideService"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@YesNo(Model.Hotel.CrewTransportation.TransportIsConductedByOutsideService)</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("CompanyName"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@Model.Hotel.CrewTransportation.CompanyName</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("PhoneNumber"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@Model.Hotel.CrewTransportation.PhoneNumber</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("GroundTransportTime"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@Model.Hotel.CrewTransportation.GroundTransportTime</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("Details"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@Model.Hotel.CrewTransportation.Details</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-xsonly panel-default-xsonly">
+                                                    <div class="panel-heading-xsonly">
+                                                        <h4>@Translate("TaxiCarService")<a class="collapsed pull-right visible-xs" href="#colpanel-taxi-service" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-taxi-service-caret"></span></a></h4>
+                                                    </div>
+                                                    <div class="panel-collapse collapse" id="colpanel-taxi-service">
+                                                        <div class="panel-body-xsonly">
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("CompanyName"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@Model.Hotel.CrewTransportation.TaxiCarServiceCompany</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("PhoneNumber"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@Model.Hotel.CrewTransportation.TaxiCarServiceCompanyPhone</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-xsonly panel-default-xsonly">
+                                                    <div class="panel-heading-xsonly">
+                                                        <h4>@Translate("CarRental")<a class="collapsed pull-right visible-xs" href="#colpanel-taxi-service" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-taxi-service-caret"></span></a></h4>
+                                                    </div>
+                                                    <div class="panel-collapse collapse" id="colpanel-taxi-service">
+                                                        <div class="panel-body-xsonly">
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("CompanyName"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@Model.Hotel.CrewTransportation.CarRentalCompany</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("PhoneNumber"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@Model.Hotel.CrewTransportation.CarRentalCompanyPhone</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("AtHotel"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>@YesNo(Model.Hotel.CrewTransportation.CarRentalAtHotel)</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="col-xs-4"><label>@Translate("AdditionalCrewTransportationDetailsPDFFile"):</label></div>
+                                                                    <div class="col-xs-8">
+                                                                        <label>
+
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--hotel Restaurants-->
+                    <div class="tab-pane fade" id="hotelrestaurants">
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>
+                                        @Translate("RoomService")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-room-Service" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-room-Service-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-room-Service">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12">
+                                                    <div class="related-data-container">
+                                                        @AreaInformation(Taxonomy.Taxonomy_RoomService)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>
+                                        @Translate("HotelRestaurants")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-HotelRestaurants" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-HotelRestaurants-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-HotelRestaurants">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12">
+                                                    <div class="related-data-container">
+                                                        @AreaInformation(Taxonomy.Taxonomy_Hotels)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- safety and security-->
+                    <div class="tab-pane fade" id="safetyandsecurity">
+                        <div class="col-xs-12 col-sm-9">
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>
+                                        @Translate("SafetySecurity")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-Safety" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-Safety-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-Safety">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12">
+                                                    @TaxonomyTemplate(Taxonomy.Taxonomy_SafetyAndSecurity)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Transportation -->
+                    <div class="tab-pane fade" id="transportation">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("Transport")<a class="collapsed pull-right visible-xs" href="#colpanel-hotel-transport" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-hotel-transport-caret"></span></a></h4>
+                                </div>
+                                @if (Model.Transportation != null)
+                                {
+                                <div class="panel-collapse collapse" id="colpanel-hotel-transport">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-4"><label>@Translate("HotelToAirport"):</label></div>
+                                                <div class="col-xs-8">
+                                                    @Distance(Model.Transportation.HotelToAirportMiles, Model.Transportation.HotelToAirportKms, Model.Transportation.HotelToAirportMinsAway, Model.Transportation.HotelToAirportComplimentary)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-4"><label>@Translate("HotelToDowntownCityCenter"):</label></div>
+                                                <div class="col-xs-8">
+                                                    @Distance(Model.Transportation.HotelToDowntownMiles, Model.Transportation.HotelToDowntownKms, Model.Transportation.HotelToDowntownMinsAway, Model.Transportation.HotelToDowntownComplimentary)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-4"><label>@Translate("HotelToRestaurantsBars"):</label></div>
+                                                <div class="col-xs-8">
+                                                    @Distance(Model.Transportation.HotelToRestaurantsMiles, Model.Transportation.HotelToRestaurantsKms, Model.Transportation.HotelToRestaurantsMinsAway, Model.Transportation.HotelToRestaurantsComplimentary)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-4"><label>@Translate("HotelToMovieTheater"):</label></div>
+                                                <div class="col-xs-8">
+                                                    @Distance(Model.Transportation.HotelToMovieTheaterMiles, Model.Transportation.HotelToMovieTheaterKms, Model.Transportation.HotelToMovieTheaterMinsAway, Model.Transportation.HotelToMovieTheaterComplimentary)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-4"><label>@Translate("HotelToShoppingCenterMall"):</label></div>
+                                                <div class="col-xs-8">
+                                                    @Distance(Model.Transportation.HotelToShoppingCenterMiles, Model.Transportation.HotelToShoppingCenterKms, Model.Transportation.HotelToShoppingCenterMinsAway, Model.Transportation.HotelToShoppingCenterComplimentary)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-4"><label>@Translate("HotelToPharmacy"):</label></div>
+                                                <div class="col-xs-8">
+                                                    @Distance(Model.Transportation.HotelToPharmacyMiles, Model.Transportation.HotelToPharmacyKms, Model.Transportation.HotelToPharmacyMinsAway, Model.Transportation.HotelToPharmacyComplimentary)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-xsonly panel-default-xsonly">
+                                    <div class="panel-heading-xsonly">
+                                        <h4>@Translate("PublicTransport")<a class="collapsed pull-right visible-xs" href="#colpanel-hotel-pub-transport" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-hotel--pub-transport-caret"></span></a></h4>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="colpanel-hotel-pub-transport">
+                                        <div class="panel-body-xsonly">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="col-xs-4"><label>@Translate("HotelToMetroSubway"):</label></div>
+                                                    <div class="col-xs-8">
+                                                        @Distance(Model.Transportation.DistanceToMetroSubwayMiles, Model.Transportation.DistanceToMetroSubwayKms, Model.Transportation.DistanceToMetroSubwayMinsAway, Model.Transportation.DistanceToMetroSubwayComplimentary)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="col-xs-4"><label>@Translate("HotelToTrain"):</label></div>
+                                                    <div class="col-xs-8">
+                                                        @Distance(Model.Transportation.DistanceToTrainMiles, Model.Transportation.DistanceToTrainKms, Model.Transportation.DistanceToTrainMinsAway, Model.Transportation.DistanceToTrainComplimentary)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="col-xs-4"><label>@Translate("HotelToBusStop"):</label></div>
+                                                    <div class="col-xs-8">
+                                                        @Distance(Model.Transportation.DistanceToBusStopMiles, Model.Transportation.DistanceToBusStopKms, Model.Transportation.DistanceToBusStopMinsAway, Model.Transportation.DistanceToBusStopComplimentary)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                                @if (Model.Transportation == null)
+                                {
+                                    @Translate("NoRecordsAvailable")
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Area Information -->
+                    <div class="tab-pane fade" id="areainformation">
+                        <div class="col-xs-12 col-sm-12">
+                            <!--Local Restaurants-->
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>
+                                        @Translate("LocalRestaurants")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-LocalRestaurants" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-LocalRestaurants-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-LocalRestaurants">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <!--Local Restaurants -->
+                                                <div class="col-xs-12">
+                                                    <div class="related-data-container">
+                                                        @AreaInformation(Taxonomy.Taxonomy_LocalRestaurants)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Local Information-->
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("LocalInformation")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-LocalInformation" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-LocalInformation-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-LocalInformation">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12">
+                                                    <div class="related-data-container">
+                                                        @AreaInformation(Taxonomy.Taxonomy_LocalInformation)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Local Shopping-->
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("LocalShopping")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-LocalShopping" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-LocalShopping-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-LocalShopping">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12">
+                                                    <div class="related-data-container">
+                                                        @AreaInformation(Taxonomy.Taxonomy_LocalShopping)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Local Pharmacy-->
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("LocalPharmacies")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-LocalPharmacy" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-LocalPharmacy-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-LocalPharmacy">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12">
+                                                    <div class="related-data-container">
+                                                        @AreaInformation(Taxonomy.Taxonomy_Pharmacies)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Local Hospital-->
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("LocalHospitals")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-LocalHospital" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-LocalHospital-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-LocalHospital">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12">
+                                                    <div class="related-data-container">
+                                                        @AreaInformation(Taxonomy.Taxonomy_LocalHospitals)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Other Restaurants-->
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("OtherRestaurants")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-OtherRestaurants" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-OtherRestaurants-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-OtherRestaurants">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12">
+                                                    <div class="related-data-container">
+                                                        @AreaInformation(Taxonomy.Taxonomy_OtherRestaurants)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Other Attractions-->
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("Attractions")
+                                        <a class="collapsed pull-right visible-xs" href="#colpanel-OtherAttractions" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-prop-OtherAttractions-caret"></span></a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-OtherAttractions">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12">
+                                                    <div class="related-data-container">
+                                                        @AreaInformation(Taxonomy.Taxonomy_LocalAttractions)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Crew Benefits -->
+                    <div class="tab-pane fade" id="crewbenefits">
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("PhoneInternet")<a class="collapsed pull-right visible-xs" href="#colpanel-crewbenefits-Internet" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-crewbenefits-Internet-caret"></span></a></h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-crewbenefits-Internet">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("HighSpeedInternetCostForCrew"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.HighSpeedInternetCostforCrew</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("HighSpeedInternetComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.HighSpeedInternetComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("TollFreeCallsComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.TollFreeCallsComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("LocalCallsComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.LocalCallsComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("WiFiComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.WiFiComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("PercentageDiscountOnCalls")</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.PercentageDiscountonCalls</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("Miscellaneous")<a class="collapsed pull-right visible-xs" href="#colpanel-crewbenefits-Misc" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-crewbenefits-Misc-caret"></span></a></h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-crewbenefits-Misc">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("DryCleaningComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.DryCleaningComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("DryCleaningDiscount"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.DryCleaningDiscount</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("CrewLoungeComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.CrewLoungeComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("CrewLoungeDetails"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.CrewLoungeDetails</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("NewspaperComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.NewspaperComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("HealthFitnessCenterComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.HealthFitnessCenterComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("HealthFitnessCenterAmount"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.HealthFitnessCenterAmount</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("SeparateCheckInAreaComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.SeparateCheckInAreaComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("CheckCashingFlightAvailable")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.CheckCashingFlightAvailable)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("CheckCashingAmount"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.CheckCashingAmount</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("CheckCashingDetails"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.CheckCashingDetails</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("AirlineLeisureRate"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.AirlineLeisureRate</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("Miscellaneous"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.Misc</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-xsonly panel-default-xsonly">
+                                <div class="panel-heading-xsonly">
+                                    <h4>@Translate("FoodDrinks")<a class="collapsed pull-right visible-xs" href="#colpanel-crewbenefits-Food" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-down" id="colpanel-crewbenefits-Food-caret"></span></a></h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="colpanel-crewbenefits-Food">
+                                    <div class="panel-body-xsonly">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("BreakfastComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.BreakfastComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("BreakfastPrice"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.BreakfastPrice</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("FoodBeverageDiscount"):</label></div>
+                                                <div class="col-xs-4">@Model.Hotel.CrewBenefits.FoodBeverageDiscount</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("InRoomMineralWaterComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.InRoomMineralWaterComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("RefreshmentsInLobbyAvailable")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.RefreshmentsInLobbyAvailable)</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-8"><label>@Translate("RefreshmentsInLobbyComplimentary")</label></div>
+                                                <div class="col-xs-4"><label>@YesNo(Model.Hotel.CrewBenefits.RefreshmentsInLobbyComplimentary)</label></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div><!-- /.container -->
+    </div>
+    <style>
+        .carousel-img {
+            width: 600px !important;
+            height: 500px !important;
+        }
+
+        .carousel {
+            margin-top: 20px;
+        }
+
+        .carousel-main {
+            margin: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("div[id^='colpanel-']").on('hidden.bs.collapse', function () {
+                var caretID = $(this).attr('id') + '-caret';
+                $('#' + caretID).removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+            });
+
+            $("div[id^='colpanel-']").on('shown.bs.collapse', function () {
+                var caretID = $(this).attr('id') + '-caret';
+                $('#' + caretID).removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+            });
+        });
+    </script>

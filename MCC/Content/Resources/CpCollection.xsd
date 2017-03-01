@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="cpCollection" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="cpCollection">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="group" maxOccurs="unbounded" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="property" maxOccurs="unbounded" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="value" type="xs:string" maxOccurs="1" minOccurs="1" />
+										<xs:element name="attribute" maxOccurs="1" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="headerText" type="xs:string" maxOccurs="1" minOccurs="0" />
+													<xs:element name="footerText" type="xs:string" maxOccurs="1" minOccurs="0" />
+													<xs:element name="control" maxOccurs="1" minOccurs="1">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="controlProperty" type="controlProperty" maxOccurs="unbounded" minOccurs="0" />
+																<xs:element name="listItem" maxOccurs="unbounded" minOccurs="0">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute name="value" type="xs:string" use="required" />
+																				<xs:attribute name="index" type="xs:integer" use="optional" default="-1" />
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="id" type="xs:string" use="optional" />
+															<xs:attribute name="type" type="xs:string" use="required" />
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="validator" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="controlProperty" type="controlProperty" maxOccurs="unbounded" minOccurs="0" />
+															</xs:sequence>
+															<xs:attribute name="id" type="xs:string" use="optional" />
+															<xs:attribute name="type" type="xs:string" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" type="xs:string" use="required" />
+												<xs:attribute name="toolTip" type="xs:string" use="optional" />
+												<xs:attribute name="toolTipUrl" type="xs:string" use="optional" />
+												<xs:attribute name="isEnabled" type="xs:boolean" use="optional" default="true" />
+												<xs:attribute name="isVisible" type="xs:boolean" use="optional" default="true" />
+												<xs:attribute name="allowScripts" type="xs:boolean" use="optional" default="false" />
+												<xs:attribute name="preText" type="xs:string" use="optional" />
+												<xs:attribute name="postText" type="xs:string" use="optional" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="id" type="xs:string" use="required" />
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="toolTip" type="xs:string" use="optional" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="dataId" type="xs:string" use="optional" />
+			<xs:attribute name="moduleId" type="xs:string" use="optional" />
+		</xs:complexType>
+		<xs:key name="groupKey">
+			<xs:selector xpath=".//group" />
+			<xs:field xpath="@id" />
+		</xs:key>
+		<xs:key name="propertyKey">
+			<xs:selector xpath=".//property" />
+			<xs:field xpath="@id" />
+		</xs:key>
+	</xs:element>
+	<xs:complexType name="controlProperty">
+		<xs:sequence>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="value" type="xs:string" use="required" />
+	</xs:complexType>
+</xs:schema>

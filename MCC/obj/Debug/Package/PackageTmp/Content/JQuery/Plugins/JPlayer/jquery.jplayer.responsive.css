@@ -1,0 +1,60 @@
+/*480, 768, 992, 1200*/
+.jp-player
+{
+    width:100%;
+}
+.jp-video, .jp-video video
+{
+    width:100% !important;
+}
+.jp-video img
+{
+    margin:auto;   
+}
+.jp-gui
+{
+    padding:10px;
+    margin:auto;
+}
+.jp-gui div
+{
+    display:inline-block;
+}
+.jp-gui .ui-corner-all:not(.ui-slider)
+{
+    width:16px;
+    padding:3px;
+    margin-left:5px;
+}
+.jp-gui div.jp-mute, .jp-gui div.jp-unmute, .jp-gui div.jp-volume-slider, .jp-gui div.jp-repeat, .jp-gui div.jp-repeat-off
+{
+    float:right;
+    margin-left:5px;
+    margin-right:5px;
+}
+.jp-gui div.jp-volume-slider
+{
+    margin-top:5px;
+}
+.jp-progress-slider
+{
+    width:35%;
+}
+.jp-volume-slider
+{
+    width:15%;
+}
+.jp-gui .ui-corner-all.ui-slider-range, .jp-gui .ui-corner-all.ui-slider-handle
+{   
+    margin:0;
+}
+.jp-gui .ui-corner-all.ui-slider-range
+{
+    height:50%;
+}
+.jp-gui .ui-corner-all.ui-slider-handle
+{
+    padding:0;
+    margin-left:-4px;
+    width:8px;
+}

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<group id="Attributes" name="Attributes">
+		<property id="Title">
+			<value />
+			<attribute name="Title">
+				<control id="CpTextBox" type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="StartDate">
+			<value />
+			<attribute name="Publish Start Date">
+				<control id="CpDateTimePicker" type="Centralpoint.Web.UI.Controls.CpDateTimePicker">
+					<controlProperty name="Accuracy" value="Second" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="EndDate">
+			<value>12/31/9999 23:59:59</value>
+			<attribute name="Publish End Date">
+				<control id="CpDateTimePicker" type="Centralpoint.Web.UI.Controls.CpDateTimePicker">
+					<controlProperty name="Accuracy" value="Second" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="IntegrationId">
+			<value />
+			<attribute name="Integration ID" toolTip="Used to aid in integration with external systems.">
+				<control id="CpTextBox"  type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="AlternativeUrl">
+			<value />
+			<attribute name="Alternative URL" toolTip="This URL will be displayed instead of the actual document.">
+				<control id="CpTextBox"  type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="1024" />
+				</control>
+			</attribute>
+		</property>
+		<property id="Target">
+			<value>_self</value>
+			<attribute name="Target" isEnabled="true" isVisible="true" allowScripts="false">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="5f3270aa-ac10-45c7-b576-93ee21b65311" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="Summary">
+			<value />
+			<attribute name="Summary" isVisible="false">
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea" />
+				<validator id="CpLengthValidator" type="Centralpoint.Web.UI.Controls.CpLengthValidator">
+					<controlProperty name="MaximumLength" value="512" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="Keywords">
+			<value />
+			<attribute name="Keywords" toolTip="Commonly used to populate meta keywords.">
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea" />
+				<validator id="CpLengthValidator" type="Centralpoint.Web.UI.Controls.CpLengthValidator">
+					<controlProperty name="MaximumLength" value="512" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="Taxonomy">
+			<value />
+			<attribute name="Taxonomy">
+				<control id="CpTaxonomySelector" type="Centralpoint.Web.UI.Controls.CpTaxonomySelector" />
+			</attribute>
+		</property>
+		<property id="Audiences">
+			<value>bf7bb52f-eae7-4d5a-bd20-6849d0260c80:1:1</value>
+			<attribute name="Audiences">
+				<control id="CpAudienceSelector" type="Centralpoint.Web.UI.Controls.CpAudienceSelector" />
+			</attribute>
+		</property>
+		<property id="Roles">
+			<value>87d65c27-6e78-4e5c-b423-78d47d4f2768</value>
+			<attribute name="Roles">
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<controlProperty name="SelectionMode" value="Multiple" />
+					<controlProperty name="TableName" value="cpsys_Roles" />
+					<controlProperty name="TextField" value="dbo.cpsys_Roles.[Name]" />
+					<controlProperty name="ValueField" value="dbo.cpsys_Roles.RoleId" />
+					<controlProperty name="Filter" value="dbo.cpsys_Roles.IsDataRole = 1" />
+					<controlProperty name="PrefixFields" value="false" />
+					<controlProperty name="PleaseSelect" value="" />
+				</control>
+			</attribute>
+		</property>
+		<property id="IsEnabled">
+			<value>1</value>
+			<attribute name="Display Status">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="ebe725b8-e2e0-4348-8fa7-92b3a0e71c3b" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="AllowComments">
+			<value>1</value>
+			<attribute name="Allow Comments" toolTip="Only applies when the Comments script has been added to the module designer details view used to display this record.">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="c52d9d0d-09f4-4547-96b0-0850f7fade47" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="IsFullTextIndexed">
+			<value>1</value>
+			<attribute name="Include In Site Search">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="c52d9d0d-09f4-4547-96b0-0850f7fade47" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="AllowDataSync">
+			<value>1</value>
+			<attribute name="Include In Data Synchronization">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="c52d9d0d-09f4-4547-96b0-0850f7fade47" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="LegacyData">
+			<value />
+			<attribute name="Legacy Data">
+				<control id="CpPanel" type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="RenderHtmlEncoded" value="true" />
+				</control>
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

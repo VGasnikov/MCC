@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<group id="General" name="General">
+		<property id="SiteTitle">
+			<value>Web Site Console</value>
+		</property>
+		<property id="HomeContent">
+			<value>
+				<![CDATA[
+					<img src="/Uploads/PrivateLabeling/Images/Home.gif" alt="The Power is On." /><br /><br />
+					Welcome to Centralpoint by Oxcyon. This web-based site and content management technology puts you and your organization's content contributors in total control of your web-based initiatives, eliminating the need for development and programming.<br /><br />
+					This Console empowers your members with the ability to easily and quickly get your content on the web. The modules available for your site are available on the left hand side of this screen, and are categorized by type. Authorized users can easily add, update, and delete content online. The overall value of your initiative depends on the relevance and amount of content posted.<br /><br />
+					Centralpoint maximizes the value of your content, making it easy for visitors to your site to find the information they need. If this is your first time here, or you need assistance we recommend that you visit the help files located at the top of most update forms. Here you can take an online tour of the various functions that your site has to offer familiarizing yourself with the various modules and functions provided by Oxcyon. For additional information on Centralpoint or on any module that you don't see here, but would like to add to your site, please contact Oxcyon at (440) 239-8611 or visit us on the web at: <a href="http://www.oxcyon.com" target="_new">www.oxcyon.com</a>.<br /><br />
+					Oxcyon wants to provide our clients with the best possible digital tools available to help you remain competitive in the changing landscapes of your industry.
+				]]>
+			</value>
+		</property>
+		<property id="SiteLogo">
+			<value>/Uploads/PrivateLabeling/Images/Logo.gif</value>
+		</property>
+		<property id="LoginLogo">
+			<value>/Uploads/PrivateLabeling/Images/SecureLogin.gif</value>
+		</property>
+		<property id="SiteHeader">
+			<value>
+				<![CDATA[
+					<div style="min-width:800px;background-image:url(/Uploads/PrivateLabeling/Images/HeaderBackground.jpg);background-position:left top;background-repeat:repeat-x;"><img src="/Uploads/PrivateLabeling/Images/Header.jpg" alt="Centralpoint Web Site Console" border="0" /></div>
+				]]>
+			</value>
+		</property>
+		<property id="RssFeeds">
+			<value>/Articles/Rss.aspx?id=e323f488-68f7-4ce2-8c25-5092d3cf3348,f91d2e31-c962-4631-a1a5-cc566d81af61|/Articles/Rss.aspx?id=c8067003-a627-4818-9059-d8b3bf9d8dd3,2f9d2f55-f93f-4488-9737-e8ef00a7ea60|/Articles/Rss.aspx?id=7b9aca73-bac8-486f-bc55-61460ae13ebf,3c0ad6db-8647-4a27-ae5d-5bd684444dc9</value>
+		</property>
+	</group>
+	<group id="SiteStyles" name="Styles">
+		<property id="SiteBgImage">
+			<value>/Uploads/PrivateLabeling/Images/Background.gif</value>
+		</property>
+	</group>
+	<group id="FormView" name="Form View" />
+	<group id="GridView" name="Grid View" />
+</cpCollection>

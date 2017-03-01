@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<!-- All controls created in this document must function in uber, master, and web sites.  They cannot inherit the IWebSiteControl interface or reference tables that do not exist in all databases. -->
+	<group id="Configuration" name="Configuration" toolTip="Properties which cannot be modified using the master console.">
+		<property id="Rating">
+			<value>5</value>
+			<attribute name="Rating">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">1</listItem>
+					<listItem value="2">2</listItem>
+					<listItem value="3">3</listItem>
+					<listItem value="4">4</listItem>
+					<listItem value="5">5</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="RefreshHours">
+			<value>24</value>
+			<attribute name="Forced Refresh Hours">
+				<headerText>The maximum number of hours before the configuration values are refreshed within the master.  A refresh also occurs with every application restart.  This value is not used by most values which are reported upon during uber contacts.  It is most important where values are enforced by the master.  Changes to this value will not be applied until the next refresh occurs on the current schedule.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="24" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="WebSiteCountLimit">
+			<value>50</value>
+			<attribute name="Web Site Count Limit">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="50" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="ModuleCountLimit">
+			<value>100</value>
+			<attribute name="Custom Module Count Limit">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="0" />
+					<controlProperty name="MaximumValue" value="500" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="KeywordListCountLimit">
+			<value>100</value>
+			<attribute name="Custom Keyword List Count Limit">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="0" />
+					<controlProperty name="MaximumValue" value="1000" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="NavigationItemCountLimit">
+			<value>100</value>
+			<attribute name="Custom Navigation Item Count Limit">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="0" />
+					<controlProperty name="MaximumValue" value="500" />
+				</validator>
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

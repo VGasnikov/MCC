@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DBConnectionString-Web.config Connection String" description="DBConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=myccdev;Initial Catalog=cpweb_Production2;User Id=cpsys_Execute;Password=Ap29@Fb89;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\MCC\\MCC\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-MCC-20161031022650.mdf;Initial Catalog=aspnet-MCC-20161031022650;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\MCC\\MCC\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="MCCContainer-Web.config Connection String" description="MCCContainer Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Data.MCC.csdl|res://*/Data.MCC.ssdl|res://*/Data.MCC.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=myccdev;initial catalog=cpweb_UAT2;Password=Ap29@Fb89;user id=sa;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\MCC\\MCC\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MCCContainer']/@connectionString" />
+  </parameter>
+  <parameter name="MCCDB-Web.config Connection String" description="MCCDB Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MCC.mdf;Initial Catalog=MCC;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\MCC\\MCC\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MCCDB']/@connectionString" />
+  </parameter>
+</parameters>

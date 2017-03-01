@@ -1,0 +1,102 @@
+﻿@model MCC.Domain.EmailTemplate
+@{
+    ViewBag.Title = "Email template";
+    ViewBag.BackgroundImageClass = "hotel-reservation";
+}
+<style>
+.input-xs {
+  height: 22px;
+  padding: 2px 5px;
+  font-size: 12px;
+  line-height: 1.5; /* If Placeholder of the input is moved up, rem/modify this. */
+  border-radius: 3px;
+}
+</style>
+    <script type="text/javascript">
+        _editor_url = "/HTMLArea/";
+      _editor_lang = "en";
+    </script>
+    <script src="~/HTMLArea/htmlarea.js"></script>
+    <script type="text/javascript">
+        HTMLArea.loadPlugin("ContextMenu");
+
+        var editor = null;
+      HTMLArea.onload = function() {
+        editor = new HTMLArea("editor");
+        editor.registerPlugin(ContextMenu);
+        editor.generate();
+      };
+      HTMLArea.init();
+
+      function Save()
+      {
+          var txt = editor._doc.body.innerHTML;
+          document.getElementById('Email').value = txt;
+      }
+
+      function preview()
+      {
+          var itemid = $('#itemId').val();
+          var url = '@Html.Link("/PreviewEmail")/@Model.EmailTemplateId?language=@Model.Language&itemid=' + itemid;
+          window.open(url, "_new");
+      }
+
+      function getTemplate()
+      {
+          var id = $('#TemplateName').val();
+          var lang = $('#Language').val();
+          var url='@Html.Link("/EmailTemplate")';
+          var newURL = url + "/" + id + "?language=" + lang;
+          window.open(newURL, "_self")
+      }
+        $(document).ready(function () {
+            $('#Language').val('@Model.Language');
+            $('#TemplateName').val('@Model.EmailTemplateId');
+        });
+    </script>
+<div class="container white-container main-content">
+    <h2>Email Template Editor</h2>
+    <form class="form-inline" method="post" enctype="multipart/form-data">
+        <table border="0" style="width:100%">
+            <tr>
+                <td style="width:10%"><label for="TemplateName">Template:</label></td>
+                <td style="width:40%">
+                    <select id="TemplateName" name="TemplateName" onchange="getTemplate()" class="form-control input-xs">
+                        @foreach (var x in MCC.Domain.EmailTemplateRepository.GetTemplates())
+                        {
+                            <option value="@x.Key">@x.Value</option>
+                        }
+                    </select>
+                </td>
+                <td style="width:10%"><label for="Language">Language:</label></td>
+                <td style="width:10%">
+                    <select id="Language" name="Language" onchange="getTemplate()" class="form-control input-xs">
+                        <option value="EN">EN</option>
+                        <option value="FR">FR</option>
+                        <option value="ES">ES</option>
+                        <option value="PT">PT</option>
+                    </select>
+                </td>
+                <td style="width:30%">
+                    <button class="pull-right" onclick="Save()">Save</button>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Subject">Subject:</label></td>
+                <td colspan="4"><input type="text" name="Subject" id="Subject" class="form-control input-xs" style="width:100%" value="@Model.Subject" /></td>
+            </tr>
+            <tr>
+                <td><label>Availabe fields:</label></td>
+                <td colspan="4">@Model.Properties</td>
+            </tr>
+        </table>
+        <input type="hidden" id="Email" name="Email" value="" />
+</form>
+
+    <textarea id="editor" rows="22" cols="80" style="width: 100%">@Model.Template</textarea>
+    <input id="itemId" /><button onclick="preview()">Preview</button>
+</div>
+
+
+
+

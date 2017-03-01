@@ -1,0 +1,1555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<!-- All controls created in this document must function in uber, master, and web sites.  They cannot inherit the IWebSiteControl interface or reference tables that do not exist in all databases. -->
+	<group id="Properties" name="Properties">
+		<property id="EnableErrorRecording">
+			<value>1</value>
+			<attribute name="Enable Error Recording" toolTip="Whether errors are recorded for display in the Development > Errors module.">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ShowLoginRememberMe">
+			<value>inherited</value>
+			<attribute name="Show Console Login Remember Me">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ShowWebSiteLoginRememberMe">
+			<value>1</value>
+			<attribute name="Show Web Site Login Remember Me">
+				<headerText>This feature does not work with integrated authentication sources (global logins).</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="WebSiteLoginAllowAncestors">
+			<value>0</value>
+			<attribute name="Web Site Login Allows Ancestor Admins">
+				<headerText>Whether the web site login authenticates against the master and uber consoles when the user is not found in the web site console.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="WebSiteLoginLockoutType">
+			<value>00</value>
+			<attribute name="Web Site Login Lockout Type" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Session (Default) is the only supported option for non-Centralpoint authentication sources (Global Logins).</headerText>
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="00:" index="0">Session (Default)</listItem>
+					<listItem value="01:cfrWebSiteLoginLockoutAfter" index="0">Members > Is Locked Out</listItem>
+					<listItem value="02:cfrWebSiteLoginLockoutAfter|cfrWebSiteLoginLockoutStartDate" index="1">Members > Start Date</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="WebSiteLoginLockoutAfter">
+			<value>7</value>
+			<attribute name="Web Site Login Lockout After" postText=" failed attempts">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="2" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="99" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="WebSiteLoginLockoutStartDate">
+			<value>10</value>
+			<attribute name="Web Site Login Lockout Start Date" postText=" minutes">
+				<headerText>The member's start date will be set to this number of minutes in the future allowing them to login again after the time passes.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="3" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="999" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="WebSiteLoginChangeAccount">
+		  <value>0</value>
+		  <attribute name="Web Site Login Change Account">
+			<headerText>When enabled an authenticated user will be permitted to log in as a different user without signing out first.</headerText>
+			<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+			  <listItem value="1">Yes</listItem>
+			  <listItem value="0">No</listItem>
+			</control>
+		  </attribute>
+		</property>
+		<property id="ConsoleLoginRequiresCaptcha">
+			<value>0</value>
+			<attribute name="Console Login Requires Captcha">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ConsoleRequiresSsl">
+			<value>0</value>
+			<attribute name="Console Requires Secure Channel (SSL)">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ConsoleChangeNotificationInterval">
+			<value>300</value>
+			<attribute name="Console Change Notification Interval" postText=" seconds" toolTip="The number of seconds between calls to determine whether an open document in a standard module has been changed by another user.">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="4" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="10" />
+					<controlProperty name="MaximumValue" value="10000" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="WebSiteLogoutRedirect">
+			<value>0</value>
+			<attribute name="Web Site Logout Redirect">
+				<control type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="0">The LogoutUrl provided in the LoginStatus script or the current page will refresh.</listItem>
+					<listItem value="1">The home page of the LogoutAudience provided in the LoginStatus script or the current audience.</listItem>
+					<listItem value="2">The home page of the web site.</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="UserPropertiesFile">
+			<value />
+			<attribute name="User Properties" toolTip="Upload an XML file containing valid attribute collection XML.">
+				<headerText>Upload an XML file containing valid attribute collection XML.  The XML may add to, rename, and reorder the &lt;a href="javascript:openHelpWindow('/Console/CpCollection.aspx?sn=Users');"&gt;existing properties&lt;/a&gt;.</headerText>
+				<control id="CpUpload"  type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="Title" value="User Properties" />
+					<controlProperty name="SubFolder" value="CustomAttributes" />
+				</control>
+				<validator id="CpXmlValidator" type="Centralpoint.Web.UI.Controls.CpXmlValidator" />
+			</attribute>
+		</property>
+		<property id="AudiencePropertiesFile">
+			<value />
+			<attribute name="Audience Properties" toolTip="Upload an XML file containing valid attribute collection XML.">
+				<headerText>Upload an XML file containing valid attribute collection XML.  The XML may add to, rename, and reorder the &lt;a href="javascript:openHelpWindow('/Console/CpCollection.aspx?sn=Audiences');"&gt;existing properties&lt;/a&gt;.</headerText>
+				<control id="CpUpload"  type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="Title" value="Audience Properties" />
+					<controlProperty name="SubFolder" value="CustomAttributes" />
+				</control>
+				<validator id="CpXmlValidator" type="Centralpoint.Web.UI.Controls.CpXmlValidator" />
+			</attribute>
+		</property>
+		<property id="TaxonomyPropertiesFile">
+			<value />
+			<attribute name="Taxonomy Properties" toolTip="Upload an XML file containing valid attribute collection XML.">
+				<headerText>Upload an XML file containing valid attribute collection XML.  The XML may add to, rename, and reorder the &lt;a href="javascript:openHelpWindow('/Console/CpCollection.aspx?sn=Taxonomy');"&gt;existing properties&lt;/a&gt;.</headerText>
+				<control id="CpUpload"  type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="Title" value="Taxonomy Properties" />
+					<controlProperty name="SubFolder" value="CustomAttributes" />
+				</control>
+				<validator id="CpXmlValidator" type="Centralpoint.Web.UI.Controls.CpXmlValidator" />
+			</attribute>
+		</property>
+		<property id="EcommercePropertiesFile">
+			<value />
+			<attribute name="Ecommerce Properties" toolTip="Upload an XML file containing valid attribute collection XML.">
+				<headerText>Upload an XML file containing valid attribute collection XML.  The XML may add to, rename, and reorder the &lt;a href="javascript:openHelpWindow('/Console/CpCollection.aspx?sn=cpsys_Ecommerce');"&gt;existing properties&lt;/a&gt;.</headerText>
+				<control id="CpUpload"  type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="Title" value="Ecommerce Properties" />
+					<controlProperty name="SubFolder" value="CustomAttributes" />
+				</control>
+				<validator id="CpXmlValidator" type="Centralpoint.Web.UI.Controls.CpXmlValidator" />
+			</attribute>
+		</property>
+		<property id="ResourcePropertiesFile">
+			<value />
+			<attribute name="Resource Properties" toolTip="Upload an XML file containing valid attribute collection XML.">
+				<headerText>Upload an XML file containing valid attribute collection XML.  The XML may add to, rename, and reorder the &lt;a href="javascript:openHelpWindow('/Console/CpCollection.aspx?sn=Resources');"&gt;existing properties&lt;/a&gt;.</headerText>
+				<control id="CpUpload"  type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="Title" value="Resource Properties" />
+					<controlProperty name="SubFolder" value="CustomAttributes" />
+				</control>
+				<validator id="CpXmlValidator" type="Centralpoint.Web.UI.Controls.CpXmlValidator" />
+			</attribute>
+		</property>
+		<property id="AdministratorsConsoleNavigationDefault">
+			<value />
+			<attribute name="Administrators Console Navigation Default">
+				<headerText>A comma separated list of console navigation item system names which will be selected by default when creating new records in Site Architecture > Administrators.  When this property is left empty Configuration, General, and all of their descendants will be selected by default.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="1024" />
+				</control>
+			</attribute>
+		</property>
+		<property id="AdministratorsAccessibleAudiencesDefault">
+			<value />
+			<attribute name="Administrators Accessible Audiences Default">
+				<headerText>A comma separated list of audience system names which will be selected by default when creating new records in Site Architecture > Administrators.  When this property is left empty All Audiences will be selected by default with both web site (CDA) and Console access.  To restrict new administrator access within a specific audience to web site (CDA) only use 'SystemName:1:0' and for Console only use 'SystemName:0:1'.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="1024" />
+				</control>
+			</attribute>
+		</property>
+		<property id="MarketplaceComparisonFile">
+			<value />
+			<attribute name="Marketplace Comparison File">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="OmnitureAccount">
+			<value />
+			<attribute name="Omniture Account">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="ResourceAudiencesEnabled">
+			<value>0</value>
+			<attribute name="Resource Audience Filtration">
+				<headerText>This feature causes resource access to be granted only within the selected audiences.  If enabled, data and its referenced resources may belong to different audiences causing display issues in the console and CDA.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="0">Disabled</listItem>
+					<listItem value="1">Enabled</listItem>
+					<listItem value="2">Console Only</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="SearchFullTextFunction">
+			<value>1</value>
+			<attribute name="Search Full Text Function">
+				<headerText>This attribute only applies to full text keyword searches.  Excluding the related taxonomy will cause the search to run faster over a large number of records because records where the keyword is only in a related taxonomy item will not be searched.  Taxonomy can still be included in the search by using taxonomy selectors or adding taxonomy names to attributes or Keywords of the records themselves.  Changing this value will also affect how the rank associated to full text search results is calculated.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Default</listItem>
+					<listItem value="2">Exclude Related Taxonomy</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ExecuteReaderMax">
+			<value>10000</value>
+			<attribute name="Search Results Limit">
+				<headerText>The maximum number of records returned by queries and searches.  Increasing this value may cause searches over a large number records to perform poorly.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="1000000" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="SearchCriteriaRecordingEnabled">
+			<value>0</value>
+			<attribute name="Search Criteria Recording">
+				<headerText>This property relates to the web site search only and not individual module searches.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Enabled</listItem>
+					<listItem value="0">Disabled</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="WebSiteEditModeEnabled">
+			<value>1</value>
+			<attribute name="Web Site Edit Mode Enabled">
+				<headerText>Selecting Yes will allow web site visitors to enter/exit edit mode by appending em=1/0 to the query string.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="WebSiteDefaultPageRedirect">
+			<value>0</value>
+			<attribute name="Web Site Default Page Redirect">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="0">Standard (301)</listItem>
+					<listItem value="1">Screen Scrape (No Forms)</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ContextMenuEnabled">
+			<value>1</value>
+			<attribute name="Context Menu Enabled" toolTip="The context menu is display when you right click anywhere in the web site.">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="LeadHitsCacheSize">
+			<value>100</value>
+			<attribute name="Lead Hits Cache Size">
+				<headerText>The number of lead hits stored in memory before they are written to the data store.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="4" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="10" />
+					<controlProperty name="MaximumValue" value="1000" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="MaximumRating">
+			<value>5</value>
+			<attribute name="Maximum Rating" toolTip="The maximum number of items used when rating a data document.">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="3" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="100" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="WebSiteSystemNameSpaceReplacement">
+			<value>0</value>
+			<attribute name="Web Site System Name Space Replacement">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="0">None</listItem>
+					<listItem value="1">Underscore</listItem>
+					<listItem value="2">Dash</listItem>
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="WebSiteGeneratedURLCasing">
+			<value>0</value>
+			<attribute name="Web Site Generated URL Casing">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="0">Unchanged</listItem>
+					<listItem value="1">Lowered</listItem>
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="DocumentIdentifierTitleWordDelimiter">
+			<value>2</value>
+			<attribute name="Title Document Identifier Word Delimiter">
+				<headerText>Select the delimiter used to separate words with the title document identifier.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Space</listItem>
+					<listItem value="2">Underscore</listItem>
+					<listItem value="3">Dash</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DocumentIdentifierTitleMaxLength">
+			<value>50</value>
+			<attribute name="Title Document Identifier Maximum Length">
+				<headerText>Select the maximum number of characters used with the title document identifier.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="3" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="10" />
+					<controlProperty name="MaximumValue" value="500" />
+				</validator>
+			</attribute>
+		</property>
+		<!-- Google disabled the V2 API in 9/2013 and only the V3 API remains.  If we require a version attribute for GeoCoding we will probably rename it GeoCodingVersion so that it can reference other providers.
+		<property id="GoogleMapsAPIVersion">
+			<value>2</value>
+			<attribute name="Google Maps API">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="2">Version 2</listItem>
+					<listItem value="3">Version 3</listItem>
+				</control>
+			</attribute>
+		</property>
+		-->
+		<property id="GoogleMapsApiKey">
+			<value />
+			<attribute name="Google Maps API Key">
+				<headerText>&lt;a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key" target="api_key"&gt;Click here for instructions&lt;/a&gt; on how to obtain an API key from Google if maps are used on this site.  Either enter no domain and a single API key for the entire site or a newline separated list of API keys per domain as follows.&lt;br /&gt;http://www.domain1.com=APIKey1&lt;br /&gt;http://www.domain2.com=APIKey2</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+					<controlProperty name="Height" value="64" />
+				</control>
+			</attribute>
+		</property>
+		<property id="TwilioAccountSID">
+			<value />
+			<attribute name="Twilio Account SID">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="64" />
+				</control>
+			</attribute>
+		</property>
+		<property id="TwilioAuthorizationToken">
+			<value />
+			<attribute name="Twilio Authorization Token">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="MaxLength" value="64" />
+				</control>
+			</attribute>
+		</property>
+		<property id="TwilioFromNumber">
+			<value />
+			<attribute name="Twilio From Number">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRegularExpressionValidator">
+					<controlProperty name="Pattern" value="PhoneNumber" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="FitBitClientId">
+			<value />
+			<attribute name="Fit Bit Client Id">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="FitBitConsumerSecret">
+			<value />
+			<attribute name="Fit Bit Consumer Secret">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="FitBitCallbackUrl">
+			<value />
+			<attribute name="Fit Bit Callback Url">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="LastDataSyncDate">
+			<value />
+			<attribute name="Last Data Sync Date" postText=" UTC" isEnabled="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="150" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+			</attribute>
+		</property>
+		<property id="SyncFileSystemExclusionsRoot">
+			<value />
+			<attribute name="Sync Exclusions">
+				<headerText>Enter a comma (no space) separated list of root relative paths to custom files or folders that should be excluded from the sync.  Do not exclude system (non-custom) files from the sync.  It is recommended that you prefix your custom files or folders whenever possible to ensure that Centralpoint does not need to sync a file or folder with the same name in the future.</headerText>
+				<footerText>Example: /ws_SiteMap.xml,/Modules/ws_SiteMap.xml,/ws_Custom,/Modules/ws_Custom</footerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="true" />
+					<controlProperty name="Height" value="64" />
+				</control>
+			</attribute>
+		</property>
+		<property id="ApplicationStartMethod">
+			<value />
+			<attribute name="Application Start Method">
+				<headerText>Enter an Assembly, Type, and Method to be dynamically executed when the web site application starts. The Method must be static and take no parameters.</headerText>
+				<footerText>Example: App_Code,Centralpoint.WebSite.Custom.ClassName,MethodName</footerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="FileUploadType">
+			<value>01</value>
+			<attribute name="File Upload Type" isEnabled="true" isVisible="true" allowScripts="false">
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="01:" index="0">Standard</listItem>
+					<listItem value="02:cfrFileExplorerDisplayAddressBox|cfrFileExplorerDisplayGrid|cfrFileExplorerDisplayToolbar|cfrFileExplorerDisplayTreeView|cfrFileExplorerDisplayContextMenus|cfrFileExplorerEnableUpload|cfrFileExplorerAllowNewFolders|cfrFileExplorerOpenFilesOnDoubleClick|cfrFileExplorerEnablePagingForTheGrid|cfrFileExplorerUploadFileInputs|cfrFileExplorerPageSize|cfrFileExplorerEnableFilterTextBox" index="1">File Explorer</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerDisplayAddressBox">
+			<value>1</value>
+			<attribute name="File Explorer Display Address Box" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerDisplayGrid">
+			<value>1</value>
+			<attribute name="File Explorer Display Grid" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerDisplayToolbar">
+			<value>1</value>
+			<attribute name="File Explorer Display Toolbar" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerDisplayTreeView">
+			<value>1</value>
+			<attribute name="File Explorer Display Tree View" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerDisplayContextMenus">
+			<value>1</value>
+			<attribute name="File Explorer Display Context Menus" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerEnableUpload">
+			<value>1</value>
+			<attribute name="File Explorer Enable Upload" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerAllowNewFolders">
+			<value>1</value>
+			<attribute name="File Explorer Allow New Folders" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerOpenFilesOnDoubleClick">
+			<value>1</value>
+			<attribute name="File Explorer Open Files on Double-Click" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerEnablePagingForTheGrid">
+			<value>0</value>
+			<attribute name="File Explorer Enable Paging For The Grid" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerUploadFileInputs">
+			<value>3</value>
+			<attribute name="File Explorer Upload File Inputs" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="2" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="10" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="FileExplorerPageSize">
+			<value>15</value>
+			<attribute name="File Explorer Page Size" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="2" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="35" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="FileExplorerEnableFilterTextBox">
+			<value>0</value>
+			<attribute name="File Explorer Enable Filter Text Box" isEnabled="true" isVisible="true" allowScripts="false">
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="1:cfrFileExplorerFilterTextBoxLabel" index="0">Yes</listItem>
+					<listItem value="0:" index="1">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="FileExplorerFilterTextBoxLabel">
+			<value>Filter by</value>
+			<attribute name="File Explorer Filter TextBox Label" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="AccountCreationURL">
+			<value />
+			<attribute name="Account Creation URL">
+				<headerText>Enter URL to the user account creation form. cpsys_Audience constant is supported.</headerText>
+				<footerText>Example: /cpsys_Audience/UserCreationForm.aspx</footerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="WebsitePasswordExpiration">
+			<value>00</value>
+			<attribute name="Website Password Expiration" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>If enabled the Scheduled task 'Expire Users Password' must be setup in the master console.</headerText>
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="00:" index="0">Disabled</listItem>
+					<listItem value="01:cfrDaysToExpireIn" index="1">Enabled</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="DaysToExpireIn">
+			<value>90</value>
+			<attribute name="Expire In" isEnabled="true" isVisible="true" allowScripts="false" postText="days">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="AllowCopy" value="false" />
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="3" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="15" />
+					<controlProperty name="MaximumValue" value="365" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="DynamicRolesConfiguration">
+			<value>01</value>
+			<attribute name="Dynamic Roles Configuration" isEnabled="true" isVisible="true" allowScripts="false">
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="01:" index="0">Disabled</listItem>
+					<listItem value="02:cfrIncludeUsersPropColumns|cfrIncludeUsersPersColumns|cfrIncludeUsersConfigColumns|cfrDataSetTableRecordsCacheLimit|cfrDynamicRolesAttributesExclusions|cfrUseTextBoxContols" index="1">Enabled</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="IncludeUsersPropColumns">
+			<value>0</value>
+			<attribute name="Include Users Properties Columns">
+				<headerText/>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="IncludeUsersPersColumns">
+			<value>0</value>
+			<attribute name="Include Users Personalization Columns">
+				<headerText/>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="IncludeUsersConfigColumns">
+			<value>0</value>
+			<attribute name="Include Users Configuration Columns">
+				<headerText/>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DataSetTableRecordsCacheLimit">
+			<value>1500</value>
+			<attribute name="Table Records Cache Limit" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>If values of the specific field are grater then this limit those values will not be inserted into the cache.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="4" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="500" />
+					<controlProperty name="MaximumValue" value="2500" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="DynamicRolesAttributesExclusions">
+			<value />
+			<attribute name="Attributes Exclusions">
+				<headerText>Enter a comma (no space) separated list of Attributes that should be excluded from the filter. For attributes in Properties prefix with (Props_). For attributes in Personalization prefix with (Person_). For attributes in Configuration prefix with (Config_)  </headerText>
+				<footerText/>
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="true" />
+					<controlProperty name="Height" value="64" />
+				</control>
+			</attribute>
+		</property>
+		<property id="UseTextBoxContols">
+			<value>0</value>
+			<attribute name="Use Textbox Control">
+				<headerText/>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="SiteSearchAutoComplete">
+			<value>1</value>
+			<attribute name="Site Search Auto Complete" isEnabled="true" isVisible="true" allowScripts="false">
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="0:" index="0">Disabled</listItem>
+					<listItem value="1:cfrSiteSearchAutoCompleteTextBoxSelector|cfrAutoFocus|cfrDelay|cfrMinLength" index="1">Enabled</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteSearchAutoCompleteTextBoxSelector">
+			<value>default</value>
+			<attribute name="Auto Complete TextBox Selector" isEnabled="true" isVisible="true" allowScripts="false">
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="default:" index="0">Default</listItem>
+					<listItem value="custom:cfrSiteSearchAutoCompletejQuerySelector" index="1">Custom</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteSearchAutoCompletejQuerySelector">
+			<value>input[name="HtmlSearchCriteria"]</value>
+			<attribute name="Auto Complete jQuery Selector" isEnabled="true" isVisible="true" allowScripts="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SiteSearchAutoCompleteAutoFocus">
+			<value>true</value>
+			<attribute name="AutoFocus">
+				<headerText></headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="true">Yes</listItem>
+					<listItem value="false">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="SiteSearchAutoCompleteDelay">
+			<value>10</value>
+			<attribute name="Delay" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText></headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="3" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="0" />
+					<controlProperty name="MaximumValue" value="999" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="SiteSearchAutoCompleteMinLength">
+			<value>2</value>
+			<attribute name="Min Length" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText></headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="MaxLength" value="3" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="0" />
+					<controlProperty name="MaximumValue" value="999" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="ClickAspx">
+			<value>1</value>
+			<attribute name="Stats > Clicks" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>This property will let you configure how the Clicks.aspx page will handle requests.</headerText>
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="1:" index="0">Enabled</listItem>
+					<listItem value="2:cfrCurrentDomain|cfrBanners|cfrDomains" index="1">White List</listItem>
+					<listItem value="3:" index="2">Disabled</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="CurrentDomain">
+			<value>true</value>
+			<attribute name="Current Domain">
+				<headerText></headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="true">Yes</listItem>
+					<listItem value="false">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="Banners">
+			<value>true</value>
+			<attribute name="Advertising > Ad Tracking > Banners">
+				<headerText></headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="true">Yes</listItem>
+					<listItem value="false">No</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="Domains">
+			<value>www.google.com,www.search.aol.com,www.yahoo.com,www.bing.com,www.ask.com</value>
+			<attribute name="Domains">
+				<headerText><![CDATA[Please use a comma separated list of domains that will be allowed to hit the Clicks.aspx page. Please add these search engines to this textarea and others if you need to: www.google.com,www.search.aol.com,www.yahoo.com,www.bing.com,www.ask.com ]]></headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+					<controlProperty name="Height" value="64" />
+				</control>
+			</attribute>
+		</property>
+		<property id="CentralpointContentServices">
+			<value>2</value>
+			<attribute name="Centralpoint Content Services" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>This would enable or disable Centralpoint Content Services. In order to enable WCF on  Windows Server 2012 please check folowing &lt;a target="_blank" href="http://www.aranon.net/Integrations/Centralpoint/Articles/Article.aspx?id=b15b9645-306f-465c-ba60-d876d760d8b3"&gt;article&lt;/a&gt;.</headerText>
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="1:cfrCentralpointContentServicesSecurity" index="0">Enabled</listItem>
+					<listItem value="2:" index="1">Disabled</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="CentralpointContentServicesSecurity">
+			<value>1</value>
+			<attribute name="Security">
+				<headerText> To view Centralpoint Content service &lt;a target="_blank" href="/WebServices/CentralpointContent.svc"&gt;click here&lt;/a&gt;. </headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Service Key</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+	</group>
+	<group id="Globalization" name="Globalization">
+		<property id="CultureOverride">
+			<value>01</value>
+			<attribute name="Culture Override">
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<listItem value="01:cfrCultureName" index="0">Anonymous Users</listItem>
+					<listItem value="02:cfrCultureName" index="1">All Users</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="CultureName">
+			<value>en-US</value>
+			<attribute name="Culture" toolTipUrl="/Articles/Article.aspx?id=ab7c450b-2d4a-463f-a7ca-283051ee61e9">
+				<control type="Centralpoint.Web.UI.Controls.CpCultureListBox" />
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="TimeZoneOverride">
+			<value>01</value>
+			<attribute name="Time Zone Override">
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<listItem value="01:cfrWebSiteTimeZoneId" index="0">Anonymous Users</listItem>
+					<listItem value="02:cfrWebSiteTimeZoneId" index="1">All Users</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="WebSiteTimeZoneId">
+			<value>Eastern Standard Time</value>
+			<attribute name="Time Zone" toolTipUrl="/Articles/Article.aspx?id=4acb7b38-e70b-4d20-81d7-6930f8db3422">
+				<control type="Centralpoint.Web.UI.Controls.CpTimeZoneListBox" />
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+	</group>
+	<group id="Contact" name="Contact">
+		<property id="CompanyName">
+			<value>inherited</value>
+			<attribute name="Company Name">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="ContactName">
+			<value>inherited</value>
+			<attribute name="Name">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="ContactAddress">
+			<value>inherited</value>
+			<attribute name="Address">
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="ContactCity">
+			<value>inherited</value>
+			<attribute name="City">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="ContactState">
+			<value>inherited</value>
+			<attribute name="State">
+				<control type="Centralpoint.Web.UI.Controls.CpXmlListBox">
+					<controlProperty name="FilePath" value="~/Integrations/Centralpoint/Resources/States.xml" />
+				</control>
+			</attribute>
+		</property>
+		<property id="ContactPostalCode">
+			<value>inherited</value>
+			<attribute name="Postal Code">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="75" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRegularExpressionValidator">
+					<controlProperty name="Pattern" value="PostalCode" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="ContactPhone">
+			<value>inherited</value>
+			<attribute name="Phone">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRegularExpressionValidator">
+					<controlProperty name="Pattern" value="PhoneNumber" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="ContactFax">
+			<value>inherited</value>
+			<attribute name="Fax">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRegularExpressionValidator">
+					<controlProperty name="Pattern" value="PhoneNumber" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="ContactEmail">
+			<value>inherited</value>
+			<attribute name="Email Address">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRegularExpressionValidator">
+					<controlProperty name="Pattern" value="Email" />
+				</validator>
+			</attribute>
+		</property>
+	</group>
+	<group id="Header" name="Header Tags">
+		<property id="HeaderHtml">
+			<value />
+			<attribute name="Header Elements" toolTip="HTML elements that will be added to the page header exactly as they are entered here." allowScripts="true">
+				<headerText>Link custom JavaScript and CSS files or add meta tags to the HTML header.  JavaScript includes should be done using the RegisterUnmanagedScriptInclude CpScript to ensure that they register after the system's client script includes.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+					<controlProperty name="Height" value="128" />
+				</control>
+			</attribute>
+		</property>
+		<property id="EnableCdn">
+			<value>1</value>
+			<attribute name="Enable Content Delivery Network">
+				<headerText>Utilize the &lt;a href="http://www.asp.net/ajaxlibrary/CDN.ashx" target="_blank"&gt;Microsoft Ajax Content Delivery Network&lt;/a&gt; when possible.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="jQueryVersions">
+			<value>0</value>
+			<attribute name="jQuery &amp; jQuery UI Versions">
+				<headerText>The sync notes will include changes to the versions associated with these options when they occur.  It is strongly recommended that you select Stable in a production environment.  Legacy is intended for temporary use only while implementing changes to support the Stable version.  Beta is intended for use in development and staging environments to test the version which will soon become Stable.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="-1">Legacy (jquery-1.11.0 &amp; jquery-ui-1.10.4)</listItem>
+					<listItem value="0">Stable (jquery-1.11.3 &amp; jquery-ui-1.11.4)</listItem>
+					<listItem value="1">Beta (jquery-1.11.3 &amp; jquery-ui-1.11.4)</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="HeaderJQueryUITheme">
+			<value />
+			<attribute name="jQuery UI Theme">
+				<headerText>Enter the system name of Design > jQuery UI Themes record with no scope for use on all web site pages.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="RegisterSwfObject">
+			<value>1</value>
+			<attribute name="Register SWF Object JavaScript">
+				<headerText>Register this JavaScript to utilize SWF files uploaded via the RTF editor.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="RegisterCpButtonStyles">
+			<value>1</value>
+			<attribute name="Register CpButton Styles">
+				<headerText>Register the CpButton styles from Private Labeling in the Web Site.  These styles will always be registered in consoles.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="HeaderStyles">
+			<value />
+			<attribute name="Styles" toolTip="CSS styles included on every page.">
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+					<controlProperty name="Height" value="128" />
+				</control>
+			</attribute>
+		</property>
+		<property id="HeaderScripts">
+			<value />
+			<attribute name="Scripts" toolTip="JavaScript included at the top of the page.">
+				<headerText>All mobile devices that identify themselves property</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+					<controlProperty name="Height" value="128" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GoogleAnalytics">
+			<value>0</value>
+			<attribute name="Google Analytics" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>This property will set up Google Analytics on your site. Please visit the module suite Web Statistics to see Google Analytics modules inside Centralpoint. Please get in contact with your production staff member in order to get these turned on if they are not available to you.</headerText>
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="0:" index="0">Disabled</listItem>
+					<listItem value="1:cfrGACustomDimensions|cfrGoogleAnalyticsAccountId" index="1">Enabled</listItem>
+					<listItem value="2:cfrGACustomScripts" index="2">Custom</listItem>
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="GoogleAnalyticsAccountId">
+			<value />
+			<attribute name="Google Analytics Account Id">
+				<headerText>This is the found in Admin > Property Settings of Google Analytics. It should look like this: UA-########-#</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="GACustomDimensions">
+			<value>0</value>
+			<attribute name="Custom Dimensions" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>
+					<![CDATA[Please select if you are going to use custom dimensions. Please visit <a style="color:blue !important;text-decoration:underline;" href="https://support.google.com/analytics/answer/2709829?hl=en" target="_blank">Creating and editing custom dimensions and metrics</a> for instructions on how to create them. <br /><span style="color:red">It is advised by Google not to change your dimensions once they have been determined, because the data will be mis-matched.</span>
+					]]>
+				</headerText>
+				<control id="CpAttributeSwitch" type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<controlProperty name="RepeatDirection" value="Horizontal" />
+					<controlProperty name="RepeatColumns" value="0" />
+					<listItem value="0:" index="0">No</listItem>
+					<listItem value="1:cfrGACustomDimension1|cfrGACustomDimension2|cfrGACustomDimension3|cfrGACustomDimension4|cfrGACustomDimension5|cfrGACustomDimension6|cfrGACustomDimension7|cfrGACustomDimension8|cfrGACustomDimension9|cfrGACustomDimension10|cfrGACustomDimension11|cfrGACustomDimension12|cfrGACustomDimension13|cfrGACustomDimension14|cfrGACustomDimension15|cfrGACustomDimension16|cfrGACustomDimension17|cfrGACustomDimension18|cfrGACustomDimension19|cfrGACustomDimension20" index="1">Yes</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension1">
+			<value></value>
+			<attribute name="Custom Dimension 1" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension2">
+			<value></value>
+			<attribute name="Custom Dimension 2" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension3">
+			<value></value>
+			<attribute name="Custom Dimension 3" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension4">
+			<value></value>
+			<attribute name="Custom Dimension 4" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension5">
+			<value></value>
+			<attribute name="Custom Dimension 5" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension6">
+			<value></value>
+			<attribute name="Custom Dimension 6" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension7">
+			<value></value>
+			<attribute name="Custom Dimension 7" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension8">
+			<value></value>
+			<attribute name="Custom Dimension 8" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension9">
+			<value></value>
+			<attribute name="Custom Dimension 9" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension10">
+			<value></value>
+			<attribute name="Custom Dimension 10" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension11">
+			<value></value>
+			<attribute name="Custom Dimension 11" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension12">
+			<value></value>
+			<attribute name="Custom Dimension 12" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension13">
+			<value></value>
+			<attribute name="Custom Dimension 13" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension14">
+			<value></value>
+			<attribute name="Custom Dimension 14" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension15">
+			<value></value>
+			<attribute name="Custom Dimension 15" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension16">
+			<value></value>
+			<attribute name="Custom Dimension 16" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension17">
+			<value></value>
+			<attribute name="Custom Dimension 17" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension18">
+			<value></value>
+			<attribute name="Custom Dimension 18" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension19">
+			<value></value>
+			<attribute name="Custom Dimension 19" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomDimension20">
+			<value></value>
+			<attribute name="Custom Dimension 20" isEnabled="true" isVisible="true" allowScripts="false">
+				<headerText>Please select which Centralpoint property to add to your dimension.</headerText>
+				<control id="CpListBox" type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="">Please select...</listItem>
+					<listItem value="UserName">UserName</listItem>
+					<listItem value="AudienceSystemName">Audience SystemName</listItem>
+					<listItem value="SiteMapSystemName">SiteMap SystemName</listItem>
+					<listItem value="ModuleSystemName">Module SystemName</listItem>
+					<listItem value="DataId">DataId</listItem>
+					<listItem value="TaxonomySystemNames">Taxonomy SystemName(s)</listItem>
+					<listItem value="SearchKeywords">Search Keywords</listItem>
+					<listItem value="SearchTaxonomy">Search Taxonomy</listItem>
+					<listItem value="SearchFields">Search Fields</listItem>
+					<listItem value="RoleSystemNames">Role System Name(s)</listItem>
+					<listItem value="FirstRoleSystemName">First Role System Name</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="GACustomScripts">
+			<value />
+			<attribute name="Google Analytics Custom Scripts" toolTip="JavaScript included at the top of the page.">
+				<headerText>These scripts will go into the HEAD of the HTML page.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+					<controlProperty name="Height" value="128" />
+				</control>
+			</attribute>
+		</property>
+		<property id="HeaderStartupScripts">
+			<value />
+			<attribute name="Startup Scripts" toolTip="JavaScript included in the page footer.">
+				<headerText>Startup scripts should not include open and close HTML SCRIPT elements.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+					<controlProperty name="Height" value="128" />
+				</control>
+			</attribute>
+		</property>
+		<property id="ConsoleStartupScript">
+			<value />
+			<attribute name="Console Startup Scripts">
+				<headerText>Startup scripts should not include open and close HTML SCRIPT elements.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+					<controlProperty name="Height" value="128" />
+				</control>
+			</attribute>
+		</property>
+		<property id="FooterHtml">
+			<value />
+			<attribute name="Footer Elements" toolTip="HTML elements that will be added to the page footer exactly as they are entered here." allowScripts="true">
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Wrap" value="false" />
+					<controlProperty name="Height" value="128" />
+				</control>
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

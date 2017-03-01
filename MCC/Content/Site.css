@@ -1,0 +1,90 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/*.dl-horizontal dt {
+    white-space: normal;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+
+body, html { font-size:14px !important; }
+.cpweb_Wrapper { background: transparent !important; background-color: none !important; }
+.form-control { margin-bottom:15px; }
+.cpsty_Pages_Login_ctbxPassword, .cpsty_Pages_Login_ctbxUsername{font-size:14px !important; }
+.CpButton { cursor:pointer; border:outset 1px #CCCCCC; background:#999999; color:#463E3F; font-family: Verdana, Arial, Helvetica, Sans-Serif; font-size: 18px; font-weight:bold; padding: 1px 2px; background:url(/Integrations/Centralpoint/Resources/Controls/CpButtonBackground.gif) repeat-x left top; }
+.navlink-dashboard { background-image: url(../uploads/public/documents/bootstrap/img/nav-dashboard-icon.png); }
+.navlink-travel { background-image: url(../uploads/public/documents/bootstrap/img/nav-travel-icon.png); }
+.navlink-airport { background-image: url(../uploads/public/documents/bootstrap/img/nav-airport-icon.png); }
+.navlink-feedback { background-image: url(../uploads/public/documents/bootstrap/img/nav-feedback-icon.png); }
+.navlink-hotel { background-image: url(../uploads/public/documents/bootstrap/img/nav-hotel-icon.png); }
+.navlink-useradmin { background-image: url(../uploads/public/documents/bootstrap/img/nav-user-admin-icon.png); }
+.navlink-reporting { background-image: url(../uploads/public/documents/bootstrap/img/nav-reporting-icon.png); }
+.navlink-profile { background-image: url(../uploads/public/documents/bootstrap/img/your-profile-icon.png); }
+.navlink-preferences { background-image: url(../uploads/public/documents/bootstrap/img/ya-pref-icon.png); }
+.navlink-logout { background-image: url(../uploads/public/documents/bootstrap/img/logout-icon.png); }
+.navlink {font-size: 11px; font-weight: 400; text-decoration: none; color: #6f767e; background-repeat: no-repeat; background-position: center left; padding-left: 35px; margin-left: 20px;}
+
+/* Testing */
+.joe {width:100px !important; }
+.radio1 td{ margin: 10px;}
+input[type=radio],input[type=checkbox]{margin:10px}
+.airport-code-box {
+    width: 84px;
+    height: 82px;
+    background-image: url('/img/airport-code-bkgrnd.png');
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 24px;
+    position: relative;
+}
+.cpweb_center { text-align: center; }
+
+.carousel-img { width: 600px; height:500px;}
+.carousel{ margin-top: 20px; }
+.carousel-main{ margin: 20px;}
+
+.airport-code-box p {
+    margin: 0px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 32px;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+#divMobileMenu {
+display:none;
+}
+
+footer > .container.white-container {padding-left: 0px !important; }
+
+    @media screen and (max-width: 480px) {
+
+    .cpweb_PerimeterMiddle {position:absolute;left: 0px;box-shadow: 0px 0px 0px #353535;}
+#divMobileMenu {
+float:left;height: 100%;
+width:245px;
+display:block;
+overflow:hidden;
+background-color:#E7EBF1;
+box-shadow: 5px 0px 5px #353535;
+}
+    }

@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<group id="Configuration" name="Configuration">
+		<property id="CustomClientLoadScripts">
+			<value />
+			<attribute name="Custom Client Load Scripts" toolTip="Used to write custom scripts to modify the contents of the editor.">
+				<headerText>Enter the path to a JavaScript file containing a CpEditor_Custom_OnClientLoad method as demonstrated here: &lt;a href="/Integrations/Centralpoint/Resources/Controls/CpEditor/CustomFilters.js" target="_blank"&gt;CustomFilters.js&lt;/a&gt;.  This file can be downloaded customized and added to a My Modules, Custom, or Uploads folder in this site.  It demonstrates how to modify the RTF editor contents as described in Telerik's &lt;a href="http://demos.telerik.com/aspnet-ajax/editor/examples/contentfilters/defaultcs.aspx" target="_blank"&gt;Editor / Custom Content Filters&lt;/a&gt; example.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="ToolbarMode">
+			<value>ShowOnFocus</value>
+			<attribute name="Toolbar Mode">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="Default">Default</listItem>
+					<listItem value="Floating">Floating</listItem>
+					<listItem value="PageTop">Page Top</listItem>
+					<listItem value="RibbonBar">Ribbon Bar</listItem>
+					<listItem value="ShowOnFocus">Show On Focus</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="NewLineBr">
+			<value>1</value>
+			<attribute name="New Line Mode">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="2">DIV</listItem>
+					<listItem value="1">BR</listItem>
+					<listItem value="0">P</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="EnableResize">
+			<value>1</value>
+			<attribute name="Enable Resize">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="CssFile">
+			<value />
+			<attribute name="CSS File" toolTip="The classes in this file will be accessible from the Apply Class dropdown.">
+				<control type="Centralpoint.Web.UI.Controls.CpUpload">
+					<controlProperty name="Type" value="Document" />
+					<controlProperty name="Title" value="CSS File" />
+				</control>
+			</attribute>
+		</property>
+		<property id="Skin">
+			<value>Office2007</value>
+			<attribute name="Skin">
+				<control type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="Black">Black</listItem>
+					<listItem value="BlackMetroTouch">Black Metro Touch</listItem>
+					<listItem value="Bootstrap">Bootstrap</listItem>
+					<listItem value="Default">Default</listItem>
+					<listItem value="Glow">Glow</listItem>
+					<listItem value="Metro">Metro</listItem>
+					<listItem value="MetroTouch">Metro Touch</listItem>
+					<listItem value="Office2007">Office 2007</listItem>
+					<listItem value="Office2010Black">Office 2010 Black</listItem>
+					<listItem value="Office2010Blue">Office 2010 Blue</listItem>
+					<listItem value="Office2010Silver">Office 2010 Silver</listItem>
+					<listItem value="Outlook">Outlook</listItem>
+					<listItem value="Silk">Silk</listItem>
+					<listItem value="Simple">Simple</listItem>
+					<listItem value="Sunset">Sunset</listItem>
+					<listItem value="Telerik">Telerik</listItem>
+					<listItem value="Vista">Vista</listItem>
+					<listItem value="Web20">Web 2.0</listItem>
+					<listItem value="WebBlue">Web Blue</listItem>
+					<listItem value="Windows7">Windows 7</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="MaxImageSize">
+			<value>204800</value>
+			<attribute name="Maximum Image Size" postText="bytes">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="99999999" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="MaxFlashSize">
+			<value>102400</value>
+			<attribute name="Maximum Flash Size" postText="bytes">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="99999999" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="MaxMediaSize">
+			<value>5242800</value>
+			<attribute name="Maximum Media Size" postText="bytes">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="99999999" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="MaxDocumentSize">
+			<value>512000</value>
+			<attribute name="Maximum Document Size" postText="bytes">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="99999999" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="MaxTemplateSize">
+			<value>204800</value>
+			<attribute name="Maximum Template Size" postText="bytes">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+					<controlProperty name="AllowCopy" value="false" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="99999999" />
+				</validator>
+			</attribute>
+		</property>
+	</group>
+	<group id="Tools" name="Tools">
+		<property id="Print">
+			<value>1</value>
+			<attribute name="Print">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="FindAndReplace">
+			<value>1</value>
+			<attribute name="Find &amp; Replace">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="AjaxSpellCheck">
+			<value>1</value>
+			<attribute name="Spell Check">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Cut">
+			<value>1</value>
+			<attribute name="Cut">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Copy">
+			<value>1</value>
+			<attribute name="Copy">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Paste">
+			<value>1</value>
+			<attribute name="Paste">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="PasteFromWord">
+			<value>1</value>
+			<attribute name="Paste From Word">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="PasteFromWordNoFontsNoSizes">
+			<value>1</value>
+			<attribute name="Paste From Word Cleaning Fonts &amp; Sizes">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="PastePlainText">
+			<value>1</value>
+			<attribute name="Paste Plain Text">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="PasteAsHtml">
+			<value>1</value>
+			<attribute name="Paste As HTML">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="PasteStrip">
+			<value>0</value>
+			<attribute name="Paste Strip">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Undo">
+			<value>1</value>
+			<attribute name="Undo">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Redo">
+			<value>1</value>
+			<attribute name="Redo">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ResourceManager">
+			<value>0</value>
+			<attribute name="Resource Manager" isVisible="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ImageManager">
+			<value>1</value>
+			<attribute name="Image Manager">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertImage">
+			<value>0</value>
+			<attribute name="Insert Image">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ImageMapDialog">
+			<value>0</value>
+			<attribute name="Image Map Dialog">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="AbsolutePosition">
+			<value>0</value>
+			<attribute name="Absolute Position">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="FlashManager">
+			<value>1</value>
+			<attribute name="Flash Manager">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="MediaManager">
+			<value>1</value>
+			<attribute name="Media Manager">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertExternalVideo">
+			<value>0</value>
+			<attribute name="Insert External Video">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DocumentManager">
+			<value>1</value>
+			<attribute name="Document Manager">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="TemplateManager">
+			<value>1</value>
+			<attribute name="Template Manager">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="LinkManager">
+			<value>1</value>
+			<attribute name="Link Manager">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertLink">
+			<value>0</value>
+			<attribute name="Insert Link">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Unlink">
+			<value>1</value>
+			<attribute name="Unlink">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Links">
+			<value>0</value>
+			<attribute name="Site Links" isVisible="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ScriptDesigner">
+			<value>1</value>
+			<attribute name="Script Designer">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertTable">
+			<value>1</value>
+			<attribute name="Insert Table">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertSnippet">
+			<value>0</value>
+			<attribute name="Insert Snippet" isVisible="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertFormElement">
+			<value>0</value>
+			<attribute name="Insert Form Element">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertSymbol">
+			<value>1</value>
+			<attribute name="Insert Symbol">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertHorizontalRule">
+			<value>1</value>
+			<attribute name="Insert Horizontal Rule">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertDate">
+			<value>1</value>
+			<attribute name="Insert Date">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertTime">
+			<value>1</value>
+			<attribute name="Insert Time">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertParagraph">
+			<value>1</value>
+			<attribute name="Insert Paragraph">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Indent">
+			<value>1</value>
+			<attribute name="Indent">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Outdent">
+			<value>1</value>
+			<attribute name="Outdent">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertOrderedList">
+			<value>1</value>
+			<attribute name="Insert Ordered List">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertUnorderedList">
+			<value>1</value>
+			<attribute name="Insert Unordered List">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Superscript">
+			<value>1</value>
+			<attribute name="Superscript">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Subscript">
+			<value>1</value>
+			<attribute name="Subscript">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="StrikeThrough">
+			<value>1</value>
+			<attribute name="Strike Through">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ConvertToUpper">
+			<value>0</value>
+			<attribute name="Convert To Upper">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ConvertToLower">
+			<value>0</value>
+			<attribute name="Convert To Lower">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="JustifyLeft">
+			<value>1</value>
+			<attribute name="Justify Left">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="JustifyCenter">
+			<value>1</value>
+			<attribute name="Justify Center">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="JustifyRight">
+			<value>1</value>
+			<attribute name="Justify Right">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="JustifyFull">
+			<value>1</value>
+			<attribute name="Justify Full">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="JustifyNone">
+			<value>0</value>
+			<attribute name="Justify None">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Bold">
+			<value>1</value>
+			<attribute name="Bold">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Italic">
+			<value>1</value>
+			<attribute name="Italic">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Underline">
+			<value>1</value>
+			<attribute name="Underline">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ForeColor">
+			<value>1</value>
+			<attribute name="Fore Color">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="BackColor">
+			<value>1</value>
+			<attribute name="Back Color">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="FontName">
+			<value>1</value>
+			<attribute name="Font Name">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="FontSize">
+			<value>1</value>
+			<attribute name="Font Size">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="RealFontSize">
+			<value>0</value>
+			<attribute name="Real Font Size">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="InsertCustomLink">
+			<value>0</value>
+			<attribute name="Insert Custom Link" isVisible="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="FormatBlock">
+			<value>1</value>
+			<attribute name="Format Block">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="FormatStripper">
+			<value>1</value>
+			<attribute name="Format Stripper">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="StyleBuilder">
+			<value>0</value>
+			<attribute name="Style Builder">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="FormatCodeBlock">
+			<value>0</value>
+			<attribute name="Format Code Block">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ToggleScreenMode">
+			<value>0</value>
+			<attribute name="Toggle Screen Mode">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ModuleManager">
+			<value>1</value>
+			<attribute name="Module Manager">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="XhtmlValidator">
+			<value>0</value>
+			<attribute name="XHTML Validator">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Zoom">
+			<value>1</value>
+			<attribute name="Zoom" isVisible="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Help">
+			<value>1</value>
+			<attribute name="Help" isVisible="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+	</group>
+	<group id="Modules" name="Editor Modules">
+		<property id="Warning">
+			<value>Enabling editor modules may cause the editor to take longer to load.</value>
+			<attribute name="Warning">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel">
+					<controlProperty name="ForeColor" value="Red" />
+				</control>
+			</attribute>
+		</property>
+		<property id="Statistics">
+			<value>1</value>
+			<attribute name="Statistics Enabled">
+				<control type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<listItem value="1:cfrStatisticsVisible">Yes</listItem>
+					<listItem value="0:">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="StatisticsVisible">
+			<value>0</value>
+			<attribute name="Statistics Visible">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DomInspector">
+			<value>1</value>
+			<attribute name="DOM Inspector Enabled">
+				<control type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<listItem value="1:cfrDomInspectorVisible">Yes</listItem>
+					<listItem value="0:">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DomInspectorVisible">
+			<value>0</value>
+			<attribute name="Dom Inspector Visible">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="NodeInspector">
+			<value>1</value>
+			<attribute name="Properties Inspector Enabled">
+				<control type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<listItem value="1:cfrNodeInspectorVisible">Yes</listItem>
+					<listItem value="0:">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="NodeInspectorVisible">
+			<value>0</value>
+			<attribute name="Properties Inspector Visible">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="HtmlInspector">
+			<value>1</value>
+			<attribute name="HTML Inspector Enabled">
+				<headerText>This feature is not recommended when administrators have Personalization &gt; CpScripting in RTF Editors set to any value other than Unchanged.  Otherwise, the Real-time HTML view will contain markup that will not be saved as part of the content and can cause issues when manually modified.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpAttributeSwitch">
+					<listItem value="1:cfrHtmlInspectorVisible">Yes</listItem>
+					<listItem value="0:">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="HtmlInspectorVisible">
+			<value>0</value>
+			<attribute name="Html Inspector Visible">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

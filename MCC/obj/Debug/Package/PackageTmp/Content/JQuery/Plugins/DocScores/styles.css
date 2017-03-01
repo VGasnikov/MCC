@@ -1,0 +1,40 @@
+.ds-comment                          {max-width: 800px; min-width: 300px;}
+.ds-breakdown                        {padding: 0px;}
+.ds-title                            {font-weight: bold;}
+.ds-average                          {font-size: 100%; font-weight:bold;}
+.ds-average-max                      {font-weight:normal; margin: 0px 0px 0px 3px; color: #777;}
+.ds-lcol                             {max-width: 140px; min-width: 100px; width:20%; float:left; text-align:left;}
+.ds-rcol                             {max-width: 660px; min-width: 200px; width:70%; float:left;}
+.ds-date                             {margin: 0px 5px; font-size: 90%;}
+.ds-pubs                             {margin: 0px 5px; font-size: 84%; display:block;}
+.ds-body                             {margin: 0px 0px 10px 0px !important;}
+.ds-author                           {float: left; font-size: 90%;}
+.ds-provider                         {font-size: 80%; opacity: 0.7; margin: 0 0 10px;}	
+.ds-questiontext                     {font-weight: bold;}
+.ds-clear                            {clear:both;}
+hr.ds-divider                        {margin: 20px 0; border: 0; border-top: 1px solid #eeeeee;}
+span.ds-stars                        {display: block; background: url(/Integrations/JQuery/Plugins/DocScores/star-ratings-sprite.png) 0 0 repeat-x;  width: 88px;  height: 16px; }
+span.ds-stars5                       {background-position: 0 -160px;}
+span.ds-stars45                      {background-position: 0 -144px;}
+span.ds-stars4                       {background-position: 0 -128px;}
+span.ds-stars35                      {background-position: 0 -112px;}
+span.ds-stars3                       {background-position: 0 -96px;}
+span.ds-stars25                      {background-position: 0 -80px;}
+span.ds-stars2                       {background-position: 0 -64px;}
+span.ds-stars15                      {background-position: 0 -48px;}
+span.ds-stars1                       {background-position: 0 -32px;}
+span.ds-stars05                      {background-position: 0 -16px;}
+span.ds-stars0                       {background-position: 0 0px;}
+.ds-commentprefix                    {margin: 0px 0px 20px 0px;}
+.ds-commentprefix .ds-stars          {float:left; margin: 0px 10px 0px 0px;}
+.ds-commentprefix .ds-ratingcount    {font-size: 100%; margin: 0 10px; color: #777;}
+.ds-comments-more                    {text-align:center; margin: 20px 0px;}
+.ds-breakdown .ds-stars,
+.ds-breakdown .ds-average            {float:left; margin: 0px 10px 0px 0px;}
+.ds-breakdown ul                     {margin: 0px; padding:0px;}
+.ds-breakdown ul li                  {list-style:none; margin: 0px 0px 10px 0px;}
+.ds-distribution ul                  {padding:0px; margin:0px;}
+.ds-distribution li                  {cursor: pointer; list-style: none; height:16px; margin: 0 0 7px 0; clear:both;}
+.ds-distribution .ds-average         {float: left;}
+.ds-dist-bar                         {width: 120px; height: 100%; border: solid 1px #aaa; margin: 0 10px; float: left; }
+.ds-dist-bar-fill                    {background-color:#ffcb35; height: 100%;}

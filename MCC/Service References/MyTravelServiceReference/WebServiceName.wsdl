@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://apihotels.com/ws/mytravel" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="WebServiceName" targetNamespace="http://apihotels.com/ws/mytravel" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://apihotels.com/ws/mytravel">
+      <xs:element name="LayoverDataRequest">
+        <xs:annotation>
+          <xs:documentation>Requests layover details for specified airline, crew member, and date/time range</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="airlineCode" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="crewId" type="xs:string" use="required" />
+          <xs:attribute name="startDateTimeL" type="xs:dateTime" use="required">
+            <xs:annotation>
+              <xs:documentation>Local time relative to each layover location</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute name="endDateTimeL" type="xs:dateTime" use="required">
+            <xs:annotation>
+              <xs:documentation>Local time relative to each layover location</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LayoverDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://apihotels.com/ws/mytravel" minOccurs="1" name="statusCode" type="q1:StatusEnum" />
+            <xs:element minOccurs="0" name="statusDescription" type="xs:string" />
+            <xs:element minOccurs="0" name="layovers" type="tns:LayoversType" />
+            <xs:element minOccurs="0" name="ataGroundSegments">
+              <xs:complexType>
+                <xs:sequence maxOccurs="unbounded">
+                  <xs:element name="ataGroundSegment" type="tns:ATATransportationType" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="hthGroundSegments">
+              <xs:complexType>
+                <xs:sequence maxOccurs="unbounded">
+                  <xs:element name="hthGroundSegment" type="tns:HTHTransportationType" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="reservationIdRef">
+          <xs:selector xpath="tns:layovers/tns:layover" />
+          <xs:field xpath="@reservationId" />
+        </xs:unique>
+        <xs:keyref name="pickupResvIdRef" refer="tns:reservationIdRef">
+          <xs:selector xpath="tns:hthGroundSegments/tns:hthGroundSegment/tns:pickupHotel" />
+          <xs:field xpath="@reservationIdRef" />
+        </xs:keyref>
+        <xs:keyref name="dropoddResvIdRef" refer="tns:reservationIdRef">
+          <xs:selector xpath="tns:hthGroundSegments/tns:hthGroundSegment/tns:dropoffHotel" />
+          <xs:field xpath="@reservationIdRef" />
+        </xs:keyref>
+      </xs:element>
+      <xs:element name="HotelNotNeededRequestType">
+        <xs:complexType>
+          <xs:attribute name="crewId" type="xs:string" use="required" />
+          <xs:attribute name="reservationId" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:int" />
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="submittedBy" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HotelNeededRequestType">
+        <xs:complexType>
+          <xs:attribute name="hnnRequestId" type="xs:int" use="required" />
+          <xs:attribute name="withdrawnBy" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HotelNotNeededResponseType">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://apihotels.com/ws/mytravel" minOccurs="1" name="statusCode" type="q1:StatusEnum" />
+            <xs:element minOccurs="0" name="statusDescription" type="xs:string" />
+            <xs:element minOccurs="0" name="hnnRequest" type="tns:HotelNotNeededType" />
+            <xs:element minOccurs="0" name="hnnDisposition" type="tns:HotelNotNeededDispositionType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReportDataRequest">
+        <xs:complexType>
+          <xs:attribute name="airlineCode" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="startDateTimeL" type="xs:dateTime" use="required" />
+          <xs:attribute name="endDateTimeL" type="xs:dateTime" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReportDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://apihotels.com/ws/mytravel" minOccurs="1" name="statusCode" type="q1:StatusEnum" />
+            <xs:element minOccurs="0" name="statusDescription" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="HNNRequest" type="tns:ReportDataResponseType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetAcesTimeRequest">
+        <xs:complexType>
+          <xs:attribute name="acesDateTime" type="xs:dateTime" use="optional" />
+          <xs:attribute name="locCd" type="xs:string" use="optional" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetAcesTimeResponse">
+        <xs:complexType>
+          <xs:attribute name="statusCode" type="tns:StatusEnum" use="required" />
+          <xs:attribute name="statusDescription" type="xs:string" use="optional" />
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="LayoverType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="hotelDetails" type="tns:HotelType" />
+          <xs:element minOccurs="0" name="toHotelGroundTransportation" type="tns:TransportationType">
+            <xs:annotation>
+              <xs:documentation>This may be either type ACES type 1 (non-duty GT) or type 5 (duty LIMO) ground transportation</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="fromHotelGroundTransportation" type="tns:TransportationType">
+            <xs:annotation>
+              <xs:documentation>This may be either type ACES type 2 (non-duty GT) or type 6 (duty LIMO) ground transportation</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="arrivalFlight" type="tns:FlightType" />
+          <xs:element minOccurs="0" name="departureFlight" type="tns:FlightType" />
+          <xs:element name="hotelNotNeeded">
+            <xs:complexType>
+              <xs:sequence minOccurs="0">
+                <xs:element name="hnnRequest" type="tns:HotelNotNeededType" />
+                <xs:element minOccurs="0" name="hnnDisposition" type="tns:HotelNotNeededDispositionType" />
+              </xs:sequence>
+              <xs:attribute name="submitHNNRequest" type="tns:SubmitHNNRequestEnum" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="reservationId" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:int">
+              <xs:minInclusive value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="date" type="xs:date" use="required" />
+        <xs:attribute name="airportCode" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="airportCity" type="xs:string" use="required" />
+        <xs:attribute name="pairingNumber" type="xs:string" use="optional" />
+        <xs:attribute name="reservationType" type="tns:ReservationTypeEnum" use="required" />
+        <xs:attribute name="reservationStatus" type="tns:ReservationStatusEnum" use="required" />
+        <xs:attribute name="checkInDateTimeL" type="xs:dateTime" use="required" />
+        <xs:attribute name="checkOutDateTimeL" type="xs:dateTime" use="required" />
+        <xs:attribute name="confirmationNumber" type="xs:string" use="optional" />
+      </xs:complexType>
+      <xs:complexType name="FlightType">
+        <xs:attribute name="departureAirportCode" use="optional">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="arrivalAirportCode" use="optional">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="airlineCode" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="flightNumber" use="required" />
+        <xs:attribute name="departureDateTimeL" type="xs:dateTime" use="optional">
+          <xs:annotation>
+            <xs:documentation>Local date/time relative to departure location</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="arrivalDateTimeL" type="xs:dateTime" use="optional">
+          <xs:annotation>
+            <xs:documentation>Local date/time relative to arrival location</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="HotelType">
+        <xs:attribute name="hotelId" type="xs:int" use="optional" />
+        <xs:attribute name="hotelName" type="xs:string" use="optional" />
+        <xs:attribute name="hotelPhone" type="xs:string" use="optional" />
+        <xs:attribute name="hotelAddress" type="xs:string" use="optional" />
+      </xs:complexType>
+      <xs:complexType name="TransportationType">
+        <xs:choice minOccurs="0">
+          <xs:element name="transportationProvider" type="tns:TransportationProviderType" />
+        </xs:choice>
+        <xs:attribute name="reservationId" type="xs:int" use="required" />
+        <xs:attribute name="pickupDateTimeL" type="xs:dateTime" use="required">
+          <xs:annotation>
+            <xs:documentation>Local date/time relative to pickup location</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="transitTime" type="xs:int" use="required" />
+        <xs:attribute name="hotelProvided" type="xs:boolean" use="required" />
+      </xs:complexType>
+      <xs:complexType name="ATATransportationType">
+        <xs:choice minOccurs="0">
+          <xs:element name="transportationProvider" type="tns:TransportationProviderType" />
+        </xs:choice>
+        <xs:attribute name="reservationId" type="xs:int" use="required" />
+        <xs:attribute name="pickupAirportCode" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="dropoffAirportCode" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="pickupDateTimeL" type="xs:dateTime" use="required">
+          <xs:annotation>
+            <xs:documentation>Local date/time relative to pickup location</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="HTHTransportationType">
+        <xs:sequence>
+          <xs:element name="pickupHotel" type="tns:HTHHotelType" />
+          <xs:element name="dropoffHotel" type="tns:HTHHotelType" />
+          <xs:element minOccurs="0" name="transportationProvider" type="tns:TransportationProviderType" />
+        </xs:sequence>
+        <xs:attribute name="pickupDateTimeL" type="xs:dateTime" use="required">
+          <xs:annotation>
+            <xs:documentation>Local date/time relative to pickup location</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="gtProvider" use="required">
+          <xs:simpleType>
+            <xs:restriction base="tns:HTHProviderEnum" />
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:complexType>
+      <xs:complexType name="HotelNotNeededType">
+        <xs:attribute name="hnnRequestId" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:int">
+              <xs:minInclusive value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="submittedDateTimeBL" type="xs:dateTime" use="required">
+          <xs:annotation>
+            <xs:documentation>Local date/time relative to airline base location</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="submittedBy" type="xs:string" use="required" />
+        <xs:attribute name="withdrawHNNRequest" type="tns:WithdrawHNNRequestEnum" use="required" />
+      </xs:complexType>
+      <xs:complexType name="HotelNotNeededDispositionType">
+        <xs:attribute name="dispositionDateTimeBL" type="xs:dateTime" use="required" />
+        <xs:attribute name="handledBy" type="xs:string" use="required" />
+        <xs:attribute name="hnnRequestDisposition" type="tns:HotelNotNeededDispositionEnum" use="required" />
+      </xs:complexType>
+      <xs:complexType name="ReportDataResponseType">
+        <xs:choice>
+          <xs:element minOccurs="0" name="cancelled">
+            <xs:complexType>
+              <xs:attribute name="cancellationDateTimeBL" type="xs:dateTime" use="required">
+                <xs:annotation>
+                  <xs:documentation>Local date/time relative to airline base location</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="confirmationNumber" type="xs:string" use="required">
+                <xs:annotation>
+                  <xs:documentation>Is this the confirmation of the cancellation?</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="cancelledBy" type="xs:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="notCancelled">
+            <xs:complexType>
+              <xs:attribute name="actionDateTimeBL" type="xs:dateTime" use="required">
+                <xs:annotation>
+                  <xs:documentation>Local date/time relative to airline base location</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="notCancelledReason" type="tns:ReservationNotCancelledReasonEnum" use="required" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="neverBooked">
+            <xs:complexType>
+              <xs:attribute name="actionDateTimeBL" type="xs:dateTime" use="required">
+                <xs:annotation>
+                  <xs:documentation>Local date/time relative to airline base location</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="withdrawn">
+            <xs:complexType>
+              <xs:attribute name="withdrawnDateTimeBL" type="xs:dateTime" use="required">
+                <xs:annotation>
+                  <xs:documentation>Local date/time relative to airline base location</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="withdrawnBy" type="xs:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+        <xs:attribute name="airlineCode" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:length value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="pairingNumber" type="xs:string" />
+        <xs:attribute name="crewId" type="xs:string" use="required" />
+        <xs:attribute name="crewMemberName" type="xs:string" use="required" />
+        <xs:attribute name="hnnRequestDateBL" type="xs:dateTime" use="required">
+          <xs:annotation>
+            <xs:documentation>Local date/time relative to airline base location</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hnnRequestedBy" type="xs:string" use="required" />
+        <xs:attribute name="layoverLocation" type="xs:string" use="required" />
+        <xs:attribute name="layoverDateL" type="xs:date" use="required">
+          <xs:annotation>
+            <xs:documentation>Local data relative to layover location</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hotelName" type="xs:string" use="optional" />
+      </xs:complexType>
+      <xs:complexType name="TransportationProviderType">
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="phoneNumber" type="xs:string" use="required" />
+      </xs:complexType>
+      <xs:simpleType name="StatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SUCCESS" />
+          <xs:enumeration value="NO_RESULTS" />
+          <xs:enumeration value="BAD_REQUEST" />
+          <xs:enumeration value="TECHNICAL_ERROR" />
+          <xs:enumeration value="SYSTEM_FAILURE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ErrorStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="UNKNOWN_AIRLINE_CODE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ReservationStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="BOOKED" />
+          <xs:enumeration value="CANCELLED" />
+          <xs:enumeration value="PENDING_CANCELLATION" />
+          <xs:enumeration value="PENDING_ASSIGNMENT" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SubmitHNNRequestEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="REQUESTED" />
+          <xs:enumeration value="PERMITTED" />
+          <xs:enumeration value="TOO_LATE" />
+          <xs:enumeration value="NOT_SUPPORTED" />
+          <xs:enumeration value="NOT_PERMITTED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="WithdrawHNNRequestEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PERMITTED" />
+          <xs:enumeration value="TOO_LATE" />
+          <xs:enumeration value="CANCELLED" />
+          <xs:enumeration value="RESERVATION_REUSED" />
+          <xs:enumeration value="NOT_SUPPORTED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="HTHProviderEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="GT_PROVIDER" />
+          <xs:enumeration value="PICKUP_HOTEL" />
+          <xs:enumeration value="DROPOFF_HOTEL" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ReservationNotCancelledReasonEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RESERVATION_REUSED" />
+          <xs:enumeration value="TAX_ADVANTAGED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ReservationTypeEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CREW" />
+          <xs:enumeration value="BUSINESS" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="HotelNotNeededDispositionEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="REMOVED" />
+          <xs:enumeration value="CANCELLED" />
+          <xs:enumeration value="REUSED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="HTHHotelType">
+        <xs:attribute name="reservationIdRef" type="xs:int" use="required" />
+      </xs:complexType>
+      <xs:complexType name="LayoversType">
+        <xs:sequence maxOccurs="unbounded">
+          <xs:element name="layover" type="tns:LayoverType" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getLayoverDataRequest">
+    <wsdl:part xmlns:nsA="http://apihotels.com/ws/mytravel" name="Request" element="nsA:LayoverDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="getLayoverDataResponse">
+    <wsdl:part xmlns:nsB="http://apihotels.com/ws/mytravel" name="Response" element="nsB:LayoverDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="submitHotelNotNeededRequest">
+    <wsdl:part xmlns:nsC="http://apihotels.com/ws/mytravel" name="Request" element="nsC:HotelNotNeededRequestType" />
+  </wsdl:message>
+  <wsdl:message name="submitHotelNotNeededResponse">
+    <wsdl:part xmlns:nsD="http://apihotels.com/ws/mytravel" name="Response" element="nsD:HotelNotNeededResponseType" />
+  </wsdl:message>
+  <wsdl:message name="withdrawHotelNotNeededRequest">
+    <wsdl:part xmlns:nsD="http://apihotels.com/ws/mytravel" name="Request" element="nsD:HotelNeededRequestType" />
+  </wsdl:message>
+  <wsdl:message name="withdrawHotelNotNeededResponse">
+    <wsdl:part xmlns:nsD="http://apihotels.com/ws/mytravel" name="Response" element="nsD:HotelNotNeededResponseType" />
+  </wsdl:message>
+  <wsdl:message name="getReportDataRequest">
+    <wsdl:part xmlns:nsD="http://apihotels.com/ws/mytravel" name="Request" element="nsD:ReportDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="getReportDataResponse">
+    <wsdl:part xmlns:nsD="http://apihotels.com/ws/mytravel" name="Response" element="nsD:ReportDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="setAcesTimeRequest">
+    <wsdl:part name="Request" element="tns:SetAcesTimeRequest" />
+  </wsdl:message>
+  <wsdl:message name="setAcesTimeResponse">
+    <wsdl:part name="Response" element="tns:SetAcesTimeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MyTravelSoap">
+    <wsdl:operation name="GetLayoverData">
+      <wsdl:input message="tns:getLayoverDataRequest" />
+      <wsdl:output message="tns:getLayoverDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitHotelNotNeededRequest">
+      <wsdl:input message="tns:submitHotelNotNeededRequest" />
+      <wsdl:output message="tns:submitHotelNotNeededResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="WithdrawHotelNotNeededRequest">
+      <wsdl:input message="tns:withdrawHotelNotNeededRequest" />
+      <wsdl:output message="tns:withdrawHotelNotNeededResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportData">
+      <wsdl:input message="tns:getReportDataRequest" />
+      <wsdl:output message="tns:getReportDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAcesTime">
+      <wsdl:input message="tns:setAcesTimeRequest" />
+      <wsdl:output message="tns:setAcesTimeResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MyTravelSoap" type="tns:MyTravelSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLayoverData">
+      <soap:operation soapAction="http://apihotels.com/ws/mytravel/GetLayoverData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="Request" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="Response" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitHotelNotNeededRequest">
+      <soap:operation soapAction="http://apihotels.com/ws/mytravel/SubmitHotelNotNeededRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="Request" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="Response" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WithdrawHotelNotNeededRequest">
+      <soap:operation soapAction="http://apihotels.com/ws/mytravel/WithdrawHotelNotNeededRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="Request" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="Response" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportData">
+      <soap:operation soapAction="http://apihotels.com/ws/mytravel/GetReportData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="Request" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="Response" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAcesTime">
+      <soap:operation soapAction="http://apihotels.com/ws/mytravel/SetAcesTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="Request" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="Response" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyTravel">
+    <wsdl:port name="MyTravelSoap" binding="tns:MyTravelSoap">
+      <soap:address location="http://10.10.105.155:3080/ACESWS/MyTravel/MyTravelSoap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

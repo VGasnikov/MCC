@@ -1,0 +1,363 @@
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\SqlServerTypes\x86\msvcr100.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\SqlServerTypes\x86\SqlServerSpatial110.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\ApplicationInsights.config
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\csc.exe
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\vbc.exe
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\VBCSCompiler.exe
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\SqlServerTypes\x64\msvcr100.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\SqlServerTypes\x64\SqlServerSpatial110.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\MCC.dll.config
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\MCC.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\MCC.pdb
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Antlr3.Runtime.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\EntityFramework.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\EntityFramework.SqlServer.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.Web.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ApplicationInsights.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ApplicationInsights.TraceListener.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ReportViewer.Design.DLL
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ReportViewer.WebDesign.DLL
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ReportViewer.WinForms.DLL
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\MVCGrid.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Newtonsoft.Json.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Owin.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Net.Http.Formatting.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Helpers.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Http.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Http.WebHost.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Mvc.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Optimization.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Razor.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.WebPages.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.WebPages.Razor.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\WebActivatorEx.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\WebGrease.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\EnvDTE.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\EnvDTE80.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\stdole.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.MSXML.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.Web.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ApplicationInsights.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.ApplicationInsights.TraceListener.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\MVCGrid.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Helpers.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Mvc.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Optimization.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Razor.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.WebPages.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.WebPages.Razor.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Antlr3.Runtime.pdb
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Newtonsoft.Json.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Net.Http.Formatting.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Http.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\System.Web.Http.WebHost.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\EntityFramework.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\EntityFramework.SqlServer.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\EnvDTE.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.8.0.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\EnvDTE80.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.OLE.Interop.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.xml
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\obj\Debug\MCC.dll
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\obj\Debug\MCC.pdb
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\obj\Debug\MCC.csprojResolveAssemblyReference.cache
+C:\Users\vgasnikov.LIAPIDOMAIN\Documents\Visual Studio 2015\Projects\MCC\MCC\bin\DocumentFormat.OpenXml.dll
+C:\MCC\MCC\bin\ApplicationInsights.config
+C:\MCC\MCC\bin\roslyn\csc.exe
+C:\MCC\MCC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\MCC\MCC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\MCC\MCC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\MCC\MCC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\MCC\MCC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\MCC\MCC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\MCC\MCC\bin\roslyn\System.Collections.Immutable.dll
+C:\MCC\MCC\bin\roslyn\System.Reflection.Metadata.dll
+C:\MCC\MCC\bin\roslyn\vbc.exe
+C:\MCC\MCC\bin\roslyn\VBCSCompiler.exe
+C:\MCC\MCC\bin\roslyn\VBCSCompiler.exe.config
+C:\MCC\MCC\bin\SqlServerTypes\x64\msvcr100.dll
+C:\MCC\MCC\bin\SqlServerTypes\x64\SqlServerSpatial110.dll
+C:\MCC\MCC\bin\SqlServerTypes\x86\msvcr100.dll
+C:\MCC\MCC\bin\SqlServerTypes\x86\SqlServerSpatial110.dll
+C:\MCC\MCC\bin\MCC.dll.config
+C:\MCC\MCC\bin\MCC.dll
+C:\MCC\MCC\bin\MCC.pdb
+C:\MCC\MCC\bin\Antlr3.Runtime.dll
+C:\MCC\MCC\bin\DocumentFormat.OpenXml.dll
+C:\MCC\MCC\bin\EntityFramework.dll
+C:\MCC\MCC\bin\EntityFramework.SqlServer.dll
+C:\MCC\MCC\bin\Microsoft.AI.Agent.Intercept.dll
+C:\MCC\MCC\bin\Microsoft.AI.DependencyCollector.dll
+C:\MCC\MCC\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\MCC\MCC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\MCC\MCC\bin\Microsoft.AI.Web.dll
+C:\MCC\MCC\bin\Microsoft.AI.WindowsServer.dll
+C:\MCC\MCC\bin\Microsoft.ApplicationInsights.dll
+C:\MCC\MCC\bin\Microsoft.ApplicationInsights.TraceListener.dll
+C:\MCC\MCC\bin\Microsoft.AspNet.Identity.Core.dll
+C:\MCC\MCC\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\MCC\MCC\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\MCC\MCC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\MCC\MCC\bin\Microsoft.Owin.dll
+C:\MCC\MCC\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\MCC\MCC\bin\Microsoft.Owin.Security.Cookies.dll
+C:\MCC\MCC\bin\Microsoft.Owin.Security.dll
+C:\MCC\MCC\bin\Microsoft.Owin.Security.Facebook.dll
+C:\MCC\MCC\bin\Microsoft.Owin.Security.Google.dll
+C:\MCC\MCC\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\MCC\MCC\bin\Microsoft.Owin.Security.OAuth.dll
+C:\MCC\MCC\bin\Microsoft.Owin.Security.Twitter.dll
+C:\MCC\MCC\bin\Microsoft.ReportViewer.Common.dll
+C:\MCC\MCC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+C:\MCC\MCC\bin\Microsoft.ReportViewer.Design.DLL
+C:\MCC\MCC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\MCC\MCC\bin\Microsoft.ReportViewer.WebDesign.DLL
+C:\MCC\MCC\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\MCC\MCC\bin\Microsoft.ReportViewer.WinForms.DLL
+C:\MCC\MCC\bin\Microsoft.Web.Infrastructure.dll
+C:\MCC\MCC\bin\MVCGrid.dll
+C:\MCC\MCC\bin\Newtonsoft.Json.dll
+C:\MCC\MCC\bin\Owin.dll
+C:\MCC\MCC\bin\System.Net.Http.Formatting.dll
+C:\MCC\MCC\bin\System.Web.Helpers.dll
+C:\MCC\MCC\bin\System.Web.Http.dll
+C:\MCC\MCC\bin\System.Web.Http.WebHost.dll
+C:\MCC\MCC\bin\System.Web.Mvc.dll
+C:\MCC\MCC\bin\System.Web.Optimization.dll
+C:\MCC\MCC\bin\System.Web.Razor.dll
+C:\MCC\MCC\bin\System.Web.WebPages.Deployment.dll
+C:\MCC\MCC\bin\System.Web.WebPages.dll
+C:\MCC\MCC\bin\System.Web.WebPages.Razor.dll
+C:\MCC\MCC\bin\WebActivatorEx.dll
+C:\MCC\MCC\bin\WebGrease.dll
+C:\MCC\MCC\bin\EnvDTE.dll
+C:\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.dll
+C:\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\MCC\MCC\bin\EnvDTE80.dll
+C:\MCC\MCC\bin\stdole.dll
+C:\MCC\MCC\bin\Microsoft.VisualStudio.OLE.Interop.dll
+C:\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\MCC\MCC\bin\Microsoft.MSXML.dll
+C:\MCC\MCC\bin\Microsoft.AI.DependencyCollector.xml
+C:\MCC\MCC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\MCC\MCC\bin\Microsoft.AI.Web.xml
+C:\MCC\MCC\bin\Microsoft.AI.WindowsServer.xml
+C:\MCC\MCC\bin\Microsoft.ApplicationInsights.xml
+C:\MCC\MCC\bin\Microsoft.ApplicationInsights.TraceListener.xml
+C:\MCC\MCC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\MCC\MCC\bin\MVCGrid.xml
+C:\MCC\MCC\bin\System.Web.Helpers.xml
+C:\MCC\MCC\bin\System.Web.Mvc.xml
+C:\MCC\MCC\bin\System.Web.Optimization.xml
+C:\MCC\MCC\bin\System.Web.Razor.xml
+C:\MCC\MCC\bin\System.Web.WebPages.xml
+C:\MCC\MCC\bin\System.Web.WebPages.Deployment.xml
+C:\MCC\MCC\bin\System.Web.WebPages.Razor.xml
+C:\MCC\MCC\bin\Antlr3.Runtime.pdb
+C:\MCC\MCC\bin\Newtonsoft.Json.xml
+C:\MCC\MCC\bin\System.Net.Http.Formatting.xml
+C:\MCC\MCC\bin\System.Web.Http.xml
+C:\MCC\MCC\bin\System.Web.Http.WebHost.xml
+C:\MCC\MCC\bin\EntityFramework.xml
+C:\MCC\MCC\bin\EntityFramework.SqlServer.xml
+C:\MCC\MCC\bin\Microsoft.AspNet.Identity.Core.xml
+C:\MCC\MCC\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\MCC\MCC\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\MCC\MCC\bin\Microsoft.Owin.xml
+C:\MCC\MCC\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\MCC\MCC\bin\Microsoft.Owin.Security.xml
+C:\MCC\MCC\bin\Microsoft.Owin.Security.Facebook.xml
+C:\MCC\MCC\bin\Microsoft.Owin.Security.Cookies.xml
+C:\MCC\MCC\bin\Microsoft.Owin.Security.OAuth.xml
+C:\MCC\MCC\bin\Microsoft.Owin.Security.Google.xml
+C:\MCC\MCC\bin\Microsoft.Owin.Security.Twitter.xml
+C:\MCC\MCC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\MCC\MCC\bin\EnvDTE.xml
+C:\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.xml
+C:\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.8.0.xml
+C:\MCC\MCC\bin\EnvDTE80.xml
+C:\MCC\MCC\bin\Microsoft.VisualStudio.OLE.Interop.xml
+C:\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.xml
+C:\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.xml
+C:\MCC\MCC\obj\Debug\MCC.dll
+C:\MCC\MCC\obj\Debug\MCC.pdb
+C:\MCC\MCC\obj\Debug\MCC.csprojResolveAssemblyReference.cache
+C:\MCC2\MCC\MCC\bin\ApplicationInsights.config
+C:\MCC2\MCC\MCC\bin\roslyn\csc.exe
+C:\MCC2\MCC\MCC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\MCC2\MCC\MCC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\MCC2\MCC\MCC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\MCC2\MCC\MCC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\MCC2\MCC\MCC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\MCC2\MCC\MCC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\MCC2\MCC\MCC\bin\roslyn\System.Collections.Immutable.dll
+C:\MCC2\MCC\MCC\bin\roslyn\System.Reflection.Metadata.dll
+C:\MCC2\MCC\MCC\bin\roslyn\vbc.exe
+C:\MCC2\MCC\MCC\bin\roslyn\VBCSCompiler.exe
+C:\MCC2\MCC\MCC\bin\roslyn\VBCSCompiler.exe.config
+C:\MCC2\MCC\MCC\bin\SqlServerTypes\x64\msvcr100.dll
+C:\MCC2\MCC\MCC\bin\SqlServerTypes\x64\SqlServerSpatial110.dll
+C:\MCC2\MCC\MCC\bin\SqlServerTypes\x86\msvcr100.dll
+C:\MCC2\MCC\MCC\bin\SqlServerTypes\x86\SqlServerSpatial110.dll
+C:\MCC2\MCC\MCC\bin\MCC.dll.config
+C:\MCC2\MCC\MCC\bin\MCC.dll
+C:\MCC2\MCC\MCC\bin\MCC.pdb
+C:\MCC2\MCC\MCC\bin\Antlr3.Runtime.dll
+C:\MCC2\MCC\MCC\bin\DocumentFormat.OpenXml.dll
+C:\MCC2\MCC\MCC\bin\EntityFramework.dll
+C:\MCC2\MCC\MCC\bin\EntityFramework.SqlServer.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.Agent.Intercept.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.DependencyCollector.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.Web.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.WindowsServer.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.ApplicationInsights.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.ApplicationInsights.TraceListener.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AspNet.Identity.Core.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.Cookies.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.Facebook.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.Google.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.OAuth.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.Twitter.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.ReportViewer.Common.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+C:\MCC2\MCC\MCC\bin\Microsoft.ReportViewer.Design.DLL
+C:\MCC2\MCC\MCC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\MCC2\MCC\MCC\bin\Microsoft.ReportViewer.WebDesign.DLL
+C:\MCC2\MCC\MCC\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\MCC2\MCC\MCC\bin\Microsoft.ReportViewer.WinForms.DLL
+C:\MCC2\MCC\MCC\bin\Microsoft.Web.Infrastructure.dll
+C:\MCC2\MCC\MCC\bin\MVCGrid.dll
+C:\MCC2\MCC\MCC\bin\Newtonsoft.Json.dll
+C:\MCC2\MCC\MCC\bin\Owin.dll
+C:\MCC2\MCC\MCC\bin\System.Net.Http.Formatting.dll
+C:\MCC2\MCC\MCC\bin\System.Web.Helpers.dll
+C:\MCC2\MCC\MCC\bin\System.Web.Http.dll
+C:\MCC2\MCC\MCC\bin\System.Web.Http.WebHost.dll
+C:\MCC2\MCC\MCC\bin\System.Web.Mvc.dll
+C:\MCC2\MCC\MCC\bin\System.Web.Optimization.dll
+C:\MCC2\MCC\MCC\bin\System.Web.Razor.dll
+C:\MCC2\MCC\MCC\bin\System.Web.WebPages.Deployment.dll
+C:\MCC2\MCC\MCC\bin\System.Web.WebPages.dll
+C:\MCC2\MCC\MCC\bin\System.Web.WebPages.Razor.dll
+C:\MCC2\MCC\MCC\bin\WebActivatorEx.dll
+C:\MCC2\MCC\MCC\bin\WebGrease.dll
+C:\MCC2\MCC\MCC\bin\EnvDTE.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\MCC2\MCC\MCC\bin\EnvDTE80.dll
+C:\MCC2\MCC\MCC\bin\stdole.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.OLE.Interop.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.MSXML.dll
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.DependencyCollector.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.Web.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.AI.WindowsServer.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.ApplicationInsights.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.ApplicationInsights.TraceListener.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\MCC2\MCC\MCC\bin\MVCGrid.xml
+C:\MCC2\MCC\MCC\bin\System.Web.Helpers.xml
+C:\MCC2\MCC\MCC\bin\System.Web.Mvc.xml
+C:\MCC2\MCC\MCC\bin\System.Web.Optimization.xml
+C:\MCC2\MCC\MCC\bin\System.Web.Razor.xml
+C:\MCC2\MCC\MCC\bin\System.Web.WebPages.xml
+C:\MCC2\MCC\MCC\bin\System.Web.WebPages.Deployment.xml
+C:\MCC2\MCC\MCC\bin\System.Web.WebPages.Razor.xml
+C:\MCC2\MCC\MCC\bin\Antlr3.Runtime.pdb
+C:\MCC2\MCC\MCC\bin\Newtonsoft.Json.xml
+C:\MCC2\MCC\MCC\bin\System.Net.Http.Formatting.xml
+C:\MCC2\MCC\MCC\bin\System.Web.Http.xml
+C:\MCC2\MCC\MCC\bin\System.Web.Http.WebHost.xml
+C:\MCC2\MCC\MCC\bin\EntityFramework.xml
+C:\MCC2\MCC\MCC\bin\EntityFramework.SqlServer.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.AspNet.Identity.Core.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.Facebook.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.Cookies.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.OAuth.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.Google.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.Twitter.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\MCC2\MCC\MCC\bin\EnvDTE.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.Shell.Interop.8.0.xml
+C:\MCC2\MCC\MCC\bin\EnvDTE80.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.OLE.Interop.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.xml
+C:\MCC2\MCC\MCC\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.xml
+C:\MCC2\MCC\MCC\obj\Debug\MCC.csprojResolveAssemblyReference.cache
+C:\MCC2\MCC\MCC\obj\Debug\MCC.dll
+C:\MCC2\MCC\MCC\obj\Debug\MCC.pdb

@@ -1,0 +1,25 @@
+input.ConsoleCpGridCheckBox, .ConsoleCpGridCheckBox input { width: 12px; height: 12px; padding: 0px; margin: 0px; }
+input.ConsoleCpGridTextBox { font-family: Verdana, Arial, Helvetica, Sans-Serif; font-size: 10px; font-weight: normal; }
+select.ConsoleCpGridListBox, .ConsoleCpGridListBox option { font-family: Verdana, Arial, Helvetica, Sans-Serif; font-size: 10px; font-weight: normal; }
+.ConsoleCpGridItemHover { background-color: #ffc !important; cursor: pointer; }
+
+.ConsoleFormInput input[type=text], .ConsoleFormInput textarea, .ConsoleFormInput select { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }
+
+.ConsoleNavigationCategory { padding: 3px 0px 5px 2px; border-bottom: solid 1px #CCC; }
+.ConsoleNavigationBody { }
+.ConsoleNavigationSection, .ConsoleNavigationSectionRoot, .ConsoleNavigationItem, .ConsoleNavigationItemCurrent, .ConsoleNavigationItemRoot, .ConsoleNavigationItemRootCurrent { margin: 1px 1px 1px 15px; vertical-align: middle; }
+.ConsoleNavigationSectionRoot, .ConsoleNavigationItemRoot { margin: 2px 4px 2px 6px; }
+.ConsoleNavigationSection, .ConsoleNavigationSectionRoot { font-weight: bold; }
+.ConsoleNavigationItem, .ConsoleNavigationItemCurrent, .ConsoleNavigationItemRoot, .ConsoleNavigationItemRootCurrent { font-weight: normal; }
+span.ConsoleNavigationItemCurrent a { color: #000000; }
+.ConsoleNavigationBody span { margin: 0px 5px 0px 3px; }
+.ConsoleNavigationBody img { margin: 0px; }
+
+#divToolbox { display: none; position: fixed; right:0px; top: 100px; bottom: 0px; width:180px; white-space:nowrap; overflow:hidden; background-color: #FFF; }
+#divToolboxLoading { text-align: center; padding-top: 10px; } #divToolboxLoading > img { vertical-align: middle; } #divToolboxLoading > span { display: inline-block; vertical-align: middle; padding-left: 3px; }
+#divToolboxModuleHelp { padding: 4px; text-align: center; }
+#divToolbox .ui-accordion-content { /*overflow-x: hidden !important;*/ overflow: auto; padding: 11px; }
+.toolbox-title { cursor: pointer; }
+.toolbox-active { border: 2px solid #6699ff !important; }
+.toolbox-preview, .toolbox-source { display: none; }
+.toolbox-preview > fieldset { background-color: #F7F7F7; width: 300px; }

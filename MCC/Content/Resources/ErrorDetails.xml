@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<group id="Details" name="Details">
+		<property id="Type">
+			<value />
+			<attribute name="Type">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel">
+					<controlProperty name="FontNames" value="monospace" />
+				</control>
+			</attribute>
+		</property>
+		<property id="Message">
+			<value />
+			<attribute name="Message">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel">
+					<controlProperty name="FontNames" value="monospace" />
+					<controlProperty name="RenderHtmlEncoded" value="true" />
+				</control>
+			</attribute>
+		</property>
+		<property id="StackTrace">
+			<value />
+			<attribute name="Stack Trace">
+				<control type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="BackColor" value="#FFFFCC" />
+					<controlProperty name="FontNames" value="monospace" />
+					<controlProperty name="Height" value="" />
+				</control>
+			</attribute>
+		</property>
+		<property id="Source">
+			<value />
+			<attribute name="Source">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel">
+					<controlProperty name="FontNames" value="monospace" />
+				</control>
+			</attribute>
+		</property>
+		<property id="HelpLink">
+			<value>#</value>
+			<attribute name="Help Link">
+				<control type="Centralpoint.Web.UI.Controls.CpHyperLink">
+					<controlProperty name="Target" value="_blank" />
+				</control>
+			</attribute>
+		</property>
+		<property id="GenerationException">
+			<value>None</value>
+			<attribute name="Generation Exception">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel">
+					<controlProperty name="FontNames" value="monospace" />
+					<controlProperty name="RenderHtmlEncoded" value="true" />
+				</control>
+			</attribute>
+		</property>
+	</group>
+	<group id="Page" name="Page">
+		<property id="PageUrl">
+			<value>#</value>
+			<attribute name="URL">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel">
+					<controlProperty name="FontNames" value="monospace" />
+					<controlProperty name="RenderHtmlEncoded" value="true" />
+				</control>
+			</attribute>
+		</property>
+		<property id="PageReferrer">
+			<value>#</value>
+			<attribute name="Referrer">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel">
+					<controlProperty name="FontNames" value="monospace" />
+					<controlProperty name="RenderHtmlEncoded" value="true" />
+				</control>
+			</attribute>
+		</property>
+		<property id="MyModule">
+			<value>0</value>
+			<attribute name="My Module">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<controlProperty name="Enabled" value="false" />
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="PagePhysicalPath">
+			<value />
+			<attribute name="Physical Path">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="PagePhysicalPathUtcCreateDate">
+			<value />
+			<attribute name="Physical Path UTC Create Date">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="PagePhysicalPathUtcModifyDate">
+			<value />
+			<attribute name="Physical Path UTC Modify Date">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="PageRequestType">
+			<value />
+			<attribute name="Request Type">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="PageServerVariables">
+			<value />
+			<attribute name="Server Variables">
+				<control type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="BackColor" value="#F8F8FF" />
+					<controlProperty name="Height" value="150" />
+				</control>
+			</attribute>
+		</property>
+		<property id="PageHeaders">
+			<value />
+			<attribute name="Headers">
+				<control type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="BackColor" value="#F8F8FF" />
+					<controlProperty name="Height" value="150" />
+				</control>
+			</attribute>
+		</property>
+		<property id="PageCookies">
+			<value />
+			<attribute name="Cookies" isVisible="false">
+				<control type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="BackColor" value="#F8F8FF" />
+					<controlProperty name="Height" value="150" />
+				</control>
+			</attribute>
+		</property>
+		<property id="PageApplication">
+			<value />
+			<attribute name="Application" isVisible="false">
+				<control type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="BackColor" value="#F8F8FF" />
+					<controlProperty name="Height" value="150" />
+				</control>
+			</attribute>
+		</property>
+		<property id="PageSession">
+			<value />
+			<attribute name="Session">
+				<control type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="BackColor" value="#F8F8FF" />
+					<controlProperty name="Height" value="150" />
+				</control>
+			</attribute>
+		</property>
+		<property id="PageView">
+			<value />
+			<attribute name="View">
+				<control type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="BackColor" value="#F8F8FF" />
+					<controlProperty name="Height" value="150" />
+				</control>
+			</attribute>
+		</property>
+		<property id="PageForm">
+			<value />
+			<attribute name="Form">
+				<control type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="BackColor" value="#F8F8FF" />
+					<controlProperty name="Height" value="150" />
+				</control>
+			</attribute>
+		</property>
+		<property id="PageItems">
+			<value />
+			<attribute name="Items">
+				<control type="Centralpoint.Web.UI.Controls.CpPanel">
+					<controlProperty name="BackColor" value="#F8F8FF" />
+					<controlProperty name="Height" value="150" />
+				</control>
+			</attribute>
+		</property>
+	</group>
+	<group id="User" name="User">
+		<property id="UserIsAuthenticated">
+			<value>0</value>
+			<attribute name="Authenticated User">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<controlProperty name="Enabled" value="false" />
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="Username">
+			<value />
+			<attribute name="Username">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="UserAudience">
+			<value />
+			<attribute name="Audience">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="UserHost">
+			<value />
+			<attribute name="Host">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="UserAgent">
+			<value />
+			<attribute name="Agent">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

@@ -1,0 +1,63 @@
+﻿@model MCC.Models.FeaturedHotelsModel
+@{
+    ViewBag.Title = "Featured Hotels";
+}
+@helper Translate(string field)
+{
+    @Html.Translate(field, "FeaturedHotels")
+}
+@helper RenderFeaturedCities()
+{
+    foreach (var airport in Model.Airports)
+    {
+       <li><a href='@Html.Link("/featuredhotels/"+@airport.AirportCode)'>@airport.City</a></li>
+    }
+}
+<style>
+    a{color:#0000FF}
+    a:hover { color:#000000; text-decoration:none; }
+    #featuredcities li a{padding-left:35px;padding-right:35px}
+</style>
+<div class="container white-container main-content featured-hotels">
+    <br />
+    <nav class="navbar navbar-sub-blue hidden-xs" role="navigation">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav" id="featuredcities">
+                <li class="active"><a style="" href='@Html.Link("/featuredhotels")'>@Translate("Featured")</a><span class="ha-arrow"></span></li>
+                @RenderFeaturedCities()
+            </ul>
+        </div>
+    </nav>
+    <div class="text-center visible-xs fh-nav-dropdown">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                Featured <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href='@Html.Link("/featuredhotels")'>@Translate("Featured")</a><span class="ha-arrow"></span></li>
+                @RenderFeaturedCities()
+            </ul>
+        </div>
+    </div>
+    <h1>@Translate("FeaturedHotels")</h1>
+    <div class="featured-hotels-container">
+        @foreach (var item in Model.Hotels)
+        {
+            <div class="media">
+                <a class="media-left media-middle" href='@Html.Link("/hotel/"+@item.Id)'><img class="fh-img" src="@ViewBag.ImgRootURL@item.Logo01"></a>
+                <div class="media-body">
+                    <p class="fh-type">@item.FeaturedType</p>
+                    <p class="fh-head"><a href='@Html.Link("/hotel/"+@item.Id)'>@item.Name</a></p>
+                    <address class="fh-address">
+                        @item.Address01<br />
+                        @item.City, @item.State @item.PostalCode<br />
+                        @item.Phone <a href="tel:@item.Phone"><img src="/img/phone-icon.png" class="phone-icon"></a>
+                    </address>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="fh-search-btn-container">
+        <button type="submit" class="btn btn-primary btn-lg" id="savechanges" name="savechanges">@Translate("SearchAllAirportsHotels")</button>
+    </div>
+</div>

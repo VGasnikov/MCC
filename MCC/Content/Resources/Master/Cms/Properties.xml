@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<group id="Properties" name="Properties">
+		<property id="MetaDescription">
+			<value />
+			<attribute name="Meta Description">
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+			</attribute>
+		</property>
+		<property id="MetaKeywords">
+			<value />
+			<attribute name="Meta Keywords">
+				<control id="CpTextArea"  type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+			</attribute>
+		</property>
+		<property id="MaxHistoricalVersions">
+			<value>3</value>
+			<attribute name="Maximum Historical Versions" toolTip="The maximum number of historical versions saved per document.">
+				<control id="CpTextBox" type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="100" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="LeadTrackingEnabled">
+			<value>0</value>
+			<attribute name="Lead Tracking Enabled" toolTip="Enabling lead tracking allows for hit counts and collaborative filtration.">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="c52d9d0d-09f4-4547-96b0-0850f7fade47" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="RatingEnabled">
+			<value>0</value>
+			<attribute name="Rating Enabled">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="c52d9d0d-09f4-4547-96b0-0850f7fade47" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SearchCriteriaRecordingEnabled">
+			<value>0</value>
+			<attribute name="Search Criteria Recording Enabled">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="c52d9d0d-09f4-4547-96b0-0850f7fade47" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="EcommerceEnabled">
+			<value>0</value>
+			<attribute name="Ecommerce Enabled">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="c52d9d0d-09f4-4547-96b0-0850f7fade47" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="TaxonomyRoot">
+			<value>144d3c46-753c-4274-beb5-c91e7d861f6f</value>
+			<attribute name="Taxonomy Root">
+				<headerText>Select the starting point of the taxonomy tree.  The selected taxonomy root must be accessible to all audiences so that it is visible to all users.</headerText>
+				<control id="CpTieredSelector" type="Centralpoint.Web.UI.Controls.CpTieredSelector">
+					<controlProperty name="TableName" value="cpsys_Taxonomy" />
+					<controlProperty name="ParentField" value="dbo.cpsys_Taxonomy.ParentTaxonomyId" />
+					<controlProperty name="TextField" value="dbo.cpsys_Taxonomy.[Name] + ' (' + dbo.cpsys_Taxonomy.SystemName + ')'" />
+					<controlProperty name="ValueField" value="dbo.cpsys_Taxonomy.TaxonomyId" />
+					<controlProperty name="PrefixFields" value="false" />
+					<controlProperty name="HasAncestorsTable" value="true" />
+					<controlProperty name="Filter" value="" />
+					<!-- this is not filtered by audience because module configurations can only be altered by ancestor admins which will have access to all audiences anyway -->
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="TaxonomyHiddenItems">
+			<value />
+			<attribute name="Taxonomy Hidden Items">
+				<headerText>Select the items that should be excluded from the taxonomy attribute in the client console.  Hiding items at the root level or above will have no effect.</headerText>
+				<control id="CpTieredSelector" type="Centralpoint.Web.UI.Controls.CpTieredSelector">
+					<controlProperty name="SelectionMode" value="Multiple" />
+					<controlProperty name="TableName" value="cpsys_Taxonomy" />
+					<controlProperty name="ParentField" value="dbo.cpsys_Taxonomy.ParentTaxonomyId" />
+					<controlProperty name="TextField" value="dbo.cpsys_Taxonomy.[Name] + ' (' + dbo.cpsys_Taxonomy.SystemName + ')'" />
+					<controlProperty name="ValueField" value="dbo.cpsys_Taxonomy.TaxonomyId" />
+					<controlProperty name="PrefixFields" value="false" />
+					<controlProperty name="RootValue" value="144d3c46-753c-4274-beb5-c91e7d861f6f" />
+					<controlProperty name="HasAncestorsTable" value="true" />
+					<controlProperty name="Filter" value="" />
+					<!-- this is not filtered by audience because module configurations can only be altered by ancestor admins which will have access to all audiences anyway -->
+				</control>
+			</attribute>
+		</property>
+		<property id="TaxonomySelectionMode">
+			<value>Single</value>
+			<attribute name="Taxonomy Selection Mode">
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="6708acb9-dc51-4967-b6f6-17778f0f6567" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="DocumentIdentifier">
+			<value>AutoNumber</value>
+			<attribute name="Document Identifier">
+				<headerText>It is recommended that you select either 'Data Id' or 'Auto Number'.  The 'Title' and 'Integration Id' fields permit duplicate values and require encoding.</headerText>
+				<control id="CpKeywordRadioButtonList" type="Centralpoint.Web.UI.Controls.CpKeywordRadioButtonList">
+					<controlProperty name="KeywordListId" value="9c1e8a16-fab5-4c67-8182-54912663d730" />
+				</control>
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

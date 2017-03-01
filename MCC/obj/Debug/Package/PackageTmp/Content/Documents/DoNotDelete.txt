@@ -1,0 +1,2 @@
+This file is here to ensure that this folder is not empty.
+If this folder is empty the backup will not get it and this will cause problems with the restore and deploy tools.

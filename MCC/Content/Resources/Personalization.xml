@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<group id="Personalization" name="Personalization">
+		<property id="CultureName">
+			<value>en-US</value>
+			<attribute name="Culture" toolTipUrl="/Articles/Article.aspx?id=ab7c450b-2d4a-463f-a7ca-283051ee61e9">
+				<control type="Centralpoint.Web.UI.Controls.CpCultureListBox" />
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="TimeZoneId">
+			<value>Eastern Standard Time</value>
+			<attribute name="Time Zone" toolTipUrl="/Articles/Article.aspx?id=4acb7b38-e70b-4d20-81d7-6930f8db3422">
+				<control type="Centralpoint.Web.UI.Controls.CpTimeZoneListBox" />
+				<validator id="CpRequiredFieldValidator" type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SourceEncodingCodePage">
+			<value>65001</value>
+			<attribute name="Source Encoding">
+				<headerText>If this value is not 'utf-8' the text entered/imported into all modules is assumed to be encoded in the selected format and will be automatically converted to utf-8.  If this text is not in the selected format character data may be lost.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpListBox">
+					<listItem value="1200">UTF-16LE, utf-16, ucs-2, unicode, or ISO-10646-UCS-2</listItem>
+					<listItem value="1201">UTF-16BE or unicodeFFFE</listItem>
+					<listItem value="1252">windows-1252</listItem>
+					<listItem value="65000">utf-7, csUnicode11UTF7, unicode-1-1-utf-7, unicode-2-0-utf-7, x-unicode-1-1-utf-7, or x-unicode-2-0-utf-7</listItem>
+					<listItem value="65001">utf-8, unicode-1-1-utf-8, unicode-2-0-utf-8, x-unicode-1-1-utf-8, or x-unicode-2-0-utf-8</listItem>
+					<listItem value="20127">us-ascii, us, ascii, ANSI_X3.4-1968, ANSI_X3.4-1986, cp367, csASCII, IBM367, iso-ir-6, ISO646-US, or ISO_646.irv:1991</listItem>
+					<listItem value="54936">GB18030</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="SiteTitle">
+			<value></value>
+			<attribute name="Title Bar Label">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="DisplayVersion">
+			<value>0</value>
+			<attribute name="Site Version Number Display">
+				<footerText>Display the site version number in the title bar.</footerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DisplayTimer">
+			<value>0</value>
+			<attribute name="Display Session Timer">
+				<footerText>An estimate of the amount of time remaining before the session expires will be displayed in the status bar.</footerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DefaultSort">
+			<value>{0}.Title</value>
+			<attribute name="Default Sort Order" toolTip="The default sort order in all supported module grid views.">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="{0}.Title">Title</listItem>
+					<listItem value="{0}.StartDate DESC, {0}.Title">Publish Start Date</listItem>
+					<listItem value="{0}.ModifyDate DESC, {0}.Title">Last Modified Date</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="PageSize">
+			<value>25</value>
+			<attribute name="Records Per Page" toolTip="Maximum number of records to display at one time.">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="25">25</listItem>
+					<listItem value="50">50</listItem>
+					<listItem value="100">100</listItem>
+					<listItem value="250">250</listItem>
+					<listItem value="500">500</listItem>
+					<listItem value="1000">1000</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="AudiencesPostingMode">
+			<value>Combined</value>
+			<attribute name="Audiences Posting Mode">
+				<headerText>Separate allows you to select whether a document is editable and/or published for each audience.</headerText>
+				<control id="CpRadioButtonList" type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="Combined">Combined</listItem>
+					<listItem value="Separate">Separate</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="ControlWidth">
+			<value>Dynamic</value>
+			<attribute name="Control Width" toolTip="The width of standard form controls.">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="Static">Static</listItem>
+					<listItem value="Dynamic">Dynamic</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="CheckBoxLocation">
+			<value>Left</value>
+			<attribute name="Checkbox Column Location" toolTip="Location of the record selection checkbox.">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="Left">Left</listItem>
+					<listItem value="Right">Right</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="CpGridRowSelectorPopulatesSearchWithDataKey">
+			<value>0</value>
+			<attribute name="Checkbox Selects Data Key" toolTip="Checking the console grid row selector checkbox copies the row's data key to the search header keywords text box.">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="AttributeNameFontWeight">
+			<value>Bold</value>
+			<attribute name="Attribute Name Font Weight">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="Bold">Bold</listItem>
+					<listItem value="Normal">Normal</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DisplaySystemNames">
+			<value>0</value>
+			<attribute name="Display System Names">
+				<headerText>Selecting Yes displays audience, taxonomy, role, and attribute system names within all standard modules.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DisplaySavePlusNewButton">
+			<value>AddNewOnly</value>
+			<attribute name="Display Save+New Button">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="Never">Never</listItem>
+					<listItem value="AddNewOnly">Add New Only</listItem>
+					<listItem value="AddNewAndUpdate">Add New &amp; Update</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="CpEditorHighlightCpScripting">
+			<value>0</value>
+			<attribute name="CpScripting in RTF Editors" toolTip="Selecting any value other than Unchanged (Default) causes the editor to change the HTML for Design Mode and change it back for HTML Mode.">
+				<footerText>Preview mode is only partially supported in IE 8 and will not be used in IE 7 and below.</footerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="0">Unchanged (Default)</listItem>
+					<listItem value="1">Highlight</listItem>
+					<listItem value="2">Preview</listItem>
+				</control>
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

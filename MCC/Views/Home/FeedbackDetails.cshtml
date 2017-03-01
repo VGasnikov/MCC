@@ -1,0 +1,247 @@
+﻿@using MCC.Domain
+@model Feedback
+@{
+    ViewBag.Title = @Model.HotelId + " | " + TranslationRepository.GetLabel("Layout", "HotelSearch") + " | " + Audience.Current.ToString().ToUpper();
+    ViewBag.BackgroundImageClass = "hotel-reservation";
+}
+@helper Translate(string field)
+{
+    @Html.Translate(field, "FeedbackDetails")
+}
+@helper HotelList()
+{
+    var airlineId = UserRepository.GetUserById(Model.UserId).AirlineId;
+    if (airlineId.HasValue)
+    {
+        foreach (var h in HotelRepository.GetHotelsByAirline(airlineId.Value)){
+           <option value="@h.Key">@h.Value</option>
+        }
+    }
+}
+<div class="container white-container main-content">
+    <h1>Feedback for @if (Model.HotelId.HasValue){@HotelRepository.GetHotelNameById(@Model.HotelId.Value, "{City}, {Title}")} else{@TransportCompanyRepository.GetTransportCompanyNameById(@Model.TransportCompanyId.Value)}</h1>
+    <p>@Translate("ReportedBy") @Model.FirstName, @Model.LastName @Translate("OnThe") @Model.FeedbackDate.ToLocalTime() @Translate("AboutThe") @Translate(Model.Category.ToString())</p><br />
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-4">@Translate("FeedbackID"):</label>
+                    <label class="col-xs-12 col-sm-8 col-md-8">@Model.FeedbackNumber</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-4">@Translate("Username"):</label>
+                    <label class="col-xs-12 col-sm-8 col-md-8">@UserRepository.GetUserNameById(Model.UserId)</label>
+                </div>
+                @if (!string.IsNullOrEmpty(Model.RoomNumber))
+                {
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-4">@Translate("RoomNumber"):</label>
+                    <label class="col-xs-12 col-sm-8 col-md-8">@Model.RoomNumber</label>
+                </div>
+                }
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-4">@Translate("CheckInDate"):</label>
+                    <label class="col-xs-12 col-sm-8 col-md-8">@Model.CheckIn</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-4">@Translate("CheckOutDate"):</label>
+                    <label class="col-xs-12 col-sm-8 col-md-8">@Model.CheckOut</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-4">@Translate("ArrivalFlightNumber"):</label>
+                    <label class="col-xs-12 col-sm-8 col-md-8">@Model.ArrivalFlightNumber</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-4">@Translate("DepartureFlightNumber"):</label>
+                    <label class="col-xs-12 col-sm-8 col-md-8">@Model.DepartureFlightNumber</label>
+                </div>
+                @if (!string.IsNullOrEmpty(Model.BranchId))
+                {
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-4">@Translate("Department"):</label>
+                    <label class="col-xs-12 col-sm-8 col-md-8">@BranchRepository.GetHotelBranchNameById(Model.BranchId)</label>
+                </div>
+                }
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-4">@Translate("Subject"):</label>
+                    <label class="col-xs-12 col-sm-8 col-md-8">@Model.Subject</label>
+                </div>
+                @if (!string.IsNullOrEmpty(Model.ResourceGroup))
+                {
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-4 col-md-4">@Translate("Type"):</label>
+                        <label class="col-xs-12 col-sm-8 col-md-8">@Model.ResourceGroup</label>
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(Model.ImageUpload))
+                {
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-4 col-md-4">@Translate("Upload"):</label>
+                        <label class="col-xs-12 col-sm-8 col-md-8">
+                            <img src="@ViewBag.ImgRootURL@Model.ImageUpload" width="320">
+                        </label>
+                    </div>
+                }
+            </div>
+
+        </div>
+        <div style="margin-bottom:12px">
+            @foreach (var comment in FeedbackCommentRepository.GetFeedbackComments(Model.FeedbackId))
+            {
+                <div style='margin-bottom:10px;'>
+                    <strong>@Translate("DateOfComment"):</strong> @comment.DateCreated.ToLocalTime()
+                    <strong>@Translate("Username"): </strong>@comment.UserName<br />@comment.ResponseComment
+                </div>
+            }
+        </div>
+        <br class="clear"/>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">@Translate("RespondToThisComment")</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+
+ @using (Html.BeginForm("AddFeedbackComment", "Home", FormMethod.Post, new { }))
+ {
+                            <input type="hidden" name="FeedbackId" value="@Model.FeedbackId" />
+                            <input type="hidden" name="FeedbackNumber" value="@Model.FeedbackNumber" />
+                            <div class="form-group">
+                                <label class="col-xs-12 col-sm-4 col-md-4" for="Comments">
+                                    <span class="required">*</span> @Translate("Comment"):
+                                </label>
+                                <div class="col-xs-12 col-sm-8 col-md-8"><textarea required rows="5" cols="20" id="Comments" name="ResponseComment" class="form-control"></textarea></div>
+                            </div>
+                            <div class="form-group" id="open-resolved">
+                                <label class="col-xs-12 col-sm-4 col-md-4" for="FeedbackStatus">
+                                    <span class="required">*</span> @Translate("Status"):
+                                </label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <select size="1" id="FeedbackStatus" name="FeedbackStatus" class="form-control" required>
+                                        <option value="">@Html.Translate("PleaseSelect")</option>
+                                        <option selected="selected" value="0">@Html.Translate("Open")</option>
+                                        <option value="1">@Html.Translate("Resolved")</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-12 col-sm-4 col-md-4" for="SendNotification">
+                                    <span class="required">*</span>
+                                    @Translate("SendNotification"):
+                                </label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <label class="radio-inline"><input type="radio" value="False" required name="SendNotification">@Html.Translate("No", "Global")</label>
+                                    <label class="radio-inline"><input type="radio" value="True" required checked="checked" name="SendNotification">@Html.Translate("Yes", "Global")</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 button-row">
+                                <button type="submit" class="btn btn-primary btn-lg">@Translate("SendResponse")</button>
+                            </div>
+ }
+                     </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">@Translate("AssociateNewHotel")</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+@using (Html.BeginForm("AssociateNewHotel", "Home", FormMethod.Post, new { }))
+{
+    <input type="hidden" name="FeedbackId" value="@Model.FeedbackId" />
+    <input type="hidden" name="FeedbackNumber" value="@Model.FeedbackNumber" />
+                        <div class="form-group" id="open-resolved">
+                            <label class="col-xs-12 col-sm-4 col-md-4" for="Open/Resolved">
+                                <span class="required">*</span>
+                                @Translate("NewHotel"):
+                            </label>
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                <select size="1" id="NewHotel" name="NewHotel" class="form-control">
+                                    <option value="">@Html.Translate("PleaseSelect")</option>
+                                    @HotelList()
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-md-4" for="Comments">
+                                <span class="required">*</span>
+                                @Translate("Comments"):
+                            </label>
+                            <div class="col-xs-12 col-sm-8 col-md-8"><textarea rows="5" cols="20" id="Comments" name="Comments" class="form-control"></textarea></div>
+                        </div>
+                        <div class="col-sm-12 button-row">
+                            <button type="submit" class="btn btn-primary btn-lg">@Translate("SaveChanges")</button>
+                        </div>
+}
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">@Translate("ChangeFeedbackType")</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+@using (Html.BeginForm("ChangeFeedbackTypeTopicPriority", "Home", FormMethod.Post, new { }))
+{
+    <input type="hidden" name="FeedbackId" value="@Model.FeedbackId" />
+    <input type="hidden" name="FeedbackNumber" value="@Model.FeedbackNumber" />
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-md-4" for="FeedbackType">
+                                <span class="required">*</span> @Translate("FeedbackType"):
+                            </label>
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                <select size="1" name="FeedbackType" id="FeedbackType" class="form-control" required>
+                                    <option selected="selected" value="">@Html.Translate("PleaseSelect")</option>
+                                    <option value="1">@Html.Translate("Compliment")</option>
+                                    <option value="0">@Html.Translate("Complaint")</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-md-4" for="Topic">
+                                <span class="required">*</span> @Translate("Topic"):
+                            </label>
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                <select size="1" id="FeedbackTopic" name="FeedbackTopic" class="form-control" required>
+                                    <option selected="selected" value="">@Html.Translate("PleaseSelect")</option>
+                                    @foreach (var t in FeedbackTopicRepository.GetFeedbackTopicByCategory(Model.Category, Audience.Current.Airline.Id))
+                                    {
+                                        <option value="@t.FeedbackTopicId">@t.Name</option>
+                                    }
+                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-4 col-md-4" for="Priority">
+                                <span class="required">*</span> @Translate("Priority"):
+                            </label>
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                <select size="1" name="Priority" id="Priority" class="form-control" required>
+                                    <option selected="selected" value="">@Html.Translate("PleaseSelect")</option>
+                                    <option value="2" index="1">@Html.Translate("High")</option>
+                                    <option value="1" index="2">@Html.Translate("Medium")</option>
+                                    <option value="0" index="3">@Html.Translate("Low")</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 button-row">
+                            <button type="submit" class="btn btn-primary btn-lg">@Translate("SaveChanges")</button>
+                        </div>
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

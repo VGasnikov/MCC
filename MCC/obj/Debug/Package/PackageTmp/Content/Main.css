@@ -1,0 +1,144 @@
+﻿/* Centralpoint.WebSite.StyleSheet.GlobalStyles */
+img { border: none; }
+.clear { clear: both; }
+.accessKey { text-decoration: underline; }
+.alert { clear: both; padding: 10px 0px 0px 0px; color: Red; }
+.footNote { font-size: 7pt;	color: #808080; }
+.intro { padding: 0px 0px 10px 0px; }
+.outro { padding: 10px 0px 0px 0px; }
+.error { clear: left; color: #FF0000; font-weight:bold; }
+table.cpsys_Table td { text-align: left; vertical-align: top; }
+td.cpsys_BlockColumn { vertical-align: top; }
+div.cpsys_Block { display: table; width: 100%; }
+div.cpsys_BlockColumn { display: table-cell; }
+ul.cpsys_BlockList, ul.cpsys_BlockList ul { list-style-type: none; margin: 0; padding: 0; }
+ul.cpsys_BlockList li { list-style-type: none; }
+body, html { margin:0px; padding:0px; background-color:#FFFFFF; color:#444444; font-family:Arial, Helvetica, sans-serif; font-size:110%; }
+a, a:link { color:#330066; text-decoration:none; }
+a:hover { color:#0000CC; text-decoration:none; }
+a:visited { color:#555555; }
+.title { font-size:150%; font-weight:bold; font-style:inherit; }
+strong { font-size:100%; font-weight:bold; font-style:inherit; }
+em { font-size:100%; font-weight:inherit; font-style:italic; }
+small { font-size:75%; font-weight:lighter; font-style:normal; }
+.cpweb_PerimeterLeftTd { vertical-align:top; }
+.cpweb_Wrapper { text-align:left; border:solid 0px #999999; margin:0px; padding:0px; background-color:#FFFFFF; }
+.cpweb_PerimeterRightTd { vertical-align:top; }
+.cpweb_SplashPage { position:absolute; z-index:1000; border:solid 1px #000000; }
+.cpweb_Taxonomy { font-size:120% !important; color:#006699 !important; text-decoration:none !important; font-weight:bold !important; }
+/* Centralpoint.WebSite.StyleSheet.GlobalStyles */
+
+.cpsty_Top { padding:0px; }
+.cpsty_Top a, .cpsty_Top a:link { text-decoration:inherit; }
+.cpsty_Top a:hover { text-decoration:inherit; }
+.cpsty_Top a:visited {  }
+
+.cpsty_RightTd { vertical-align:top; width:1%; }
+.cpsty_Right { background-color:transparent; padding:0px; }
+.cpsty_Right a, .cpsty_Right a:link { text-decoration:inherit; }
+.cpsty_Right a:hover { text-decoration:inherit; }
+.cpsty_Right a:visited {  }
+
+.cpsty_Bottom { padding:0px; }
+.cpsty_Bottom a, .cpsty_Bottom a:link { color:#000099; text-decoration:inherit; }
+.cpsty_Bottom a:hover { text-decoration:inherit; }
+.cpsty_Bottom a:visited {  }
+
+.cpsty_LeftTd { vertical-align:top; width:1%; }
+.cpsty_Left { background-color:transparent; padding:0px; }
+.cpsty_Left a, .cpsty_Left a:link { text-decoration:inherit; }
+.cpsty_Left a:hover { text-decoration:inherit; }
+.cpsty_Left a:visited {  }
+
+.cpsty_CenterTd { vertical-align:top;  }
+.cpsty_Center { background-color:transparent; padding:0px; }
+.cpsty_Center a, .cpsty_Center a:link { color:#0000FF; text-decoration:none; }
+.cpsty_Center a:hover { color:#000000; text-decoration:none; }
+.cpsty_Center a:visited {  }
+.cpsty_LeftSeparatorTd { vertical-align:top; width:1%; background-position:top left; background-repeat:repeat-y; background-image:url(); }
+
+.cpsty_Navigation { background-position:top left; background-repeat:repeat-x; background-color:#FFFFFF; text-align:left; color:#333333; text-decoration:inherit; font-weight:bold; border-top:solid 1px #888888; width:145px; }
+.cpsty_Navigation a, .cpsty_Navigation a:link { color:#333333; text-decoration:inherit; }
+.cpsty_Navigation a:hover {  }
+.cpsty_NavigationContent { width:auto; }
+.cpsty_NavigationSelected { text-decoration:inherit; }
+.cpsty_NavigationSelected a, .cpsty_NavigationSelected a:link { text-decoration:inherit; }
+.cpsty_NavigationHover { color:#888888; text-decoration:inherit; background-color:#DDDDDD; }
+.cpsty_NavigationHover a, .cpsty_NavigationHover a:link { color:#888888; text-decoration:inherit; }
+.cpsty_NavigationText { display:block;padding:3px 3px 3px 3px; margin:0px 0px 0px 0px; }
+
+.cpsty_SubNavigation { text-align:left; text-decoration:inherit; font-size:98%; font-weight:bold; border-top:solid 1px #BBBBBB; }
+.cpsty_SubNavigation a, .cpsty_SubNavigation a:link { text-decoration:inherit; }
+.cpsty_SubNavigation a:hover {  }
+.cpsty_SubNavigationSelected { text-decoration:inherit; }
+.cpsty_SubNavigationSelected a, .cpsty_SubNavigationSelected a:link { text-decoration:inherit; }
+.cpsty_SubNavigationHover { color:#FFFFFF; text-decoration:inherit; background-color:#888888; }
+.cpsty_SubNavigationHover a, .cpsty_SubNavigationHover a:link { color:#FFFFFF; text-decoration:inherit; }
+.cpsty_SubNavigationText { padding:2px 3px 2px 3px; margin:0px 0px 15px 0px; }
+
+/* Centralpoint.WebSite.StyleSheet.CustomStyles */
+body, html { font-size:14px !important; }
+.cpweb_Wrapper { background: transparent !important; background-color: none !important; }
+.form-control { margin-bottom:15px; }
+.cpsty_Pages_Login_ctbxPassword, .cpsty_Pages_Login_ctbxUsername{font-size:14px !important; }
+.CpButton { cursor:pointer; border:outset 1px #CCCCCC; background:#999999; color:#463E3F; font-family: Verdana, Arial, Helvetica, Sans-Serif; font-size: 18px; font-weight:bold; padding: 1px 2px; background:url(/Integrations/Centralpoint/Resources/Controls/CpButtonBackground.gif) repeat-x left top; }
+.navlink-dashboard { background-image: url(../uploads/public/documents/bootstrap/img/nav-dashboard-icon.png); }
+.navlink-travel { background-image: url(../uploads/public/documents/bootstrap/img/nav-travel-icon.png); }
+.navlink-airport { background-image: url(../uploads/public/documents/bootstrap/img/nav-airport-icon.png); }
+.navlink-feedback { background-image: url(../uploads/public/documents/bootstrap/img/nav-feedback-icon.png); }
+.navlink-hotel { background-image: url(../uploads/public/documents/bootstrap/img/nav-hotel-icon.png); }
+.navlink-useradmin { background-image: url(../uploads/public/documents/bootstrap/img/nav-user-admin-icon.png); }
+.navlink-reporting { background-image: url(../uploads/public/documents/bootstrap/img/nav-reporting-icon.png); }
+.navlink-profile { background-image: url(../uploads/public/documents/bootstrap/img/your-profile-icon.png); }
+.navlink-preferences { background-image: url(../uploads/public/documents/bootstrap/img/ya-pref-icon.png); }
+.navlink-logout { background-image: url(../uploads/public/documents/bootstrap/img/logout-icon.png); }
+.navlink {font-size: 11px; font-weight: 400; text-decoration: none; color: #6f767e; background-repeat: no-repeat; background-position: center left; padding-left: 35px; margin-left: 20px;}
+
+/* Testing */
+.joe {width:100px !important; }
+.radio1 td{ margin: 10px;}
+input[type=radio],input[type=checkbox]{margin:10px}
+.airport-code-box {
+    width: 84px;
+    height: 82px;
+    background-image: url('/uploads/public/images/design/airport-code-bkgrnd.png');
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 24px;
+    position: relative;
+}
+.cpweb_center { text-align: center; }
+
+.carousel-img { width: 600px; height:500px;}
+.carousel{ margin-top: 20px; }
+.carousel-main{ margin: 20px;}
+
+.airport-code-box p {
+    margin: 0px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 32px;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+#divMobileMenu {
+display:none;
+}
+
+footer > .container.white-container {padding-left: 0px !important; }
+
+    @media screen and (max-width: 480px) {
+
+    .cpweb_PerimeterMiddle {position:absolute;left: 0px;box-shadow: 0px 0px 0px #353535;}
+#divMobileMenu {
+float:left;height: 100%;
+width:245px;
+display:block;
+overflow:hidden;
+background-color:#E7EBF1;
+box-shadow: 5px 0px 5px #353535;
+}
+    }
+/* Centralpoint.WebSite.StyleSheet.CustomStyles */

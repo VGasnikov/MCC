@@ -1,0 +1,205 @@
+﻿@model MCC.Models.SearchUsersModel
+@{
+    ViewBag.Title = "Search Users";
+}
+@helper Translate(string field)
+{
+    @Html.Translate(field, "SearchUsers")
+}
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+<style>
+    .footer{background-color:white !important}
+    .form-control{height:34px}
+</style>
+<div class="container white-container main-content" id="main-content-scroll" data-toggle="validator">
+    <input type="hidden" id="SelectedItems" name="SelectedItems" />
+    <input type="hidden" id="Cmd" name="Cmd" />
+    <h1>@Translate("SearchUsers")</h1>
+    <form method="post">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-0 control-label" for="UserName">@Translate("UserName"):</label>
+                        <div class="col-xs-12 col-sm-7 col-md-7">
+                            <input name="UserName" type="text" id="UserName" class="form-control" value="@Model.UserName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-0 control-label" for="Email">@Translate("Email"):</label>
+                        <div class="col-xs-12 col-sm-7 col-md-7">
+                            <input name="Email" type="text" id="Email" value="@Model.Email" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-0 control-label" for="UserStatus">@Translate("UserStatus"):</label>
+                        <div class="col-xs-12 col-sm-7 col-md-7">
+                            <select size="1" name="UserStatus" id="UserStatus" class="form-control" required>
+                                <option selected="selected" value="">@Html.Translate("PleaseSelect")</option>
+                                <option value="-1">All</option>
+                                <option value="0">Not Activated</option>
+                                <option value="1">Activated</option>
+                                <option value="2">Locked</option>
+                                <option value="3">Suspended</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class='form-group'>
+                        <label class='col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-0 control-label' for='airline'>@Translate("Airline")</label>
+                        <div class='col-xs-12 col-sm-7 col-md-7'>
+                            <select size='1' name='Airline' id='Airline' value="@Model.Airline" class='form-control'></select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 button-row">
+                    <button type="submit" class="btn btn-primary btn-lg">@Translate("Search")</button>
+                </div>
+            </div>
+        </div>
+
+        <div align="center">
+            <button class="btn btn-info left" onclick="Cmd1('Activate')">@Translate("Activate")</button>
+            <button class="btn btn-info centered" onclick="Cmd1('Suspend')">@Translate("Suspend")</button>
+            <button class="btn btn-info right" onclick="Cmd1('Reset')">@Translate("ResetPassword")</button>
+        </div>
+    </form>
+        <br />
+
+        <div class="table-responsive" ng-app="myApp" ng-controller="MainController">
+            <table class='table table-hover table-striped feedback-table'>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select_all" /></th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'b'; sortReverse = !sortReverse">
+                                @Html.Translate("UserName")
+                                <span ng-show="sortType === 'b' && !sortReverse" class="caret"></span>
+                                <span ng-show="sortType === 'b' && sortReverse" class="dropup"><span class="caret"></span></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'c'; sortReverse = !sortReverse">
+                                @Html.Translate("FirstName")
+                                <span ng-show="sortType === 'c' && !sortReverse" class="caret"></span>
+                                <span ng-show="sortType === 'c' && sortReverse" class="dropup"><span class="caret"></span></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'd'; sortReverse = !sortReverse">
+                                @Html.Translate("LastName")
+                                <span ng-show="sortType === 'd' && !sortReverse" class="caret"></span>
+                                <span ng-show="sortType === 'd' && sortReverse" class="dropup"><span class="caret"></span></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'e'; sortReverse = !sortReverse">
+                                @Html.Translate("Roles")
+                                <span ng-show="sortType === 'e' && !sortReverse" class="caret"></span>
+                                <span ng-show="sortType === 'e' && sortReverse" class="dropup"><span class="caret"></span></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'f'; sortReverse = !sortReverse">
+                                @Html.Translate("Status")
+                                <span ng-show="sortType === 'f' && !sortReverse" class="caret"></span>
+                                <span ng-show="sortType === 'f' && sortReverse" class="dropup"><span class="caret"></span></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'g'; sortReverse = !sortReverse">
+                                @Html.Translate("Email")
+                                <span ng-show="sortType === 'g' && !sortReverse" class="caret"></span>
+                                <span ng-show="sortType === 'g' && sortReverse" class="dropup"><span class="caret"></span></span>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="i in users | orderBy:sortType:sortReverse | filter:searchHotel | itemsPerPage: 1000">
+                        <td><input type="checkbox" ng-data="{{ i.a }}" /></td>
+                        <td>{{ i.b }}</td>
+                        <td>{{ i.c }}</td>
+                        <td>{{ i.d }}</td>
+                        <td>{{ i.e }}</td>
+                        <td>{{ i.f }}</td>
+                        <td>{{ i.g }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Update results</h4>
+                    </div>
+                    <div class="modal-body">
+                        <%RenderUpdateResults(Response.Output);%>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+<script type="text/javascript">
+    function Cmd1(name)
+    {
+        var res=GetSelectedItems();
+        if(res==0)
+        {
+            alert('Please select users.');
+            return;
+        }
+        $("#Cmd").val(name);
+
+        $("form").submit();
+    }
+
+    function GetSelectedItems()
+    {
+        var arr=[];
+        $(':checkbox').each(function(){
+            if($(this).is(':checked')) {
+                var d= this.getAttribute('ng-data');
+                arr.push(d);
+            }
+        });
+        $("#SelectedItems").val(arr.toString());
+        return arr.length>0;
+    }
+
+   angular.module('myApp', ['angularUtils.directives.dirPagination'])
+    .controller("OtherController", function OtherController($scope) {
+
+    })
+
+    .controller("MainController", function($scope) {
+        $scope.sortType = ''; // set the default sort type
+        $scope.sortReverse = false;  // set the default sort order
+        $scope.searchHotel = '';     // set the default search/filter term
+        $scope.users = @Html.Raw(@Model.GetUsers().AsJson());
+
+    });
+    $('#select_all').click(function() {
+        var c = this.checked;
+        $(':checkbox').prop('checked',c);
+    });
+    //<%if(UpdateResults!=null) {%>
+    //     $(document).ready(function(){ $("#myModal").modal(); });
+    //<% } %>
+</script>     
+

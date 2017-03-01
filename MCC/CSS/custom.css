@@ -1,0 +1,432 @@
+
+body {
+    background-color: #373737;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* body classes that change the background images */
+body.change-profile, body.register-me { background-image: url('/img/register-me-bkgrnd.jpg'); }
+body.provide-feedback { background-image: url('/img/providefeedback-bkgnrd.jpg'); }
+body.your-feedback { background-image: url('/img/A-ExternalCrewmember-Feedback-bkgnrd.jpg'); }
+body.my-travel { background-image: url('/img/my-travel-bkrnd.jpg'); }
+body.hotel-reservation { background-image: url('/img/hotel-reservation-bkgrnd.jpg'); }
+body.hotel-information { background-image: url('/img/A-ExternalCrewmember-HotelAreaInfo-bkgnrd.jpg'); }
+body.login-page { background-image: url('/img/login-background.jpg'); }
+body.featured-hotels { background-image: url('/img/dashboard-bkgrnd.jpg'); }
+body.edit-user { background-image: url('/img/edit-user-bkgrnd.jpg'); }
+body.add-user { background-image: url('/img/add-user-background.jpg'); }
+body.search-users { background-image: url('/img/APIAdmin-SearchUsers-bkgrnd.jpg')}
+body.reporting { background-image: url('/img/add-user-background.jpg'); }
+body.air-hotel-search { background-image: url('/img/APIAdmin-AirportHotelSearch-bkgrnd.jpg'); }
+body.admin-air-hotel-search { background-image: url('/img/APIAdmin-AirportHotelSearch-bkgrnd.jpg'); }
+body.admin-hotel-info { background-image: url('/img/APIAdmin-AddHotel-bkgrnd.jpg'); }
+body.admin-airline-info { background-image: url('/img/APIAdmin-AddAirline-bkgrnd.jpg'); }
+body.admin-airlines  { background-image: url('/img/APIAdmin-Airlines-bkgrnd.jpg'); }
+
+/*Victor*/ 
+/*.my-travel { background-image: url('/img/my-travel-bkrnd.jpg'); }
+.featured-hotels { background-image: url('/img/dashboard-bkgrnd.jpg'); }*/
+/*---------------------*/
+
+
+
+.main-content {
+    min-height: 840px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-static-top {
+    background-image: url('/img/divPerimeterTop-bkgrnd.png');
+    background-repeat: repeat-x;
+}
+
+h1 {
+    margin: 0px 0px 10px;
+    padding: 25px 0px 15px 0px;
+}
+
+.white-container {
+    background-image: url('/img/inside-page-bkgrnd.png');
+}
+
+span.red { color: red; }
+
+.button-row {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+div.button-row button { min-width: 150px}
+
+.clear { clear: both; }
+
+.strong { font-weight: bold;}
+
+/* things that are mobile specific above are over-written here on larger screens */
+@media (min-width: 768px) {
+    .main-content { padding-left: 75px; padding-right: 75px; }
+    h1 { padding: 68px 0px 25px 0px; }
+    .button-row { padding-top: 10px; padding-bottom: 10px;}
+    div.button-row button { min-width: 315px}
+}
+
+/* Header - Start */
+/* top right acount menu section */
+.header-login-container {
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.login-container { position: absolute; bottom: 15px; right: -20px; }
+.login-container a.no-drop { display: block; float: left; height: 18px; padding-top: 2px; }
+.login-container a.no-drop, .login-container p { font-family: 'Droid Sans', sans-serif; font-size: 13px; font-weight: 700; color: #FFF; margin: 0px; text-decoration: none; }
+.login-container a.no-drop.acct { margin-right: 15px; background-image: url(/img/ya-person.png); background-repeat: no-repeat; background-position: left; padding-left: 14px; }
+.login-container a.no-drop.pref { margin-right: 15px; background-image: url(/img/pref-symbol.png); background-repeat: no-repeat; background-position: left; padding-left: 20px; }
+
+nav .top-menu ul {
+  text-align: left;
+  display: inline;
+  list-style: none;
+  z-index: 550;
+}
+nav .top-menu ul li {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+.item-6 ul li ul, .item-7 ul li ul  {
+  padding: 0px 0px 12px 0px;
+  position: absolute;
+  top: 86px;
+  left: 0px;
+  width: 170px;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #e7ebf1;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(227,226,227,1);
+  -moz-box-shadow: 3px 3px 3px 0px rgba(227,226,227,1);
+  box-shadow: 3px 3px 3px 0px rgba(227,226,227,1);
+}
+.item-6 ul li ul li a, .item-7 ul li ul li a { 
+  background-color: #e7ebf1; 
+  display: block; 
+  color: #6f767e;
+  height: auto !important;
+  padding: 12px 25px 0px 25px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.item-6 ul li ul li a:hover, .item-7 ul li ul li a:hover { /* background: #5c6978; */ text-decoration: underline; background-color: #e7ebf1; background-image: none; }
+.item-6 ul li:hover ul, .item-7 ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/*victor start*/
+
+#loginUl {
+  text-align: left;
+  display: inline;
+  list-style: none;
+  z-index: 550;
+}
+
+#loginUl li {
+  display: inline-block;
+  /* margin-right: -4px; */
+  position: relative;
+  cursor: pointer;
+}
+
+
+
+
+/*victor end*/
+
+#dd-your-profile { background-image: url(/img/your-profile-icon.png); background-repeat: no-repeat; background-position: center left; padding-left: 44px; }
+#dd-preferences { background-image: url(/img/ya-pref-icon.png); background-repeat: no-repeat; background-position: center left; padding-left: 44px; }
+#dd-logout { background-image: url(/img/logout-icon.png); background-repeat: no-repeat; background-position: center left; padding-left: 44px; }
+
+/* NAVIGATION */
+nav { width: 100%; margin: 0; padding: 0; }
+nav.nshadow { background-color: #e7ebf1; -webkit-box-shadow: 0px 0px 10px 0px rgba(69,69,69,1); -moz-box-shadow: 0px 0px 10px 0px rgba(69,69,69,1); box-shadow: 0px 0px 10px 0px rgba(69,69,69,1); position: relative; z-index: 150; }
+nav .inner-container ul, nav .inner-container li { list-style-type: none; margin: 0; padding: 0; }
+nav .inner-container ul > li { position: relative; float: left; }
+nav .inner-container ul li img { position: relative; float: left; }
+nav .inner-container { margin: auto; width: 960px;}
+nav .cpntm_TopNav a { display: block; float: left; font-size: 11px; font-weight: 400; text-decoration: none; color: #6f767e; padding-top: 20px; padding-right: 35px; padding-left: 35px; height: 66px;  }
+nav .cpntm_TopNav li:hover { background-image: url(/img/nav-hover-selected-fade.png); background-repeat: repeat-x; }
+nav span.n-icon { display: block; width: 28px; height: 28px; margin: 0 auto; margin-bottom: 5px; }
+
+/* NAV ICONS */
+nav .item-1 span:first-child { background-image: url(/img/nav-dashboard-icon.png); background-repeat: no-repeat; background-position: center center; }
+nav .item-2 span:first-child { background-image: url(/img/nav-travel-icon.png); background-repeat: no-repeat; background-position: center center; }
+nav .item-3 span:first-child { background-image: url(/img/nav-airport-icon.png); background-repeat: no-repeat; background-position: center center; }
+nav .item-4 span:first-child { background-image: url(/img/nav-feedback-icon.png); background-repeat: no-repeat; background-position: center center; }
+nav .item-5 span:first-child { background-image: url(/img/nav-hotel-icon.png); background-repeat: no-repeat; background-position: center center; }
+nav .item-6 span:first-child { background-image: url(/img/nav-user-admin-icon.png); background-repeat: no-repeat; background-position: center center; }
+nav .item-7 span:first-child { background-image: url(/img/nav-reporting-icon.png); background-repeat: no-repeat; background-position: center center; }
+
+/* Nav on mobile menu */
+nav.navbar-static-top ul.navbar-nav {margin-bottom: 0px; margin-top: 0px;}
+nav.navbar-static-top ul.navbar-nav li { background-color: #e7ebf1; border-color: #AAAAAA; border-width: 0px 0px 1px 0px; border-style:solid;}
+nav.navbar-static-top ul.navbar-nav li a {font-size: 11px; font-weight: 400; text-decoration: none; color: #6f767e; background-repeat: no-repeat; background-position: center left; padding-left: 35px; margin-left: 10px; }
+nav.navbar-static-top ul.navbar-nav li a:hover { color:inherit }
+nav.navbar-static-top ul.navbar-nav li a.navlink-dashboard { background-image: url(/img/nav-dashboard-icon.png); }
+nav.navbar-static-top ul.navbar-nav li a.navlink-travel { background-image: url(/img/nav-travel-icon.png); }
+nav.navbar-static-top ul.navbar-nav li a.navlink-airport { background-image: url(/img/nav-airport-icon.png); }
+nav.navbar-static-top ul.navbar-nav li a.navlink-feedback { background-image: url(/img/nav-feedback-icon.png); }
+nav.navbar-static-top ul.navbar-nav li a.navlink-hotel { background-image: url(/img/nav-hotel-icon.png); }
+nav.navbar-static-top ul.navbar-nav li a.navlink-useradmin { background-image: url(/img/nav-user-admin-icon.png); }
+nav.navbar-static-top ul.navbar-nav li a.navlink-reporting { background-image: url(/img/nav-reporting-icon.png); }
+nav.navbar-static-top ul.navbar-nav li a.navlink-profile { background-image: url(/img/your-profile-icon.png); }
+nav.navbar-static-top ul.navbar-nav li a.navlink-preferences { background-image: url(/img/ya-pref-icon.png); }
+nav.navbar-static-top ul.navbar-nav li a.navlink-logout { background-image: url(/img/logout-icon.png); }
+/* Header - End */
+
+/* Footer - Begin */
+footer { text-align: center; padding-bottom: 50px !important; }
+footer div.container ul { padding-top: 20px; padding-bottom: 10px; }
+footer div.container li { padding-left: 25px; padding-right: 25px; }
+footer div.container a { font-size: 13px; }
+footer div.container a.active { color: #6F767E; }
+/* Footer - End */
+
+input.file-form-control {
+    padding: 7px;
+}
+
+/* Login Page START */
+#login-panel {
+    max-width: 450px;
+    margin-top: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#login-panel .panel-body .container-fluid {
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+input.username-control {
+    background-image: url('/img/user-name-icon.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 45px;
+}
+
+input.password-control {
+    background-image: url('/img/password-icon.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 45px;
+}
+#login-panel .login-button { min-width: 170px; margin-top: 5px; margin-bottom: 13px;}
+
+/* things that are mobile specific above are over-written here on larger screens */
+@media (min-width: 480px) {
+    #login-panel {
+        max-width: 380px;
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (min-width: 768px) {
+    #login-panel {
+        max-width: 562px;
+        margin-top: 200px;
+    }
+}
+/* Login Page END */ 
+
+/* My Travel Page START */
+.my-trips-box {
+    border-top: 1px dotted #7A8A9E;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+.airport-code-box {
+    width: 84px;
+    height: 82px;
+    background-image: url('/img/airport-code-bkgrnd.png');
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 24px;
+    position: relative;
+}
+.airport-code-box p {
+    margin: 0px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #FFF;
+    text-transform: uppercase;
+} 
+div.my-trips-box div.mt-action-btn-container { margin: 6px 6px 15px 6px; }
+div.my-trips-box a.mt-action-btn {
+    margin-right: 7px;
+    min-width: 0px; 
+    padding: 4px 7px 4px 7px; 
+    display: block;
+    float: left; 
+    background-color: #f4f6f9; background-image: url('/img/layover-btn-bkgrnd.png'); 
+    background-repeat: repeat-x; 
+    background-position: bottom;  
+    position: relative;
+}
+div.my-trips-box a.mt-action-btn img { margin-right: 6px; }
+div.my-trips-box a.mt-action-btn span { font-size: 17px; color: #34373c; text-transform: uppercase; }
+
+/* things that are mobile specific above are over-written here on larger screens */
+@media (min-width: 768px) {
+    .col-sm-offset-airport { padding-left: 123px; }
+    div.my-trips-box div.mt-action-btn-container { margin: inherit; }
+    div.my-trips-box a.mt-action-btn { background: none; display: inherit; min-width: 0; padding: 6px 0px 6px 0px; }
+}
+/*add some media queries to reseize the buttons on screens so small that they would wrap - maybe smaller font and even maybe image? maybe responsive image?*/
+
+div.my-trips-box p {
+    font-size: 15px;
+    line-height: 21px;
+    margin: 0px;
+}
+div.my-trips-box p.mt-date {
+    font-size: 26px;
+    letter-spacing: -1px;
+    font-weight: 400;
+    color: #39516C;
+    margin-bottom: 10px;
+}
+div.my-trips-box p.mt-city { font-size: 17px; color: #34373C; }
+div.my-trips-box p.mt-pairing-id { font-size: 14px; color: #34373C; }
+div.my-trips-box p.mt-stay-head { color: #2C68AA; font-size: 18px; }
+div.my-trips-box p.mt-stay { color: #34373C; }
+div.my-trips-box p.mt-stay-confirm { color: #D12027; text-transform: uppercase; }
+/* My Travel Page END */
+
+/* Hotel Reservation Page START */
+body.hotel-reservation div.callout { background-color: #f0f2f5; padding: 20px 75px; margin-bottom: 15px; margin-left: -40px; margin-right: -15px; font-weight: bold; }
+body.hotel-reservation .callout p { font-size: 16px; color: #0e558d; margin: 0px; line-height: 18px; }
+body.hotel-reservation p.hr-info { line-height: 22px; margin-top: 14px; margin-bottom: 14px; }
+.hr-icon-plane { background-image:url(/img/hr-icon-airplane.png); background-position: center left; background-repeat: no-repeat; }
+.hr-icon-transport { background-image:url(/img/hr-icon-transport.png); background-position: center left; background-repeat: no-repeat; }
+.hr-icon-hotel { background-image:url(/img/hr-icon-hotel.png); background-position: center left; background-repeat: no-repeat; }
+.hr-back-btn-container { margin-top: -30px; margin-bottom: 15px; }
+a.hr-back-btn { color: #2178db; }
+.hr-back-btn img { margin-right: 8px; }
+
+/* things that are mobile specific to the Hotel Reservation Page above are over-written here on larger screens */
+@media (min-width: 768px) {
+    body.hotel-reservation div.callout { margin-left: -75px; margin-right: -75px; }
+    .hr-back-btn-container { margin-top: 78px; margin-bottom: 0px; }
+}
+/* Hotel Reservation Page END */
+
+/* Hotel Information Page START */
+.hi-left-nav { padding: 15px 0px 0px 15px; }
+.hi-left-nav li a span { padding-left: 10px; }
+.hi-content .visible-xs .btn-group { margin-bottom: 25px;}
+.hi-content h1 { text-align: center; }
+.panel-heading-xsonly h4 { margin: 0px; }
+
+/* things that are mobile specific to the Hotel Information Page above are over-written here on larger screens */
+@media (min-width: 768px) {
+    .hi-left-nav { border-right: solid 1px #c9cccf; padding: 40px 0px 50px 0px; margin: 30px 0px 30px 0px; }
+    /* panel-xsonly class is only displayed as panels on XS screens so ignore collapse on larger ones */
+    .panel-xsonly .collapse { display: inherit; visibility: inherit; }
+    .hi-content h1 { text-align: left; }
+    .panel-heading-xsonly h4 { margin-top: 10px; margin-bottom: 10px; }
+}
+/* Hotel Information Page END */
+
+/* Featured Hotels Page START */
+.featured-hotels nav.navbar-sub-blue { margin-top: 15px; }
+.featured-hotels h1 { padding-top: 20px; padding-bottom: 5px; }
+.featured-hotels-container .media { padding: 4px 0px; border-top: 1px dotted #7A8A9E; margin-top: 0px; }
+.featured-hotels-container .media.last { border-bottom: 1px dotted #7A8A9E; }
+.featured-hotels-container .phone-icon { margin-left: 10px; }
+.featured-hotels-container .media-left { padding-right: 15px; }
+.featured-hotels-container .media-body { vertical-align: middle; }
+.featured-hotels-container .fh-type { text-transform: uppercase; color: #D12027; margin-bottom: 10px; }
+.featured-hotels-container .fh-head { font-size: 18px; color: #2C68AA; margin-bottom: 5px; }
+.featured-hotels-container .fh-address { font-size: 15px; line-height: 21px; text-transform: uppercase; color: #34373C; margin-bottom: 0px }
+.fh-search-btn-container { margin-top: 10px; }
+.featured-hotels-container .fh-img { width: 125px;height: 125px;}
+.fh-nav-dropdown { margin-top: 15px; }
+
+/* things that are mobile specific to the Featured Hotels Page above are over-written here on larger screens */
+@media (min-width: 480px) {
+    .featured-hotels-container .fh-img { width: 196px;height: 196px;}
+}
+/* Featured Hotels Page END */
+
+/* Your Feedback page START */
+.your-feedback .feedback-btn { margin-top: 0px; margin-bottom: 25px}
+table > tbody > tr > td.negative, table > tbody > tr > td.positive { vertical-align: middle; text-transform: uppercase; }
+table > tbody > tr > td.negative { color: #C00909; }
+table > tbody > tr > td.positive { color: #30C009; }
+table > thead > tr > th.th-priority { min-width: 72px; }
+/* things that are mobile specific to the Hotel Reservation Page above are over-written here on larger screens */
+@media (min-width: 768px) {
+    .your-feedback .feedback-btn { margin-top: 65px;}
+}
+/* Your Feedback page END */
+
+/* Airport and Hotel Search page START */
+.air-hotel-search .button-row { padding-top: 25px; }
+/* Airport and Hotel Search page END */
+
+/* Reporting page START */
+.reportbuttons { padding-bottom: 15px; padding-top: 25px;}
+/* Reporting page END */
+
+/* User Search page START */
+.search-users .button-row { padding-top: 25px; }
+/* User Search page END */
+
+/* Add Hotel Page START */
+.ah-left-nav { padding: 15px 0px 0px 15px; }
+.ah-left-nav li a span { padding-left: 10px; }
+.ah-form-group-top { padding-top: 15px; }
+.ah-form-section { border-bottom: 1px dotted #7A8A9E; margin-bottom: 15px; }
+.ah-form-section.last { border-bottom: none; }
+.ah-checkbox-container { padding-bottom: 15px; }
+
+/* things that are mobile specific to the Add Hotel Page above are over-written here on larger screens */
+@media (min-width: 768px) {
+    .ah-left-nav { border-right: solid 1px #c9cccf; padding: 10px 0px 50px 0px; margin: 15px 0px 30px 0px; }
+}
+/* Add Hotel Page END */
+
+/* Admin Airport and Hotel Search pages START */
+.admin-air-hotel-search .button-row { padding-top: 25px; }
+.admin-air-hotel-search .expand-full { padding-bottom: 15px; }
+.admin-air-hotel-search .expand-full button { width: 100%; }
+.admin-air-hotel-search .expand-full a { padding-left: 5px; }
+/* Airport and Hotel Search page END */
+
+.apitranslate{padding:0 !important;margin:0 !important;background-color:transparent;}
+    .apitranslate[contenteditable="true"]:focus {
+        color: grey;
+        background-color:white;
+    }

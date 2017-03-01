@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cpCollection>
+	<!-- All controls created in this document must function in uber, master, and web sites.  They cannot inherit the IWebSiteControl interface or reference tables that do not exist in all databases. -->
+	<group id="Properties" name="Properties">
+		<property id="OperatingSystem">
+			<value>1</value>
+			<attribute name="Operating System" isEnabled="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Windows Server 2003</listItem>
+					<listItem value="2">Windows Server 2008</listItem>
+					<listItem value="3">Windows Server 2012</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="DatabaseServer">
+			<value>1</value>
+			<attribute name="Database Server" isEnabled="false">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">SQL Server 2005</listItem>
+					<listItem value="2">SQL Server 2008</listItem>
+					<listItem value="3">SQL Server 2012</listItem>
+					<listItem value="4">SQL Server 2014</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="UpdateId">
+			<value>f7ec7f0b-1bd4-43fe-b8e0-62f5e9d31874</value>
+			<attribute name="Update Id" toolTip="This value is updated during update builds and installs." isEnabled="false" isVisible="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="AllowCopy" value="true" />
+				</control>
+			</attribute>
+		</property>
+		<property id="UpdateVersion">
+			<value>8.0.0</value>
+			<attribute name="Update Version" toolTip="This value is updated during update builds and installs." isEnabled="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="LastUpdateDate">
+			<value>1/16/2007 1:40:53 PM</value>
+			<attribute name="Last Update Date" toolTip="This value is updated during update builds and installs." isEnabled="false">
+				<control type="Centralpoint.Web.UI.Controls.CpDateTimePicker">
+					<controlProperty name="Accuracy" value="Second" />
+				</control>
+			</attribute>
+		</property>
+		<property id="EnableErrorRecording">
+			<value>1</value>
+			<attribute name="Enable Error Recording" toolTip="Whether errors are recorded for display in the Development > Errors module.">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="EnableCdn">
+			<value>1</value>
+			<attribute name="Enable Content Delivery Network">
+				<headerText>Utilize the &lt;a href="http://www.asp.net/ajaxlibrary/CDN.ashx" target="_blank"&gt;Microsoft Ajax Content Delivery Network&lt;/a&gt; when possible.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="EnableSyncBackups">
+			<value>0</value>
+			<attribute name="Enable Sync Backups" toolTip="Whether to backup sites before they are sync'd.">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="EnableAdvancedScheduling">
+			<value>0</value>
+			<attribute name="Enable Advanced Scheduling">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="MaxBackups">
+			<value>5</value>
+			<attribute name="Maximum Backups" toolTip="The maximum number of backups saved per web site.">
+				<headerText>Lowering this number will not have an affect on the previously saved backups until the next backup is created.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="50" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRangeValidator">
+					<controlProperty name="Type" value="Integer" />
+					<controlProperty name="MinimumValue" value="1" />
+					<controlProperty name="MaximumValue" value="10" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="WebSitesFolder">
+			<value>C:\Centralpoint\WebSites</value>
+			<attribute name="Web Sites Folder" toolTip="The fully qualified path to the folder on this server which will contain all web site folders." isEnabled="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SqlCentralpointPath">
+			<value />
+			<attribute name="SQL Server to Centralpoint UNC Path">
+				<headerText>The UNC path to the Centralpoint directory on the web server from the database server (e.g., \\WEB_SERVER_NAME\Centralpoint).  Leave this attribute empty when the database is on the web server and when you are using SQL Backups Folder below.</headerText>
+				<footerText>The SQL Server services must be running under a domain account that has write access to the web server’s Centralpoint directory and its subdirectories.  This typically involves sharing the Centralpoint directory giving the domain account full control.  To test this, log onto the SQL Server with the domain account used by the SQL Server services and try to create a file within the Centralpoint folder on the web server using the UNC Path in the file explorer.</footerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="SqlDataFolder">
+			<value>C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA</value>
+			<attribute name="SQL Data Folder" toolTip="The fully qualified path to the folder on the database server which will contain all SQL data and log files." isEnabled="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SqlFullTextCatalogFolder">
+			<value>C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\FTData</value>
+			<attribute name="SQL Full Text Catalog Folder" toolTip="The fully qualified path to the folder on the database server which will contain all SQL full text catalogs." isEnabled="false">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="SqlBackupsFolder">
+			<value />
+			<attribute name="SQL Backups Folder" toolTip="The fully qualified path to the folder on the database server which will contain all SQL backups.">
+				<headerText>When left empty the database backups will be created in the site's Backups folder.  Setting this attribute's value will limit Centralpoint to one backup per site in the designated folder.  Please ensure that SQL Server has permission to read and write to this folder. &lt;span class="alert"&gt;Changing this value will invalidate all existing backups.  You should immediately use Development &gt; Utilities &gt; Backup to create new backups for the master and all web sites.&lt;/span&gt;</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="SqlServiceAccount">
+			<value />
+			<attribute name="SQL Service Account" toolTip="The account that the SQL Server (MSSQLSERVER) service runs under.">
+				<headerText>This property can be left empty when the SQL Server (MSSQLSERVER) service is running under the 'Network Service' account.  If you are not sure what value to use here you can right click on the SQL Server (MSSQLSERVER) service, select properties, and select the Log On tab.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+		<property id="ShowLoginRememberMe">
+			<value>0</value>
+			<attribute name="Show Login Remember Me">
+				<control type="Centralpoint.Web.UI.Controls.CpRadioButtonList">
+					<listItem value="1">Yes</listItem>
+					<listItem value="0">No</listItem>
+				</control>
+			</attribute>
+		</property>
+		<property id="UpdateNotifyEmail">
+			<value />
+			<attribute name="New Update Notification Email">
+				<headerText>This email address will be sent a notification email when a new update has been installed.</headerText>
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+			</attribute>
+		</property>
+	</group>
+	<group id="Counts" name="Counts">
+		<property id="WebSiteCount">
+			<value>0</value>
+			<attribute name="Web Site Count">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="KeywordListCount">
+			<value>0</value>
+			<attribute name="Custom Keyword List Count">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="ModuleCount">
+			<value>0</value>
+			<attribute name="Custom Module Count">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="RelationCount">
+			<value>0</value>
+			<attribute name="Custom Relation Count">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="PredicateCount">
+			<value>0</value>
+			<attribute name="Custom Predicate Count">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+		<property id="NavigationItemCount">
+			<value>0</value>
+			<attribute name="Custom Navigation Item Count">
+				<control type="Centralpoint.Web.UI.Controls.CpLabel" />
+			</attribute>
+		</property>
+	</group>
+	<group id="Contact" name="Contact">
+		<property id="CompanyName">
+			<value>Oxcyon, Inc.</value>
+			<attribute name="Company Name">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="ContactName">
+			<value>Jim Venus</value>
+			<attribute name="Name">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="ContactAddress">
+			<value>17520 Engle Lake Drive</value>
+			<attribute name="Address">
+				<control type="Centralpoint.Web.UI.Controls.CpTextArea">
+					<controlProperty name="Height" value="32" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="ContactCity">
+			<value>Middleburg Heights</value>
+			<attribute name="City">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+			</attribute>
+		</property>
+		<property id="ContactState">
+			<value>OH</value>
+			<attribute name="State">
+				<control type="Centralpoint.Web.UI.Controls.CpXmlListBox">
+					<controlProperty name="FilePath" value="~/Integrations/Centralpoint/Resources/States.xml" />
+				</control>
+			</attribute>
+		</property>
+		<property id="ContactPostalCode">
+			<value>44130</value>
+			<attribute name="Postal Code">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox">
+					<controlProperty name="Width" value="75" />
+				</control>
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRegularExpressionValidator">
+					<controlProperty name="Pattern" value="PostalCode" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="ContactPhone">
+			<value>440-239-8619</value>
+			<attribute name="Phone">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRegularExpressionValidator">
+					<controlProperty name="Pattern" value="PhoneNumber" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="ContactFax">
+			<value>440-239-8621</value>
+			<attribute name="Fax">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRegularExpressionValidator">
+					<controlProperty name="Pattern" value="PhoneNumber" />
+				</validator>
+			</attribute>
+		</property>
+		<property id="ContactEmail">
+			<value>jvenus@oxcyon.com</value>
+			<attribute name="Email Address">
+				<control type="Centralpoint.Web.UI.Controls.CpTextBox" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRequiredFieldValidator" />
+				<validator type="Centralpoint.Web.UI.Controls.CpRegularExpressionValidator">
+					<controlProperty name="Pattern" value="Email" />
+				</validator>
+			</attribute>
+		</property>
+	</group>
+</cpCollection>

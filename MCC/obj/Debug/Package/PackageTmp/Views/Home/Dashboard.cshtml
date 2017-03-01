@@ -1,0 +1,124 @@
+﻿@model List<MCC.Domain.FeedbackDashboardItem>
+@{
+    ViewBag.Title = "My Travel";
+}
+@helper RenderHeaderItem(string title, string field)
+    {
+    <th>
+        <a href="#" ng-click="sortType = '@field'; sortReverse = !sortReverse">
+            @Html.Translate(title,"FeedbackList")
+            <span ng-show="sortType === '@field' && !sortReverse" class="caret"></span>
+            <span ng-show="sortType === '@field' && sortReverse" class="dropup"><span class="caret"></span></span>
+        </a>
+    </th>
+}
+@helper Translate(string field)
+{
+    @Html.Translate(field, "FeedbackList")
+}
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+@Scripts.Render("~/bundles/angular-" +System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.ToLower())
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<style>
+    /* Styles go here */
+
+    .my-controller {
+        border: 1px solid #fcc;
+        padding: 5px;
+        margin: 3px;
+    }
+
+        .my-controller small {
+            color: #c99;
+        }
+
+    .other-controller {
+        border: 1px solid #ccf;
+        padding: 5px;
+        margin: 3px;
+    }
+
+        .other-controller small {
+            color: #99c;
+        }
+
+    .third-controller {
+        border: 1px solid #cfc;
+        padding: 5px;
+        margin: 3px;
+    }
+
+        .third-controller small {
+            color: #9c9;
+        }
+</style>
+
+<script>
+    angular.module('myApp', ['angularUtils.directives.dirPagination'])
+    .controller("OtherController", function OtherController($scope) {
+
+    })
+    .controller("MainController", function($scope) {
+        $scope.sortType = ''; // set the default sort type
+        $scope.sortReverse = false;  // set the default sort order
+        $scope.searchFeedback = '';     // set the default search/filter term
+        $scope.feedbacks = @Html.Raw(@Model.AsJson());
+
+    });
+</script>
+
+<script src="~/Scripts/dirPagination.js"></script>
+<div class="container white-container main-content"  ng-app="myApp"  ng-controller="MainController">
+    <h1>@Translate("YourFeedback")<a href='@Html.Link("/providefeedback")' class="btn btn-primary btn-lg feedback-btn pull-right">@Translate("ProvideFeedback")</a></h1>
+    <div><b><a href='@Html.Link("/ExportFeedbacksToExcel")'>@Translate("ExportToExcelFormat")</a></b></div>
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+                <input type="text" class="form-control" placeholder="@MCC.Domain.TranslationRepository.GetLabel("FeedbackList", "SearchFeedback")" ng-model="searchFeedback">
+            </div>
+        </div>
+    </form>
+    <div class="table-responsive">
+        <table class='table table-hover table-striped feedback-table'>
+            <thead>
+                <tr>
+                    @RenderHeaderItem("FeedbackID", "a")
+                    @RenderHeaderItem("FeedbackType", "b")
+                    @RenderHeaderItem("EntryDate", "c")
+                    @RenderHeaderItem("Hotel/Transportation", "d")
+                    @RenderHeaderItem("FeedbackTopic", "e")
+                    @RenderHeaderItem("ResolutionDate", "f")
+                    @RenderHeaderItem("Priority", "g")
+                    @RenderHeaderItem("City", "h")
+                    @RenderHeaderItem("Name", "i")
+                    @RenderHeaderItem("FeedbackStatus", "j")
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="i in feedbacks | orderBy:sortType:sortReverse | filter:searchFeedback | itemsPerPage: 10">
+                    <td><a href='@Html.Link("/feedbackdetails")/{{ i.a }}'>{{ i.a }}</a></td>
+                    <td>{{ i.b }}</td>
+                    <td>{{ i.c | date:'dd-MMM-yyyy'}}</td>
+                    <td>{{ i.d }}</td>
+                    <td>{{ i.e }}</td>
+                    <td>{{ i.f }}</td>
+                    <td>{{ i.g }}</td>
+                    <td>{{ i.h }}</td>
+                    <td>{{ i.i }}</td>
+                    <td>{{ i.j }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div ng-controller="OtherController">
+        <div class="text-center">
+            <dir-pagination-controls boundary-links="true" template-url="~/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+    </div>
+
+
+</div>

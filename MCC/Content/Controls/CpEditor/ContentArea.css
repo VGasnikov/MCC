@@ -1,0 +1,14 @@
+body, html { font-size : 87% !important; font-family: Arial, Helvetica, sans-serif !important; }
+table, div { border: dotted 1px #CCCCCC; }
+table td { border: dotted 1px #CCCCCC; }
+.title { font-size: 150%; font-weight: bold;  }
+table.cpsys_Table td { text-align: left; vertical-align: top; }
+/***** ScriptBuilder Styles Below *****/
+/*code.cpsys_Script { font-family: courier, monospace; font-size: small; background-color: #FFFFCC; color: #800000; }*/
+code.cpsys_Script { font-family: courier, monospace; }
+code.cpsys_ScriptHighlighting { font-size: small; background-color: #FFFFCC; color: #800000; }
+div.cpsys_Script { border: none; }
+div.cpsys_ScriptPreviewBlock { display: block; }
+div.cpsys_ScriptPreviewInline { display: inline; border: none; }
+div.cpsys_ScriptSource { display: none; border: none; }
+div.cpsys_ScriptCode { border: none; width: 100%; font-family: courier, monospace; }

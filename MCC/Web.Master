@@ -1,0 +1,101 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Web.master.cs" Inherits="MCC.Web" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="CSS/custom.css" rel="stylesheet" />
+    <link href="CSS/languages.min.css" rel="stylesheet" />
+
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css" />
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/Scripts/ie10-viewport-bug-workaround.js"></script>
+
+    <style>
+    .cpweb_Wrapper {
+        background: transparent !important;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="/img/api-logo.png" /></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav visible-xs">
+                    <li><a href='@Html.Link("/featuredhotels")' class="navlink-dashboard">@Html.Translate("Dashboard", "Layout")</a></li>
+                    <li><a href='@Html.Link("/mytravel")' class="navlink-travel">@Html.Translate("MyTravel", "Layout")</a></li>
+                    <li><a href="#" class="navlink-airport">@Html.Translate("AirportAndHotelSearch", "Layout")</a></li>
+                    <li><a href='@Html.Link("/dashboard")' class="navlink-feedback">@Html.Translate("Feedback", "Layout")</a></li>
+                    <li><a href="#" class="navlink-hotel">@Html.Translate("BookAHotel")</a></li>
+                    <li><a href="#" class="navlink-profile">@Html.Translate("YourProfile","Layout")</a></li>
+                    <li><a href="#" class="navlink-preferences">@Html.Translate("Preferences", "Layout")</a></li>
+                    <li><a href="#" class="navlink-logout">@Html.Translate("Logout")</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+            <div class="header-login-container">
+                <div class="clear"></div>
+                <div class="login-container hidden-xs">
+                    <p class="welcome">@Html.Translate("Welcome", "Layout") JetBlue Admin&nbsp;User</p>
+                    <ul id="loginUl" style="padding:0;margin:0;padding-left:10px;">
+                        <li>
+                            <div class="dropdown" id="lang">
+                                <a class="dropdown-toggle" data-toggle="dropdown" style="font-family: 'Droid Sans', sans-serif;font-size: 13px;font-weight: 700;color: #FFF;">
+                                    <span class="lang-sm lang-lbl-full" lang="@MCC.Domain.Audience.Current.Language"></span><span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href='@Html.SelectLanguage("en")'><span class="lang-sm lang-lbl-full" lang="en"></span></a></li>
+                                    <li><a href='@Html.SelectLanguage("fr")'><span class="lang-sm lang-lbl-full" lang="fr"></span></a></li>
+                                    <li><a href='@Html.SelectLanguage("es")'><span class="lang-sm lang-lbl-full" lang="es"></span></a></li>
+                                    <li><a href='@Html.SelectLanguage("pt")'><span class="lang-sm lang-lbl-full" lang="pt"></span></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li id="YourProfile"><a href="/your-profile.aspx" class="acct no-drop">@Html.Translate("YourProfile", "Layout")</a></li>
+                        @*<li id="preferences"><a href="/preferences.aspx" class="pref no-drop">@Html.Translate("Preferences")</a></li>*@
+                        <li><a href="/login.aspx?logout=1" class="logout no-drop">@Html.Translate("Logout","Layout")</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <nav class="nshadow hidden-xs">
+        <div class="inner-container">
+            <ul class="top-menu cpsys_BlockList cpntm_TopNav">
+                <li class="item-1"><img src="/img/nav-line.png" width="1" height="86" alt="" /><a href='@Html.Link("/featuredhotels")'><span class="n-icon"></span> @Html.Translate("Dashboard", "Layout")</a></li>
+                <li class="item-2"><img src="/img/nav-line.png" width="1" height="86" alt="" /><a href='@Html.Link("/mytravel")'><span class="n-icon"></span>@Html.Translate("MyTravel", "Layout")</a></li>
+                <li class="item-3"><img src="/img/nav-line.png" width="1" height="86" alt="" /><a style="max-width:190px" href="#"><span class="n-icon"></span>@Html.Translate("AirportAndHotelSearch", "Layout")</a></li>
+                <li class="item-4"><img src="/img/nav-line.png" width="1" height="86" alt="" /><a href='@Html.Link("/dashboard")'><span class="n-icon"></span>@Html.Translate("Feedback", "Layout")</a></li>
+                <li class="item-5"><img src="/img/nav-line.png" width="1" height="86" alt="" /><a href="http://www.hotelexpress.com/business.aspx?company=jtb"><span class="n-icon"></span>@Html.Translate("BookAHotel", "Layout")</a><img src="/img/nav-line.png" width="1" height="86" alt="" /></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </nav>
+    
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

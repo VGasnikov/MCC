@@ -1,0 +1,118 @@
+﻿@helper Translate(string field)
+{
+    @Html.Translate(field, "ProvideFeedback")
+}
+<div ng-app="searchUserApp" ng-controller="searchUserCtrl">
+    <div class="modal fade" id="searchUserModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Select user on behalf of whom you are to submit a feedback.</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" onkeydown="if (event.keyCode == 13) event.preventDefault();" ng-keyup="$event.keyCode == 13 ? search() : null" placeholder="Enter Initials: A E = Albert Einstein." ng-model="searchText">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary btn-search" type="button" ng-click="search()">Search</button>
+                        </span>
+                    </div>
+                    <br>
+                    <div class="table-responsive">
+                        <table ng-table="tableParams" class="table table-hover table-striped feedback-table">
+                            <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>Full Name</th>
+                                    <th>Employee Id</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="i in users">
+                                    <td><a href="" ng-click="selectItem($index)">{{ i.userName  }}</a></td>
+                                    <td>{{ i.fullName}}</td>
+                                    <td>{{ i.employeeId }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <dir-pagination-controls></dir-pagination-controls>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-4 col-md-4 control-label" for="FirstName">
+            <span class="required">*</span>
+            @Translate("FirstName"):
+        </label>
+        <div class="col-xs-12 col-sm-8 col-md-8">
+            <div class="input-group" style="padding:0;margin:0">
+                <input type="text" style='background-color:white;cursor: not-allowed;' name="FirstName" id="FirstName" class="form-control" />
+                <span class="input-group-btn" style="padding: 0px; margin: 0px;">
+                    <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#searchUserModal" ng-click="search()">...</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-4 col-md-4 control-label" for="LastName">
+            <span class="required">*</span>
+            @Translate("LastName"):
+        </label>
+        <div class="col-xs-12 col-sm-8 col-md-8"><input type="text" name="LastName" id="LastName" class="form-control" /></div>
+    </div>
+    <input type="hidden" name="UserId" id="UserId" />
+</div>
+<script>
+    var app = angular.module("searchUserApp", []);
+    app.directive('preventEnter', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, element) {
+                element.bind('keydown', function (event) {
+                    if (event.keyCode == 13 && !event.shiftKey) {
+                        event.preventDefault();
+                    }
+                });
+            }
+        };
+    })
+    app.controller("searchUserCtrl", function ($scope) {
+        $scope.users = [];
+        $scope.selectItem = function (i) {
+            var o = $scope.users[i];
+            $("#FirstName").val(o.firstName);
+            $("#LastName").val(o.lastName);
+            $("#UserId").val(o.id);
+            $('#searchUserModal').modal('hide');
+        }
+        $scope.search = function () {
+
+            $.ajax({
+                async: false,
+                url: '@Html.Link("/GetUserList")',
+                data: { searchStr: $scope.searchText},
+                success: function (data) {
+                    $scope.users = eval(data);
+                },
+                statusCode: {
+                    404: function (content) { alert('cannot find resource'); },
+                    500: function (content) { alert('internal server error'); }
+                },
+                error: function (req, status, errorObj) {
+                    alert('An error occured during the request. ' + errorObj);
+                }
+            });
+            return false;
+        };
+    });
+
+ $(document).ready(function () {
+     $("#FirstName").prop("readOnly", true);
+     $("#LastName").prop("readOnly", true);
+});
+</script>
